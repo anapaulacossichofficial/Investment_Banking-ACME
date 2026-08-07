@@ -6,7 +6,6 @@ import pandas as pd
 class CompetitiveRetriever:
     def __init__(self, data_dir: Path | None = None):
         root_dir = Path(__file__).resolve().parent.parent
-
         self.data_dir = data_dir or (root_dir / "data" / "competitive")
 
         self.institutions_path = self.data_dir / "institutions.csv"
@@ -39,7 +38,10 @@ class CompetitiveRetriever:
     def get_institution_options(self) -> list[str]:
         institutions = self.load_institutions()
 
-        if institutions.empty:
+        if (
+            institutions.empty
+            or "InstitutionName" not in institutions.columns
+        ):
             return []
 
         return (
@@ -54,7 +56,15 @@ class CompetitiveRetriever:
         institutions = self.load_institutions()
         peers = self.load_peers()
 
-        if institutions.empty or peers.empty:
+        if (
+            institutions.empty
+            or peers.empty
+            or "InstitutionName" not in institutions.columns
+            or "InstitutionId" not in institutions.columns
+            or "BaseInstitutionId" not in peers.columns
+            or "PeerInstitutionName" not in peers.columns
+            or "PeerRank" not in peers.columns
+        ):
             return []
 
         base_rows = institutions[
@@ -65,14 +75,19 @@ class CompetitiveRetriever:
         if base_rows.empty:
             return []
 
-        base_institution_id = base_rows.iloc[0]["InstitutionId"]
+        base_institution_id = str(
+            base_rows.iloc[0]["InstitutionId"]
+        ).strip()
+
+        selected_peers = peers[
+            peers["BaseInstitutionId"].astype(str).str.strip()
+            == base_institution_id
+        ]
 
         return (
-            peers[
-                peers["BaseInstitutionId"].astype(str).str.strip()
-                == str(base_institution_id).strip()
+            selected_peers.sort_values("PeerRank")[
+                "PeerInstitutionName"
             ]
-            .sort_values("PeerRank")["PeerInstitutionName"]
             .dropna()
             .astype(str)
             .str.strip()
@@ -88,28 +103,69 @@ class CompetitiveRetriever:
         peers = self.load_peers()
         metrics = self.load_metrics()
 
+        if (
+            institutions.empty
+            or peers.empty
+            or metrics.empty
+            or "InstitutionName" not in institutions.columns
+            or "InstitutionId" not in institutions.columns
+            or "PeerInstitutionName" not in peers.columns
+            or "PeerInstitutionId" not in peers.columns
+            or "BaseInstitutionId" not in peers.columns
+            or "BaseInstitutionId" not in metrics.columns
+            or "PeerInstitutionId" not in metrics.columns
+            or "MetricName" not in metrics.columns
+            or "MetricValue" not in metrics.columns
+            or "MetricUnit" not in metrics.columns
+        ):
+            return {}
+
         base_rows = institutions[
             institutions["InstitutionName"].astype(str).str.strip()
             == base_institution_name
         ]
 
-        peer_rows = peers[
-            peers["PeerInstitutionName"].astype(str).str.strip()
-            == peer_name
-        ]
-
-        if base_rows.empty or peer_rows.empty:
+        if base_rows.empty:
             return {}
 
         base_id = str(base_rows.iloc[0]["InstitutionId"]).strip()
+
+        peer_rows = peers[
+            (
+                peers["PeerInstitutionName"]
+                .astype(str)
+                .str.strip()
+                == peer_name
+            )
+            & (
+                peers["BaseInstitutionId"]
+                .astype(str)
+                .str.strip()
+                == base_id
+            )
+        ]
+
+        if peer_rows.empty:
+            return {}
+
         peer_id = str(peer_rows.iloc[0]["PeerInstitutionId"]).strip()
 
         selected = metrics[
-            (metrics["BaseInstitutionId"].astype(str).str.strip() == base_id)
-            & (metrics["PeerInstitutionId"].astype(str).str.strip() == peer_id)
+            (
+                metrics["BaseInstitutionId"]
+                .astype(str)
+                .str.strip()
+                == base_id
+            )
+            & (
+                metrics["PeerInstitutionId"]
+                .astype(str)
+                .str.strip()
+                == peer_id
+            )
         ].copy()
 
-        result = {}
+        result: dict[str, str] = {}
 
         for _, row in selected.iterrows():
             metric_name = str(row["MetricName"]).strip()
@@ -132,25 +188,67 @@ class CompetitiveRetriever:
         peers = self.load_peers()
         insights = self.load_insights()
 
+        if (
+            institutions.empty
+            or peers.empty
+            or insights.empty
+            or "InstitutionName" not in institutions.columns
+            or "InstitutionId" not in institutions.columns
+            or "PeerInstitutionName" not in peers.columns
+            or "PeerInstitutionId" not in peers.columns
+            or "BaseInstitutionId" not in peers.columns
+            or "BaseInstitutionId" not in insights.columns
+            or "PeerInstitutionId" not in insights.columns
+            or "Takeaway" not in insights.columns
+            or "Recommendation" not in insights.columns
+            or "Confidence" not in insights.columns
+            or "SourceId" not in insights.columns
+        ):
+            return {}
+
         base_rows = institutions[
             institutions["InstitutionName"].astype(str).str.strip()
             == base_institution_name
         ]
 
-        peer_rows = peers[
-            peers["PeerInstitutionName"].astype(str).str.strip()
-            == peer_name
-        ]
-
-        if base_rows.empty or peer_rows.empty:
+        if base_rows.empty:
             return {}
 
         base_id = str(base_rows.iloc[0]["InstitutionId"]).strip()
+
+        peer_rows = peers[
+            (
+                peers["PeerInstitutionName"]
+                .astype(str)
+                .str.strip()
+                == peer_name
+            )
+            & (
+                peers["BaseInstitutionId"]
+                .astype(str)
+                .str.strip()
+                == base_id
+            )
+        ]
+
+        if peer_rows.empty:
+            return {}
+
         peer_id = str(peer_rows.iloc[0]["PeerInstitutionId"]).strip()
 
         selected = insights[
-            (insights["BaseInstitutionId"].astype(str).str.strip() == base_id)
-            & (insights["PeerInstitutionId"].astype(str).str.strip() == peer_id)
+            (
+                insights["BaseInstitutionId"]
+                .astype(str)
+                .str.strip()
+                == base_id
+            )
+            & (
+                insights["PeerInstitutionId"]
+                .astype(str)
+                .str.strip()
+                == peer_id
+            )
         ]
 
         if selected.empty:
@@ -168,7 +266,13 @@ class CompetitiveRetriever:
     def get_sources(self, source_ids: list[str]) -> list[str]:
         sources = self.load_sources()
 
-        if sources.empty or not source_ids:
+        if (
+            sources.empty
+            or not source_ids
+            or "SourceId" not in sources.columns
+            or "Approved" not in sources.columns
+            or "SourceName" not in sources.columns
+        ):
             return []
 
         selected = sources[
