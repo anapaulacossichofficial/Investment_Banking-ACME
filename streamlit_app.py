@@ -6,7 +6,7 @@ Visualizes the Agentforce Meeting Prep Agent workflow for institutional accounts
 import sys
 from pathlib import Path
 
-ROOT_DIR = Path(__file__).resolve().parent.parent
+ROOT_DIR = Path(__file__).resolve().parent
 if str(ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR))
 
@@ -19,7 +19,9 @@ from retrieval.crm_retriever import CRMRetriever
 from retrieval.knowledge_retriever import KnowledgeRetriever
 
 
-DATA_DIR = ROOT_DIR / "data" / "crm"
+DATA_DIR = ROOT_DIR / "data"
+CRM_DIR = DATA_DIR / "crm"
+KNOWLEDGE_DIR = DATA_DIR / "knowledge"
 
 
 st.set_page_config(
