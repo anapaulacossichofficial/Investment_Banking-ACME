@@ -93,16 +93,17 @@ def get_agents(client_id: str, client_name: str):
 
 
 def load_preview_opportunities(client_id: str):
-    opportunities_path = DATA_DIR / "opportunities.csv"
+    opportunities_path = CRM_DIR / "opportunities.csv"
 
     if not opportunities_path.exists():
         return pd.DataFrame()
 
     opportunities = pd.read_csv(opportunities_path)
-    required_columns = {"AccountId"}
 
-    if not required_columns.issubset(opportunities.columns):
-        raise ValueError("opportunities.csv must contain the AccountId column")
+    if "AccountId" not in opportunities.columns:
+        raise ValueError(
+            "opportunities.csv must contain the AccountId column"
+        )
 
     return opportunities[
         opportunities["AccountId"].astype(str).str.strip() == client_id

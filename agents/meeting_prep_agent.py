@@ -1,85 +1,175 @@
-from pathlib import Path
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import Optional
+
 import pandas as pd
+
+from retrieval.crm_retriever import CRMRetriever
+from retrieval.knowledge_retriever import KnowledgeRetriever
+
+
+@dataclass
+class BriefingContext:
+    account_name: str
+    account_id: str
 
 
 class MeetingPrepAgent:
-    def __init__(self, client_id: str = "ACC-001", client_name: str = "ACME INVESTMENTS"):
+    def __init__(self, client_id: str, client_name: str):
         self.client_id = client_id
         self.client_name = client_name
-        self.prompt_path = "prompts/meeting_prep_prompt.txt"
-        self.fallback_path = "prompts/fallback_prompt.txt"
+        self.crm_retriever = CRMRetriever()
+        self.knowledge_retriever = KnowledgeRetriever()
 
-    def _load_text(self, path: str) -> str:
-        return Path(path).read_text(encoding="utf-8") if Path(path).exists() else ""
+    def _build_recommended_next_actions(
+        self, opportunities: pd.DataFrame, activities: pd.DataFrame
+    ) -> list[str]:
+        actions = []
 
-    def _load_csv(self, path: str) -> pd.DataFrame:
-        return pd.read_csv(path) if Path(path).exists() else pd.DataFrame()
+        if opportunities.empty:
+            actions.append(
+                "Reconfirm the client’s current priorities and identify whether a new opportunity has emerged."
+            )
+            actions.append(
+                "Schedule a relationship check-in to refresh coverage context."
+            )
+            return actions
 
-    def generate_briefing(self) -> str:
-        accounts_df = self._load_csv("data/crm/accounts.csv")
-        contacts_df = self._load_csv("data/crm/contacts.csv")
-        opps_df = self._load_csv("data/crm/opportunities.csv")
-        activities_df = self._load_csv("data/crm/activities.csv")
-
-        account = accounts_df[accounts_df["AccountId"] == self.client_id] if not accounts_df.empty else pd.DataFrame()
-        contacts = contacts_df[contacts_df["AccountId"] == self.client_id] if not contacts_df.empty else pd.DataFrame()
-        opps = opps_df[opps_df["AccountId"] == self.client_id] if not opps_df.empty else pd.DataFrame()
-        activities = activities_df[activities_df["AccountId"] == self.client_id] if not activities_df.empty else pd.DataFrame()
-
-        summary = [f"=== EXECUTIVE BRIEFING: {self.client_name} ===", ""]
-
-        summary.append("1. Executive Summary:")
-        summary.append(f"- {self.client_name} is the institutional coverage target for the upcoming meeting.")
-        summary.append("- Briefing synthesized only from CRM fixtures and approved prompt guardrails.")
-        summary.append("")
-
-        summary.append("2. Active Deal Pipeline & Financial Position (CRM):")
-        if not opps.empty:
-            for _, row in opps.iterrows():
-                summary.append(
-                    f"- Opportunity: {row['Name']} | Stage: {row['StageName']} | "
-                    f"Value: R$ {int(row['Amount']):,}.00 | Close: {row['CloseDate']} "
-                    f"[Source: CRM {row['OpportunityId']}]"
+        if "StageName" in opportunities.columns:
+            stages = set(
+                opportunities["StageName"].dropna().astype(str).tolist()
+            )
+            if "Prospecting" in stages:
+                actions.append(
+                    "Clarify the client’s strategic priorities and identify the buying center."
                 )
-        else:
-            summary.append("- Data not available in current institutional records.")
-        summary.append("")
+            if "Due Diligence" in stages:
+                actions.append(
+                    "Confirm open diligence items, decision criteria, and key stakeholders."
+                )
+            if "Negotiation" in stages:
+                actions.append(
+                    "Validate negotiation milestones, timeline, and executive sponsorship."
+                )
 
-        summary.append("3. Strategic Market Insights & Research Context:")
+        if "DealType" in opportunities.columns:
+            deal_types = sorted(
+                set(opportunities["DealType"].dropna().astype(str).tolist())
+            )
+            if deal_types:
+                actions.append(
+                    f"Position ACME_Banking around {' / '.join(deal_types)} capabilities relevant to the client’s pipeline."
+                )
+
         if not activities.empty:
-            for _, row in activities.iterrows():
-                summary.append(
-                    f"- Activity: {row['Subject']} on {row['ActivityDate']} "
-                    f"[Source: CRM {row['ActivityId']}]"
-                )
-        else:
-            summary.append("- Data not available in current institutional records.")
-        summary.append("")
+            actions.append(
+                "Follow up on the latest recorded activity and confirm the next expected interaction."
+            )
 
-        summary.append("4. Recommended Strategic Talking Points for the Banker:")
-        if not opps.empty:
-            deal_types = sorted([x for x in opps["DealType"].dropna().unique().tolist() if str(x).strip()])
-            stages = sorted([x for x in opps["StageName"].dropna().unique().tolist() if str(x).strip()])
+        actions.append("Validate all claims against CRM records before client delivery.")
+        return actions[:4]
+
+    def generate_briefing(self, competitive_context: Optional[dict] = None) -> str:
+        bundle = self.crm_retriever.get_account_bundle(self.client_id)
+        docs = self.knowledge_retriever.list_documents()
+
+        contacts = bundle.get("contacts", pd.DataFrame())
+        opportunities = bundle.get("opportunities", pd.DataFrame())
+        activities = bundle.get("activities", pd.DataFrame())
+
+        overview_lines = [
+            "1. Executive Summary:",
+            f"- {self.client_name} is the institutional coverage target for the upcoming meeting.",
+            "- The briefing is grounded in account-specific CRM records and approved knowledge sources.",
+            "",
+            "2. CRM Snapshot:",
+            f"- Active opportunities: {len(opportunities)}",
+            f"- Related contacts: {len(contacts)}",
+            f"- Recent activities: {len(activities)}",
+            "",
+            "3. Strategic Talking Points:",
+        ]
+
+        if not opportunities.empty:
+            deal_types = sorted(
+                set(opportunities["DealType"].dropna().astype(str).tolist())
+            )
+            stages = sorted(
+                set(opportunities["StageName"].dropna().astype(str).tolist())
+            )
 
             if deal_types:
-                summary.append(
-                    f"- Focus on {' and '.join(deal_types).lower()} opportunities relevant to {self.client_name}."
+                overview_lines.append(
+                    f"- Focus on the active {' / '.join(deal_types)} pipeline."
                 )
             else:
-                summary.append(f"- Focus on the active pipeline opportunities relevant to {self.client_name}.")
+                overview_lines.append(
+                    "- Focus on the active opportunity pipeline."
+                )
 
             if stages:
-                summary.append(
-                    f"- Reinforce next-step alignment across {' and '.join(stages).lower()} milestones."
+                overview_lines.append(
+                    f"- Reinforce next-step alignment across {' / '.join(stages)} milestones."
                 )
             else:
-                summary.append("- Reinforce next-step alignment across active pipeline milestones.")
-
-            if not contacts.empty:
-                summary.append("- Validate all claims against CRM records before client delivery.")
+                overview_lines.append(
+                    "- Reinforce next-step alignment across active milestones."
+                )
         else:
-            summary.append(f"- No active deal pipeline identified for {self.client_name}.")
-            summary.append("- Focus on relationship discovery and coverage planning.")
-            summary.append("- Validate all claims against CRM records before client delivery.")
+            overview_lines.append(
+                f"- No active pipeline was identified for {self.client_name}."
+            )
+            overview_lines.append(
+                "- Prioritize relationship discovery and coverage planning."
+            )
 
-        return "\n".join(summary)
+        overview_lines.extend(
+            [
+                "",
+                "4. Recommended Next Actions:",
+            ]
+        )
+
+        next_actions = self._build_recommended_next_actions(
+            opportunities=opportunities,
+            activities=activities,
+        )
+
+        for action in next_actions:
+            overview_lines.append(f"- {action}")
+
+        if competitive_context:
+            overview_lines.extend(
+                [
+                    "",
+                    "5. Competitive Intelligence Context:",
+                ]
+            )
+
+            base_institution = competitive_context.get("base_institution")
+            top_peer = competitive_context.get("top_peer")
+            takeaway = competitive_context.get("takeaway")
+            recommendation = competitive_context.get("recommendation")
+            confidence = competitive_context.get("confidence", "Medium")
+
+            if base_institution:
+                overview_lines.append(f"- Base institution: {base_institution}")
+            if top_peer:
+                overview_lines.append(f"- Peer benchmark: {top_peer}")
+            if takeaway:
+                overview_lines.append(f"- Insight: {takeaway}")
+            if recommendation:
+                overview_lines.append(f"- Recommended action: {recommendation}")
+
+            overview_lines.append(f"- Confidence: {confidence}")
+
+        overview_lines.extend(
+            [
+                "",
+                "6. Validation Guardrail:",
+                "- Validate all claims against CRM records and approved source materials before client delivery.",
+            ]
+        )
+
+        return "\n".join(overview_lines)
