@@ -1,0 +1,3 @@
+InsightId,BaseInstitutionId,PeerInstitutionId,Takeaway,Recommendation,Confidence,SourceId
+INS-001,INST-001,INST-002,Quantum shows stronger growth and high momentum in the selected peer set,Prioritize a differentiated coverage discussion focused on growth opportunities,Medium,SRC-COMP-001
+INS-002,INST-001,INST-003,GlobalTrust remains a relevant benchmark with medium momentum,Use GlobalTrust as a secondary benchmark for relationship planning,Medium,SRC-COMP-002

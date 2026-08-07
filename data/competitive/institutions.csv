@@ -1,0 +1,4 @@
+InstitutionId,InstitutionName,InstitutionType,Region,Status
+INST-001,ACME_Banking,Investment Bank,Global,Base
+INST-002,QUANTUM INVESTMENTS,Institutional Investor,North America,Active
+INST-003,GLOBALTRUST CAPITAL,Institutional Investor,North America,Active

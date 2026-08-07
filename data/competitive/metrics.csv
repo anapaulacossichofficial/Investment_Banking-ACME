@@ -1,0 +1,7 @@
+MetricId,BaseInstitutionId,PeerInstitutionId,MetricName,MetricValue,MetricUnit,Period,SourceId
+MET-001,INST-001,INST-002,Market Share,18.4,percent,2026-Q2,SRC-COMP-001
+MET-002,INST-001,INST-002,Growth,12.7,percent,2026-Q2,SRC-COMP-001
+MET-003,INST-001,INST-002,Momentum,High,category,2026-Q2,SRC-COMP-001
+MET-004,INST-001,INST-003,Market Share,15.9,percent,2026-Q2,SRC-COMP-002
+MET-005,INST-001,INST-003,Growth,10.2,percent,2026-Q2,SRC-COMP-002
+MET-006,INST-001,INST-003,Momentum,Medium,category,2026-Q2,SRC-COMP-002
