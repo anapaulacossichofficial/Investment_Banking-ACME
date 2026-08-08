@@ -2,260 +2,146 @@ from pathlib import Path
 
 import pandas as pd
 
+ROOT_DIR = Path(__file__).resolve().parent.parent
+DATA_DIR = ROOT_DIR / "data" / "competitive"
 
-class CompetitiveRetriever:
-    def __init__(self, data_dir: Path | None = None):
-        root_dir = Path(__file__).resolve().parent.parent
-        self.data_dir = data_dir or (root_dir / "data" / "competitive")
 
-        self.institutions_path = self.data_dir / "institutions.csv"
-        self.peers_path = self.data_dir / "peers.csv"
-        self.metrics_path = self.data_dir / "metrics.csv"
-        self.insights_path = self.data_dir / "insights.csv"
-        self.sources_path = self.data_dir / "sources.csv"
+class CompetitiveIntelligenceRetriever:
+    """
+    Loads and filters local competitive-intelligence fixtures.
+    Schema real confirmado via pandas.read_csv:
+    institutions.csv, peers.csv, metrics.csv, insights.csv, sources.csv
+    """
 
-    def _load_csv(self, path: Path) -> pd.DataFrame:
-        if not path.exists():
-            return pd.DataFrame()
+    def __init__(self, data_dir: Path = DATA_DIR):
+        self.data_dir = Path(data_dir)
 
-        return pd.read_csv(path)
+    def _load_csv(self, filename: str) -> pd.DataFrame:
+        path = self.data_dir / filename
+        return pd.read_csv(path) if path.exists() else pd.DataFrame()
 
     def load_institutions(self) -> pd.DataFrame:
-        return self._load_csv(self.institutions_path)
+        return self._load_csv("institutions.csv")
 
     def load_peers(self) -> pd.DataFrame:
-        return self._load_csv(self.peers_path)
+        return self._load_csv("peers.csv")
 
     def load_metrics(self) -> pd.DataFrame:
-        return self._load_csv(self.metrics_path)
+        return self._load_csv("metrics.csv")
 
     def load_insights(self) -> pd.DataFrame:
-        return self._load_csv(self.insights_path)
+        return self._load_csv("insights.csv")
 
     def load_sources(self) -> pd.DataFrame:
-        return self._load_csv(self.sources_path)
+        return self._load_csv("sources.csv")
 
     def get_institution_options(self) -> list[str]:
         institutions = self.load_institutions()
-
-        if (
-            institutions.empty
-            or "InstitutionName" not in institutions.columns
-        ):
+        if institutions.empty or "InstitutionName" not in institutions.columns:
             return []
-
         return (
             institutions["InstitutionName"]
-            .dropna()
-            .astype(str)
-            .str.strip()
-            .tolist()
+            .dropna().astype(str).str.strip().tolist()
         )
 
     def get_peer_options(self, base_institution_name: str) -> list[str]:
         institutions = self.load_institutions()
         peers = self.load_peers()
 
+        required_inst = {"InstitutionName", "InstitutionId"}
+        required_peers = {"BaseInstitutionId", "PeerInstitutionName", "PeerRank"}
         if (
-            institutions.empty
-            or peers.empty
-            or "InstitutionName" not in institutions.columns
-            or "InstitutionId" not in institutions.columns
-            or "BaseInstitutionId" not in peers.columns
-            or "PeerInstitutionName" not in peers.columns
-            or "PeerRank" not in peers.columns
+            institutions.empty or peers.empty
+            or not required_inst.issubset(institutions.columns)
+            or not required_peers.issubset(peers.columns)
         ):
             return []
 
         base_rows = institutions[
-            institutions["InstitutionName"].astype(str).str.strip()
-            == base_institution_name
+            institutions["InstitutionName"].astype(str).str.strip() == base_institution_name
         ]
-
         if base_rows.empty:
             return []
 
-        base_institution_id = str(
-            base_rows.iloc[0]["InstitutionId"]
-        ).strip()
-
+        base_id = str(base_rows.iloc[0]["InstitutionId"]).strip()
         selected_peers = peers[
-            peers["BaseInstitutionId"].astype(str).str.strip()
-            == base_institution_id
+            peers["BaseInstitutionId"].astype(str).str.strip() == base_id
         ]
-
         return (
-            selected_peers.sort_values("PeerRank")[
-                "PeerInstitutionName"
-            ]
-            .dropna()
-            .astype(str)
-            .str.strip()
-            .tolist()
+            selected_peers.sort_values("PeerRank")["PeerInstitutionName"]
+            .dropna().astype(str).str.strip().tolist()
         )
 
-    def get_metrics(
-        self,
-        base_institution_name: str,
-        peer_name: str,
-    ) -> dict[str, str]:
+    def get_metrics(self, base_institution_name: str, peer_name: str) -> dict[str, str]:
         institutions = self.load_institutions()
         peers = self.load_peers()
         metrics = self.load_metrics()
 
-        if (
-            institutions.empty
-            or peers.empty
-            or metrics.empty
-            or "InstitutionName" not in institutions.columns
-            or "InstitutionId" not in institutions.columns
-            or "PeerInstitutionName" not in peers.columns
-            or "PeerInstitutionId" not in peers.columns
-            or "BaseInstitutionId" not in peers.columns
-            or "BaseInstitutionId" not in metrics.columns
-            or "PeerInstitutionId" not in metrics.columns
-            or "MetricName" not in metrics.columns
-            or "MetricValue" not in metrics.columns
-            or "MetricUnit" not in metrics.columns
-        ):
+        needed = {
+            "InstitutionName", "InstitutionId"
+        }.issubset(institutions.columns) if not institutions.empty else False
+        if not needed or peers.empty or metrics.empty:
             return {}
 
         base_rows = institutions[
-            institutions["InstitutionName"].astype(str).str.strip()
-            == base_institution_name
+            institutions["InstitutionName"].astype(str).str.strip() == base_institution_name
         ]
-
         if base_rows.empty:
             return {}
-
         base_id = str(base_rows.iloc[0]["InstitutionId"]).strip()
 
         peer_rows = peers[
-            (
-                peers["PeerInstitutionName"]
-                .astype(str)
-                .str.strip()
-                == peer_name
-            )
-            & (
-                peers["BaseInstitutionId"]
-                .astype(str)
-                .str.strip()
-                == base_id
-            )
+            (peers["PeerInstitutionName"].astype(str).str.strip() == peer_name)
+            & (peers["BaseInstitutionId"].astype(str).str.strip() == base_id)
         ]
-
         if peer_rows.empty:
             return {}
-
         peer_id = str(peer_rows.iloc[0]["PeerInstitutionId"]).strip()
 
         selected = metrics[
-            (
-                metrics["BaseInstitutionId"]
-                .astype(str)
-                .str.strip()
-                == base_id
-            )
-            & (
-                metrics["PeerInstitutionId"]
-                .astype(str)
-                .str.strip()
-                == peer_id
-            )
-        ].copy()
+            (metrics["BaseInstitutionId"].astype(str).str.strip() == base_id)
+            & (metrics["PeerInstitutionId"].astype(str).str.strip() == peer_id)
+        ]
 
         result: dict[str, str] = {}
-
         for _, row in selected.iterrows():
-            metric_name = str(row["MetricName"]).strip()
+            name = str(row["MetricName"]).strip()
             value = row["MetricValue"]
             unit = str(row["MetricUnit"]).strip()
-
-            if unit == "percent":
-                result[metric_name] = f"{float(value):.1f}%"
-            else:
-                result[metric_name] = str(value)
-
+            result[name] = f"{float(value):.1f}%" if unit == "percent" else str(value)
         return result
 
-    def get_insight(
-        self,
-        base_institution_name: str,
-        peer_name: str,
-    ) -> dict[str, str]:
+    def get_insight(self, base_institution_name: str, peer_name: str) -> dict[str, str]:
         institutions = self.load_institutions()
         peers = self.load_peers()
         insights = self.load_insights()
 
-        if (
-            institutions.empty
-            or peers.empty
-            or insights.empty
-            or "InstitutionName" not in institutions.columns
-            or "InstitutionId" not in institutions.columns
-            or "PeerInstitutionName" not in peers.columns
-            or "PeerInstitutionId" not in peers.columns
-            or "BaseInstitutionId" not in peers.columns
-            or "BaseInstitutionId" not in insights.columns
-            or "PeerInstitutionId" not in insights.columns
-            or "Takeaway" not in insights.columns
-            or "Recommendation" not in insights.columns
-            or "Confidence" not in insights.columns
-            or "SourceId" not in insights.columns
-        ):
+        if institutions.empty or peers.empty or insights.empty:
             return {}
 
         base_rows = institutions[
-            institutions["InstitutionName"].astype(str).str.strip()
-            == base_institution_name
+            institutions["InstitutionName"].astype(str).str.strip() == base_institution_name
         ]
-
         if base_rows.empty:
             return {}
-
         base_id = str(base_rows.iloc[0]["InstitutionId"]).strip()
 
         peer_rows = peers[
-            (
-                peers["PeerInstitutionName"]
-                .astype(str)
-                .str.strip()
-                == peer_name
-            )
-            & (
-                peers["BaseInstitutionId"]
-                .astype(str)
-                .str.strip()
-                == base_id
-            )
+            (peers["PeerInstitutionName"].astype(str).str.strip() == peer_name)
+            & (peers["BaseInstitutionId"].astype(str).str.strip() == base_id)
         ]
-
         if peer_rows.empty:
             return {}
-
         peer_id = str(peer_rows.iloc[0]["PeerInstitutionId"]).strip()
 
         selected = insights[
-            (
-                insights["BaseInstitutionId"]
-                .astype(str)
-                .str.strip()
-                == base_id
-            )
-            & (
-                insights["PeerInstitutionId"]
-                .astype(str)
-                .str.strip()
-                == peer_id
-            )
+            (insights["BaseInstitutionId"].astype(str).str.strip() == base_id)
+            & (insights["PeerInstitutionId"].astype(str).str.strip() == peer_id)
         ]
-
         if selected.empty:
             return {}
 
         row = selected.iloc[0]
-
         return {
             "takeaway": str(row["Takeaway"]),
             "recommendation": str(row["Recommendation"]),
@@ -265,22 +151,10 @@ class CompetitiveRetriever:
 
     def get_sources(self, source_ids: list[str]) -> list[str]:
         sources = self.load_sources()
-
-        if (
-            sources.empty
-            or not source_ids
-            or "SourceId" not in sources.columns
-            or "Approved" not in sources.columns
-            or "SourceName" not in sources.columns
-        ):
+        if sources.empty or not source_ids:
             return []
-
         selected = sources[
             sources["SourceId"].astype(str).isin(source_ids)
             & sources["Approved"].astype(str).str.lower().eq("true")
         ]
-
-        return [
-            f"[Source: {row['SourceName']}]"
-            for _, row in selected.iterrows()
-        ]
+        return [f"[Source: {row['SourceName']}]" for _, row in selected.iterrows()]
