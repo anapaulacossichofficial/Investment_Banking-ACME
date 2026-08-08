@@ -1,14 +1,12 @@
 """
 Streamlit Local Laboratory UI (ib-agent-demo)
-Visualizes the Agentforce Meeting Prep Agent workflow for institutional accounts.
+
+Visualizes the Agentforce Meeting Prep Agent workflow
+for institutional accounts.
 """
 
 import sys
 from pathlib import Path
-
-ROOT_DIR = Path(__file__).resolve().parent
-if str(ROOT_DIR) not in sys.path:
-    sys.path.insert(0, str(ROOT_DIR))
 
 import pandas as pd
 import streamlit as st
@@ -17,6 +15,13 @@ from agents.meeting_prep_agent import MeetingPrepAgent
 from agents.supervisor_agent import SupervisorAgent
 from retrieval.crm_retriever import CRMRetriever
 from retrieval.knowledge_retriever import KnowledgeRetriever
+from ui.styles import apply_bankiq_style
+
+
+ROOT_DIR = Path(__file__).resolve().parent
+
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
 
 
 DATA_DIR = ROOT_DIR / "data"
@@ -31,14 +36,21 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
+apply_bankiq_style()
 
-st.title(
-    "💼 ACME_Banking Intelligence Hub — Investment Banking Demo"
-    )
+# --- HERO HEADER ---
 st.markdown(
-    "**Local Architecture - Option B: Agentforce Meeting Prep & Competitive Intelligence**"
-    )
-st.markdown("---")
+    """
+    <div class="enterprise-header">
+        <h1>💼 ACME_Banking Intelligence Hub</h1>
+        <p>
+            Local Architecture — Agentforce Meeting Prep,
+            CRM Grounding & Competitive Intelligence
+        </p>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 
 
 ACCOUNT_OPTIONS = {
