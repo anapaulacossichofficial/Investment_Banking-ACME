@@ -85,6 +85,7 @@ def test_get_institution_options_contains_base_institution(retriever):
     options = retriever.get_institution_options()
 
     assert isinstance(options, list)
+    assert options
     assert BASE_INSTITUTION in options
 
 
@@ -97,6 +98,7 @@ def test_get_peer_options_returns_configured_peers(retriever):
 
 def test_get_metrics_returns_dictionary_for_valid_peer(retriever):
     peers = retriever.get_peer_options(BASE_INSTITUTION)
+
     assert peers
 
     metrics = retriever.get_metrics(
@@ -109,6 +111,7 @@ def test_get_metrics_returns_dictionary_for_valid_peer(retriever):
 
 def test_get_insight_contains_expected_fields_for_valid_peer(retriever):
     peers = retriever.get_peer_options(BASE_INSTITUTION)
+
     assert peers
 
     insight = retriever.get_insight(
@@ -129,6 +132,7 @@ def test_get_insight_contains_expected_fields_for_valid_peer(retriever):
 
 def test_get_sources_returns_approved_source_labels(retriever):
     peers = retriever.get_peer_options(BASE_INSTITUTION)
+
     assert peers
 
     insight = retriever.get_insight(

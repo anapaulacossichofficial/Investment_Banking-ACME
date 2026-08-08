@@ -40,7 +40,10 @@ class CompetitiveIntelligenceAgent:
         briefing: list[str] = [
             "=== COMPETITIVE INTELLIGENCE BRIEFING ===",
             f"Base Institution: {self.base_institution}",
-            f"Target Peers: {', '.join(peer_institutions) or 'None selected'}",
+            (
+                "Target Peers: "
+                f"{', '.join(peer_institutions) or 'None selected'}"
+            ),
             "",
         ]
 
@@ -97,12 +100,18 @@ class CompetitiveIntelligenceAgent:
             briefing.extend(
                 [
                     f"- vs {peer}:",
-                    f"  * Takeaway: {insight.get('takeaway', 'Not available')}",
+                    (
+                        "  * Takeaway: "
+                        f"{insight.get('takeaway', 'Not available')}"
+                    ),
                     (
                         "  * Recommendation: "
                         f"{insight.get('recommendation', 'Not available')}"
                     ),
-                    f"  * Confidence: {insight.get('confidence', 'Unknown')}",
+                    (
+                        "  * Confidence: "
+                        f"{insight.get('confidence', 'Unknown')}"
+                    ),
                 ]
             )
 
@@ -121,7 +130,10 @@ class CompetitiveIntelligenceAgent:
             sources = self.retriever.get_sources(source_ids)
 
             if sources:
-                briefing.extend(f"- {source}" for source in sources)
+                briefing.extend(
+                    f"- {source}"
+                    for source in sources
+                )
             else:
                 briefing.append("- No approved source labels available.")
         else:
