@@ -1,16 +1,257 @@
 # Evidence Note & Live Pitch
 
 ## Purpose
-Visual and programmatic evidence collected from the Streamlit application to validate the ACME Working Build against Option B requirements.
+
+This document defines the short presentation and defense script for the ACME
+Investment Banking Working Build.
+
+The evidence package combines:
+
+- Streamlit interface evidence.
+- Prompt contract test evidence.
+- Observability contract test evidence.
+- Full regression test evidence.
+- Structured JUnit XML output.
+
+The interface demonstrates the user experience. Automated tests demonstrate
+deterministic contracts, safety controls, routing, and observability logic.
+
+## Evidence Scope
+
+The local working build is validated against the following capability areas:
+
+- Executive meeting briefing.
+- CRM grounding.
+- Knowledge-base grounding.
+- Source and citation tracing.
+- Competitive intelligence.
+- Zero-Trust guardrails.
+- Missing-data fallback.
+- Supervisor intent routing.
+- Prompt governance.
+- Observability KPI contracts.
+- Regression and smoke behavior.
+
+## Current Validation Baseline
+
+```text
+Prompt contract tests: 3 passed
+Observability contract tests: 8 passed
+Full regression suite: 31 passed
+Failures: 0
+```
+
+The automated validation baseline is complete. The remaining open items are
+limited to the capture of two visual validation screenshots:
+
+- `fallback-orion.png`
+- `hallucination-rejection.png`
 
 ## Coverage Achieved
-- **Input/Output Contract:** Validated via stable UI rendering of Executive Briefings (`executive-briefing.png`).
-- **Grounding & Citations:** Validated by explicit source tracing mechanisms on the UI (`grounding-source-tracing.png`).
-- **Zero-Trust Guardrails (Hallucination):** Validated by agent rejection of adversarial instructions (`hallucination-rejection.png`).
-- **Fallback Behavior:** Validated by deterministic responses to missing accounts/documents (`fallback-orion.png`).
-- **Supervisor Routing:** Validated through successful navigation across Core and Secondary Capabilities (Competitive Intelligence).
 
-## Architecture Defense (The Pitch)
-> "Our local working build ensures the solution's deterministic behavior before mapping it to Agentforce.
->The collected visual evidence demonstrates that the agent does not hallucinate when data is missing (Fallback) and rejects malicious instructions (Guardrails).
->The separation between CRM (structured data) and Knowledge (documents) is traceable within the interface, validating the grounding pattern"
+### Input and Output Contract
+
+- Executive briefing rendering is validated through the Streamlit interface.
+- The meeting preparation prompt defines a predictable executive output
+  structure.
+- Prompt contract validation is implemented in
+  `tests/test_prompts_contract.py`.
+- Related visual evidence:
+  `docs/screenshots/2_executive-briefing.png` and
+  `docs/screenshots/2_executive-briefing_grounding.png`.
+
+### Grounding and Citations
+
+- The UI exposes CRM and knowledge-source tracing.
+- The meeting preparation prompt requires citations for material claims.
+- The local observability fixture validates citation coverage.
+- Citation coverage is tested in
+  `tests/test_observability_contract.py`.
+- Related visual evidence:
+  `docs/screenshots/6_Citations_Activities.png` and
+  `docs/screenshots/6_Citations_Groud&Tracing.png`.
+
+### Zero-Trust Guardrails
+
+- The meeting preparation prompt restricts the assistant to approved CRM and
+  knowledge context.
+- The prompt rejects instructions that request invented facts or source
+  bypasses.
+- The local Validation Mode contains the adversarial prompt rejection
+  scenario.
+- The corresponding screenshot remains pending capture:
+  `docs/screenshots/hallucination-rejection.png`.
+
+### Fallback Behavior
+
+- The fallback prompt defines the exact safe response for unavailable or
+  unverifiable institutional data.
+- The prompt contract test protects the mandatory fallback statement.
+- The local Validation Mode contains missing-account and missing-evidence
+  scenarios.
+- The corresponding screenshot remains pending capture:
+  `docs/screenshots/fallback-orion.png`.
+
+### Supervisor Routing
+
+- The Supervisor routes meeting preparation, document research, general CRM
+  inquiry, and competitive intelligence flows.
+- Route events are validated by the observability contract.
+- The route trace preserves the source component, target component, session
+  identifier, and timestamp.
+- Related visual evidence:
+  `docs/screenshots/3_competitive-intelligence-briefing.png`,
+  `docs/screenshots/3_executive-briefing_peer-benchmarking.png`, and
+  `docs/screenshots/5_executive-briefing_strategicinsights.png`.
+
+## Automated Observability
+
+The local observability contract validates:
+
+- Grounded Answer Rate.
+- Fallback Rate.
+- Citation Coverage.
+- Session Latency.
+- Supervisor route traceability.
+- Guardrail event traceability.
+
+The deterministic fixture is:
+
+```text
+tests/fixtures/observability_events.jsonl
+```
+
+The automated tests are:
+
+```text
+tests/test_prompts_contract.py
+tests/test_observability_contract.py
+```
+
+The focused observability test result is:
+
+```text
+8 passed
+```
+
+The full regression result is:
+
+```text
+31 passed
+0 failed
+```
+
+## Structured Test Evidence
+
+The full suite generates:
+
+```text
+docs/evidence/test_full_suite.log
+docs/evidence/test-results.xml
+```
+
+The JUnit XML report is generated by pytest and provides machine-readable
+test results for CI or test-reporting systems.
+
+## Simulated Observability Mapping
+
+The local demo simulates an observability measurement contract aligned with
+Agentforce Session Tracing. It uses deterministic JSONL telemetry events and
+automated tests to validate grounding, fallback, citation coverage, session
+latency, Supervisor routing, and guardrail traceability.
+
+This is a local simulation and does not claim to provide live Agentforce
+Session Tracing, Salesforce org telemetry, or production monitoring.
+
+The local event model maps to production concepts as follows:
+
+| Local contract | Production telemetry concept |
+|---|---|
+| `session_id` | Agentforce session identifier |
+| `supervisor_route` | Planner or agent transition |
+| `retrieval_completed` | CRM or knowledge retrieval step |
+| `response_completed` | Final agent response and evaluation |
+| `guardrail_triggered` | Safety or policy intervention |
+| `timestamp_ms` | Event timing and latency |
+| `claim_count` | Evaluated factual claims |
+| `cited_claim_count` | Claims mapped to approved evidence |
+
+The simulated model is intended to demonstrate how the local test contract
+could be mapped to Agentforce Session Tracing and an enterprise observability
+platform in a future production integration.
+
+## Evidence Inventory
+
+### Collected Interface Evidence
+
+The following files currently exist under `docs/screenshots/`:
+
+```text
+docs/screenshots/
+├── 1_home-dashboard.png
+├── 2_executive-briefing.png
+├── 2_executive-briefing_grounding.png
+├── 3_competitive-intelligence-briefing.png
+├── 3_executive-briefing_peer-benchmarking.png
+├── 5_executive-briefing_strategicinsights.png
+├── 6_Citations_Activities.png
+└── 6_Citations_Groud&Tracing.png
+```
+
+### Pending Interface Evidence
+
+The following files are planned but were not present in the latest directory
+listing:
+
+```text
+docs/screenshots/fallback-orion.png
+docs/screenshots/hallucination-rejection.png
+```
+
+They must not be described as collected until the files exist and the
+corresponding scenarios have been validated.
+
+### Automated Evidence
+
+```text
+docs/evidence/
+├── test_full_suite.log
+├── test-results.xml
+├── test_prompts_contract.log
+├── test_observability_contract.log
+└── test_performance_all.log
+```
+
+The exact filenames must reflect the files actually present in the
+repository.
+
+## Test Commands for the Demo
+
+Run the focused prompt contract:
+
+```bash
+pytest tests/test_prompts_contract.py -v
+```
+
+Run the focused observability contract:
+
+```bash
+pytest tests/test_observability_contract.py -v
+```
+
+Run the complete suite and generate structured evidence:
+
+```bash
+pytest -v \
+  --durations=10 \
+  --durations-min=0.1 \
+  --junitxml=docs/evidence/test-results.xml \
+  | tee docs/evidence/test_full_suite.log
+```
+
+Expected current result:
+
+```text
+31 passed
+0 failed
+```
