@@ -1,0 +1,51 @@
+retrieval:
+  objective: produce_grounded_meeting_prep_bundle
+
+  structured_sources:
+    - crm_accounts
+    - crm_contacts
+    - crm_opportunities
+    - crm_activities
+
+  unstructured_sources:
+    - relationship_notes
+    - research_documents
+    - pitch_materials
+    - earnings_materials
+
+  filters:
+    require_account_scope: true
+    require_contact_scope_when_provided: true
+    require_relevance_threshold: true
+    min_relevance_score: 0.78
+    max_chunks: 6
+    max_structured_records_per_type: 10
+    exclude_unscoped_documents: true
+
+  ranking:
+    prefer_account_specific_docs: true
+    prefer_recent_interactions: true
+    prefer_primary_relationship_material: true
+    prefer_high_confidence_sources: true
+
+  bundle_contract:
+    include_structured_facts: true
+    include_document_snippets: true
+    include_source_metadata: true
+    include_confidence_flags: true
+    include_scope_summary: true
+
+citation:
+  require_citations: true
+  citation_fields:
+    - source_id
+    - source_title
+    - source_type
+    - source_date
+    - source_owner
+  suppress_if_missing_metadata: true
+
+fallback:
+  no_evidence_behavior: abstain
+  partial_evidence_behavior: answer_with_gap_callout
+  unsupported_question_behavior: redirect_to_supported_scope

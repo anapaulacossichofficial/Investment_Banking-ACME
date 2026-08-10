@@ -1,0 +1,28 @@
+agents:
+  supervisor:
+    role: intent_router_and_scope_controller
+    responsibilities:
+      - validate_request_scope
+      - resolve_supported_intent
+      - select_target_agent
+      - enforce_allowed_tools
+    allowed_handoffs:
+      - meeting_prep_agent
+
+  meeting_prep_agent:
+    role: knowledge_grounded_meeting_preparation
+    responsibilities:
+      - assemble_grounding_bundle
+      - prepare_banker_ready_briefing
+      - attach_citations
+      - enforce_fallback_and_guardrails
+    allowed_tools:
+      - crm_retriever
+      - knowledge_retriever
+      - citation_builder
+      - source_trace
+    output_contract:
+      - executive_brief
+      - citations
+      - evidence_flags
+      - scope_summary

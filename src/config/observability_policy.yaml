@@ -1,0 +1,25 @@
+observability_policy:
+  tracing:
+    trace_requests: true
+    trace_agent_handoffs: true
+    trace_retrieval_events: true
+    trace_citation_generation: true
+    trace_fallback_events: true
+
+  metrics:
+    retrieval_latency: true
+    grounding_bundle_size: true
+    citation_coverage_rate: true
+    fallback_rate: true
+    hallucination_rejection_rate: true
+    guardrail_event_rate: true
+
+  logging:
+    log_prompt_version: true
+    log_data_sources_used: true
+    log_missing_evidence_events: true
+    log_hallucination_rejection_events: true
+
+  alerts:
+    high_fallback_rate_threshold: 0.20
+    missing_citation_threshold: 0.01

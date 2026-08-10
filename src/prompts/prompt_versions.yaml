@@ -1,0 +1,40 @@
+prompts:
+  meeting_prep_system:
+    current_version: v3
+    versions:
+      v1:
+        goal: baseline_briefing
+        weakness: weak_citation_structure
+      v2:
+        goal: stronger_grounding
+        weakness: incomplete_fallback_language
+      v3:
+        goal: production_ready_panel_demo
+        improvements:
+          - explicit_scope_lock
+          - mandatory_citations
+          - fallback_contract
+          - anti_hallucination_rules
+
+  supervisor_router:
+    current_version: v2
+    versions:
+      v1:
+        goal: basic_intent_routing
+        weakness: weak_scope_handling
+      v2:
+        goal: safer_scope_locked_routing
+        improvements:
+          - explicit_supported_scope
+          - missing_scope_clarification
+          - delegation_rules
+
+  meeting_prep_user:
+    current_version: v1
+    versions:
+      v1:
+        goal: scoped_request_template
+        strengths:
+          - explicit_scope_fields
+          - output_structure
+          - evidence_only_instruction
