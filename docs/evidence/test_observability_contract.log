@@ -1,0 +1,17 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.1.1, pluggy-1.6.0 -- /mnt/c/4_SalesForce/2_PannelAnalysis_Investment-Banking/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /mnt/c/4_SalesForce/2_PannelAnalysis_Investment-Banking
+plugins: anyio-4.14.2
+collecting ... collected 8 items
+
+tests/test_observability_contract.py::test_observability_fixture_exists PASSED [ 12%]
+tests/test_observability_contract.py::test_required_event_schema PASSED  [ 25%]
+tests/test_observability_contract.py::test_grounded_answer_rate PASSED   [ 37%]
+tests/test_observability_contract.py::test_fallback_rate PASSED          [ 50%]
+tests/test_observability_contract.py::test_citation_coverage PASSED      [ 62%]
+tests/test_observability_contract.py::test_session_latency PASSED        [ 75%]
+tests/test_observability_contract.py::test_supervisor_route_trace PASSED [ 87%]
+tests/test_observability_contract.py::test_guardrail_event_is_traceable PASSED [100%]
+
+============================== 8 passed in 0.34s ===============================
