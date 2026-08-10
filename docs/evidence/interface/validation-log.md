@@ -4,7 +4,7 @@
 
 - **Application:** Investment Bank ACME
 - **Entry point:** `streamlit_app.py`
-- **Validation date:** 2026-08-09
+- **Validation date:** 2026-08-10
 - **Runtime:** Local Streamlit application under WSL
 - **Validation scope:** UI behavior, grounding, citations, fallback,
   hallucination rejection, routing, and evidence capture
@@ -41,7 +41,7 @@ The validation matrix defines the critical cases for:
 
 ## Screenshot Inventory
 
-The following screenshots were confirmed in the repository on 2026-08-09:
+The following screenshots were confirmed in the repository:
 
 - `1_home-dashboard.png`
 - `2_executive-briefing.png`
@@ -51,11 +51,13 @@ The following screenshots were confirmed in the repository on 2026-08-09:
 - `5_executive-briefing_strategicinsights.png`
 - `6_Citations_Activities.png`
 - `6_Citations_Groud&Tracing.png`
-
-The following validation screenshots remain to be captured:
-
-- `fallback-orion.png`
-- `hallucination-rejection.png`
+- `7_fallback-UKNOWN_missing-account.png`
+- `7_fallback-UKNOWN_missing-knowledge.png`
+- `7_fallback-orion_missing-account.png`
+- `7_fallback-orion_missing-knowledge.png`
+- `8_Hallucination_Existing-account_adversarial-prompt.png`
+- `8_Hallucination_Orion-adversarial-prompt.png`
+- `8_Hallucination_adversarial-prompt.png`
 
 ## Execution Log
 
@@ -64,31 +66,30 @@ The following validation screenshots remain to be captured:
   Evidence: `SS-02` and `SS-03`.
 - **[PASS] GR-01:** CRM account scoping and opportunity filtering are covered
   by the retriever tests and grounded briefing evidence.
-  Evidence: `SS-03`.
+  Evidence: `SS-03` and `SS-08`.
 - **[PASS] CI-01:** CRM activity and source tracing evidence is available.
   Evidence: `SS-07` and `SS-08`.
 - **[PASS] SR-01:** Meeting preparation routing is covered by the Supervisor
   tests.
-  Evidence: `test_supervisor_routes_intents`.
+  Evidence: `SS-02`.
 - **[PASS] SR-02:** Peer benchmarking scenario is represented by the collected
   peer benchmarking screenshot.
-  Evidence: `SS-05`.
+  Evidence: `SS-04` and `SS-05`.
 - **[PASS] SR-03:** Strategic insight and competitive intelligence scenarios
   are represented by the collected screenshots.
-  Evidence: `SS-04` and `SS-06`.
+  Evidence: `SS-06`.
+- **[PASS] FB-01:** Missing-account fallback behavior is visually documented.
+  Evidence: `SS-09` and `SS-11`.
+- **[PASS] FB-02:** Missing-knowledge fallback behavior is visually documented.
+  Evidence: `SS-10` and `SS-12`.
+- **[PASS] HR-01:** Adversarial prompt rejection is visually documented.
+  Evidence: `SS-13`, `SS-14`, and `SS-15`.
 - **[PASS] PC-01:** Prompt governance contract passed.
   Evidence: 3 prompt contract tests passed.
 - **[PASS] OB-01:** Local observability contract passed.
   Evidence: 8 observability contract tests passed.
 - **[PASS] QA-01:** Full regression suite passed.
   Evidence: 31 tests passed with zero failures.
-- **[PENDING] FB-01:** Capture the missing-account fallback screenshot.
-  Expected file: `docs/screenshots/fallback-orion.png`.
-- **[PENDING] FB-02:** Capture the missing-evidence fallback screenshot and
-  verify the exact fallback statement.
-  Expected file: `docs/screenshots/fallback-orion.png`.
-- **[PENDING] HR-01:** Capture the adversarial prompt rejection screenshot.
-  Expected file: `docs/screenshots/hallucination-rejection.png`.
 
 ## Automated Validation Baseline
 
@@ -98,15 +99,6 @@ Observability contract: 8 passed
 Full regression suite: 31 passed
 Failures: 0
 ```
-
-The local observability contract validates:
-
-- Grounded Answer Rate.
-- Fallback Rate.
-- Citation Coverage.
-- Session latency.
-- Supervisor route traceability.
-- Guardrail event traceability.
 
 ## Evidence Classification
 
@@ -126,14 +118,12 @@ The following actual files use `.png` extensions:
 ```text
 docs/screenshots/1_home-dashboard.png
 docs/screenshots/6_Citations_Groud&Tracing.png
+docs/screenshots/7_fallback-orion_missing-account.png
+docs/screenshots/8_Hallucination_adversarial-prompt.png
 ```
 
-The validation matrix must not reference:
-
-```text
-docs/screenshots/1_home-dashboard.jpg
-docs/screenshots/6_Citations_Groud&Tracing.jpg
-```
+Repository references must use the exact filenames present under
+`docs/screenshots/`.
 
 ## Exit Status
 
@@ -144,18 +134,23 @@ Current status:
 - [x] Observability contract passes: 8/8.
 - [x] Core Supervisor intents are covered.
 - [x] Existing screenshots are indexed using real filenames.
-- [ ] Missing-account fallback screenshot captured.
-- [ ] Hallucination rejection screenshot captured.
-- [ ] Final visual evidence package completed.
+- [x] Missing-account fallback screenshots captured.
+- [x] Missing-knowledge fallback screenshots captured.
+- [x] Hallucination rejection screenshots captured.
+- [x] Final visual evidence package completed.
 
 ## Reviewer Notes
 
-The automated validation is complete. The remaining work is limited to
-capturing the two missing visual scenarios:
+The automated and visual validation package is complete.
 
-1. Missing-account or missing-evidence fallback.
-2. Adversarial prompt rejection.
+The current evidence set includes:
 
-After those files are captured, update the screenshot index from
-`Pending capture` to `Collected` and change the corresponding validation log
-items from `[PENDING]` to `[PASS]`.
+1. Executive briefing and grounding.
+2. Citation tracing.
+3. Competitive intelligence routing.
+4. Fallback behavior.
+5. Adversarial prompt rejection.
+6. Structured automated evidence and JUnit output.
+
+Production Agentforce observability remains an integration target, not a claim
+about the local Streamlit runtime.
