@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HandoffContract",
+  "type": "object",
+  "required": ["event", "source_agent", "target_agent", "context_payload", "trace_id"],
+  "properties": {
+    "event": { "type": "string", "enum": ["A2A_HANDOFF"] },
+    "source_agent": { "type": "string" },
+    "target_agent": { "type": "string" },
+    "trace_id": { "type": "string" },
+    "context_payload": { "type": "object" },
+    "allowed_tools": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}
