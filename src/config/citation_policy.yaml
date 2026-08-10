@@ -1,0 +1,24 @@
+citation_policy:
+  require_citations_for_material_claims: true
+  require_source_metadata: true
+  require_traceable_snippets: true
+  require_source_type: true
+  require_source_id: true
+
+  fields:
+    - source_id
+    - source_title
+    - source_type
+    - source_date
+    - source_owner
+    - excerpt
+
+  rules:
+    suppress_claim_if_metadata_missing: true
+    suppress_claim_if_excerpt_missing: false
+    allow_multiple_citations_per_claim: true
+    citation_style: inline_evidence
+
+  validation:
+    reject_output_if_uncited_material_claims_present: true
+    reject_output_if_source_trace_broken: true
