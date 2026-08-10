@@ -108,7 +108,6 @@ docs/evidence/test_performance_all.log
 ## Run the Validation Suite
 > To run the full validation package and regenerate the evidence logs, use the
 > commands below.
-####
 > Note: `chmod +x` and `./scripts/run_validation_suite.sh` must be run in the
 > terminal, not inside the script file itself.
 
@@ -191,7 +190,7 @@ docs/TESTING.md
 scripts/run_validation_suite.sh
 ```
 
-### Test Execution Complete - Demo presentation
+### Demo Verification Commands for Presentation
 ```bash
 bash -n scripts/run_validation_suite.sh
 chmod +x scripts/run_validation_suite.sh
