@@ -1,25 +1,3 @@
-# ACME Investment Banking Working Build
-
-A local Streamlit working build for executive meeting preparation, grounded CRM
-analysis, competitive intelligence workflows, and simulated observability
-validation.
-
-## Overview
-
-This repository demonstrates a deterministic working build aligned with
-enterprise coverage workflows.
-
-The solution combines:
-
-- executive meeting briefing generation;
-- CRM retrieval and grounding;
-- knowledge-source tracing and citations;
-- competitive intelligence analysis;
-- Zero-Trust prompt governance;
-- fallback handling for missing data;
-- Supervisor routing validation;
-- simulated observability KPI contracts.
-
 ## Validation Status
 
 The current validation package includes:
@@ -86,28 +64,11 @@ competitive intelligence analysis.
 
 ![Adversarial Prompt Rejection](docs/screenshots/8_Hallucination_adversarial-prompt.png)
 
-## Test Architecture
-
-The repository validates behavior at three complementary levels:
-
-- **Visual validation**, through screenshots under `docs/screenshots/`;
-- **Prompt governance validation**, through `tests/test_prompts_contract.py`;
-- **Observability and regression validation**, through `tests/test_observability_contract.py`
-  and the full pytest suite.
-
-Generated evidence includes:
-
-```text
-docs/evidence/test_prompts_contract.log
-docs/evidence/test_observability_contract.log
-docs/evidence/test_full_suite.log
-docs/evidence/test-results.xml
-docs/evidence/test_performance_all.log
-```
 
 ## Run the Validation Suite
 > To run the full validation package and regenerate the evidence logs, use the
 > commands below.
+
 > Note: `chmod +x` and `./scripts/run_validation_suite.sh` must be run in the
 > terminal, not inside the script file itself.
 
@@ -130,6 +91,7 @@ chmod +x scripts/run_validation_suite.sh
 ```
 
 This script executes:
+
 - prompt contract tests;
 - observability contract tests;
 - the full regression suite;
@@ -161,36 +123,8 @@ tail -n 20 docs/evidence/test_full_suite.log
 tail -n 20 docs/evidence/test_performance_all.log
 ```
 
-## Observability Scope
+### Test Execution Complete - Demo presentation
 
-The observability layer in this repository is a local simulation aligned with
-Agentforce Session Tracing concepts.
-
-It validates deterministic KPI behavior for:
-- Grounded Answer Rate;
-- Fallback Rate;
-- Citation Coverage;
-- Session latency;
-- Supervisor route traceability;
-- Guardrail event traceability.
-
-This repository does **not** claim to expose live Salesforce production
-telemetry. It demonstrates the local measurement contract and its intended
-mapping to future enterprise observability integration.
-
-## Repository References
-
-Primary evidence and validation files:
-```text
-docs/evidence/interface/evidence-note.md
-docs/evidence/interface/screenshot-index.md
-docs/evidence/interface/validation-log.md
-docs/front-1-validation-matrix.md
-docs/TESTING.md
-scripts/run_validation_suite.sh
-```
-
-### Demo Verification Commands for Presentation
 ```bash
 bash -n scripts/run_validation_suite.sh
 chmod +x scripts/run_validation_suite.sh
