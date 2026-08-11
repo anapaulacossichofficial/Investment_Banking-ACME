@@ -1,33 +1,67 @@
+<<<<<<< HEAD
+## Executive Summary: ACME Banking Application
+
+- What the ACME working build demonstrates
+- How to run the demo
+- Which account scenarios to use
+- How grounding, citations, and fallback behave
+- Link to validation matrix
+- Link to architecture
+- Link to prompt evolution
+
+
+## Enterprise Visual Preview
+
+The application includes an executive banking interface designed for
+institutional coverage workflows and competitive intelligence analysis.
+
+### Main Intelligence Hub
+
+![ACME_Banking Intelligence Hub](docs/screenshots/home-dashboard.png)
+
+![Competitive Intelligence](docs/screenshots/competitive-intelligence.png)
+
+![Executive Briefing](docs/screenshots/executive-briefing.png)
+
+![Peer Benchmarking](docs/screenshots/executive-briefing_peer-benchmarking.png)
+
+![Strategic Insights](docs/screenshots/executive-briefing_strategicinsights.png)
+=======
 # ACME Investment Banking Working Build
 
-A local Streamlit working build for executive meeting preparation, CRM grounding, competitive intelligence workflows, and validation evidence.
+A local Streamlit working build for executive meeting preparation, grounded CRM
+analysis, competitive intelligence workflows, and simulated observability
+validation.
 
 ## Overview
 
-This repository demonstrates a deterministic, enterprise-aligned working build for grounded meeting prep and competitive intelligence within an investment banking coverage context.
+This repository demonstrates a deterministic working build aligned with
+enterprise coverage workflows.
 
 The solution combines:
+
 - executive meeting briefing generation;
 - CRM retrieval and grounding;
 - knowledge-source tracing and citations;
-- Supervisor routing validation;
-- fallback handling for missing data;
 - competitive intelligence analysis;
 - Zero-Trust prompt governance;
+- fallback handling for missing data;
+- Supervisor routing validation;
 - simulated observability KPI contracts.
 
 ## Validation Status
 
 The current validation package includes:
-- executive briefing UI evidence;
-- CRM and knowledge grounding evidence;
-- citation and source tracing evidence;
-- competitive intelligence routing evidence;
-- missing-account and missing-knowledge fallback evidence;
-- adversarial prompt rejection evidence;
-- prompt governance contract validation;
-- observability KPI contract validation;
-- full regression and JUnit XML evidence.
+
+- Executive briefing UI evidence.
+- CRM and knowledge grounding evidence.
+- Citation and source tracing evidence.
+- Competitive intelligence routing evidence.
+- Missing-account and missing-knowledge fallback evidence.
+- Adversarial prompt rejection evidence.
+- Prompt governance contract validation.
+- Observability KPI contract validation.
+- Full regression and JUnit XML evidence.
 
 Current automated baseline:
 
@@ -37,11 +71,15 @@ Observability contract tests: 8 passed
 Full regression suite: 31 passed
 Failures: 0
 ```
-Visual evidence is stored under `docs/screenshots/`, and automated evidence is stored under `docs/evidence/`.
+
+Visual evidence is stored under `docs/screenshots/`, and automated evidence is
+stored under `docs/evidence/`.
 
 ## Enterprise Visual Preview
 
-The application includes an executive banking interface designed for institutional coverage workflows, grounded meeting preparation, and competitive intelligence analysis.
+The application includes an executive banking interface designed for
+institutional coverage workflows, grounded meeting preparation, and
+competitive intelligence analysis.
 
 ### Main Intelligence Hub
 
@@ -80,9 +118,11 @@ The application includes an executive banking interface designed for institution
 ## Test Architecture
 
 The repository validates behavior at three complementary levels:
-- visual validation, through screenshots under `docs/screenshots/`;
-- prompt governance validation, through `tests/test_prompts_contract.py`;
-- observability and regression validation, through `tests/test_observability_contract.py` and the full pytest suite.
+
+- **Visual validation**, through screenshots under `docs/screenshots/`;
+- **Prompt governance validation**, through `tests/test_prompts_contract.py`;
+- **Observability and regression validation**, through `tests/test_observability_contract.py`
+  and the full pytest suite.
 
 Generated evidence includes:
 
@@ -94,9 +134,11 @@ docs/evidence/test-results.xml
 docs/evidence/test_performance_all.log
 ```
 
-## Validation Commands
-
-To regenerate the evidence package, run the following commands in order.
+## Run the Validation Suite
+> To run the full validation package and regenerate the evidence logs, use the
+> commands below.
+> Note: `chmod +x` and `./scripts/run_validation_suite.sh` must be run in the
+> terminal, not inside the script file itself.
 
 ### 1. Validate the script syntax
 
@@ -117,7 +159,6 @@ chmod +x scripts/run_validation_suite.sh
 ```
 
 This script executes:
-
 - prompt contract tests;
 - observability contract tests;
 - the full regression suite;
@@ -151,23 +192,24 @@ tail -n 20 docs/evidence/test_performance_all.log
 
 ## Observability Scope
 
-The observability layer in this repository is a local simulation aligned with Agentforce Session Tracing concepts.
+The observability layer in this repository is a local simulation aligned with
+Agentforce Session Tracing concepts.
 
 It validates deterministic KPI behavior for:
-
 - Grounded Answer Rate;
 - Fallback Rate;
 - Citation Coverage;
 - Session latency;
 - Supervisor route traceability;
-- guardrail event traceability.
+- Guardrail event traceability.
 
-This repository does not claim to expose live Salesforce production telemetry. It demonstrates the local measurement contract and its intended mapping to future enterprise observability integration.
+This repository does **not** claim to expose live Salesforce production
+telemetry. It demonstrates the local measurement contract and its intended
+mapping to future enterprise observability integration.
 
-## Repository Evidence
+## Repository References
 
 Primary evidence and validation files:
-
 ```text
 docs/evidence/interface/evidence-note.md
 docs/evidence/interface/screenshot-index.md
@@ -177,10 +219,7 @@ docs/TESTING.md
 scripts/run_validation_suite.sh
 ```
 
-
-### Demo Verification Commands
-
-Use the commands below during a live walkthrough or presentation:
+### Demo Verification Commands for Presentation
 ```bash
 bash -n scripts/run_validation_suite.sh
 chmod +x scripts/run_validation_suite.sh
@@ -188,3 +227,4 @@ chmod +x scripts/run_validation_suite.sh
 ls -lh docs/evidence/
 tail -n 20 docs/evidence/test_full_suite.log
 ```
+>>>>>>> e614bac (Update docs and validation evidence)
