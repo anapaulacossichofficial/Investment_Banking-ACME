@@ -46,9 +46,9 @@ mapping to Agentforce production telemetry.
 ## Validation Baseline
 
 ```text
-Prompt contract tests: 3 passed
+Prompt contract tests: 5 passed
 Observability contract tests: 8 passed
-Full regression suite: 31 passed
+Full regression suite: 35 passed
 Failures: 0
 ```
 
