@@ -1,0 +1,25 @@
+fallback:
+  enabled: true
+
+  scenarios:
+    no_evidence:
+      action: abstain
+      include_reason: true
+      include_next_best_action: true
+
+    partial_evidence:
+      action: answer_with_gap_callout
+      include_confidence_flag: true
+      include_missing_evidence_summary: true
+
+    missing_account_scope:
+      action: request_scope_clarification
+      include_valid_scope_examples: true
+
+    contact_not_found:
+      action: continue_with_account_level_brief_if_allowed
+      include_contact_gap_notice: true
+
+    unsupported_question:
+      action: redirect_to_supported_scope
+      include_supported_scope_summary: true

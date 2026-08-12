@@ -1,3 +1,4 @@
 pandas
 streamlit
 pytest
+PyYAML==6.0.3

@@ -1,0 +1,34 @@
+citation:
+  require_citations_for_material_claims: true
+  require_source_attribution: true
+  require_snippet_or_reference_binding: true
+
+  allowed_source_types:
+    - crm_record
+    - knowledge_document
+    - relationship_note
+    - research_material
+    - approved_competitive_source
+
+  citation_fields:
+    - source_id
+    - source_title
+    - source_type
+    - source_date
+    - source_owner
+    - confidence
+
+  rendering:
+    show_inline_citations: true
+    show_source_trace_panel: true
+    show_missing_metadata_warning: true
+
+  behavior:
+    suppress_uncited_material_claims: true
+    abstain_if_no_citable_evidence: true
+    allow_non_material_text_without_citation: false
+    preserve_source_wording_meaning: true
+
+  validation:
+    minimum_citation_coverage_rate: 0.99
+    reject_if_source_metadata_missing_for_claim: true

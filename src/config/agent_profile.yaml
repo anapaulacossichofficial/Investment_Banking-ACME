@@ -1,0 +1,27 @@
+solution_name: salesforce-banker-assistant-lab
+primary_capability: meeting_prep
+secondary_capability: competitive_intelligence
+
+supervisor:
+  enabled: true
+  responsibilities:
+    - intent_routing
+    - scope_validation
+    - guardrail_gate
+    - capability_delegation
+
+capabilities:
+  meeting_prep:
+    enabled: true
+    owner: MeetingPrepAgent
+    scope:
+      - account_briefing
+      - contact_preparation
+      - meeting_summary
+  competitive_intelligence:
+    enabled: true
+    owner: CompetitiveIntelligenceAgent
+    scope:
+      - peer_benchmarking
+      - strategic_comparison
+      - source_grounded_comp_brief

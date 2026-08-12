@@ -1,0 +1,75 @@
+decision:
+  primary_recommendation: dmo_backed_data_cloud_retriever
+  architecture_role: target_state
+  status: approved_for_solution_design
+
+rationale:
+  - hybrid_search_with_metadata_filters
+  - better_fit_for_long_financial_documents
+  - scalable_reuse_for_future_agents
+  - stronger_architecture_judgment_for_enterprise_ib
+
+runtime_profiles:
+  demo:
+    enabled_strategy: controlled_grounding_layer
+    crm_source: local_structured_fixtures
+    knowledge_source: local_unstructured_documents
+    competitive_source: data/competitive
+  target:
+    enabled_strategy: dmo_backed_data_cloud_retriever
+    crm_source: salesforce_crm_or_data_cloud
+    knowledge_source: enterprise_knowledge_store
+    competitive_source: approved_market_intelligence_provider
+
+runtime_modes:
+  local_demo:
+    enabled_strategy: controlled_grounding_layer
+    purpose:
+      - deterministic_demo_behavior
+      - local_testing
+      - stable_citation_output
+      - lower_integration_risk
+    constraints:
+      - must_preserve_scope_lock
+      - must_preserve_citation_contract
+      - must_preserve_fallback_contract
+
+  target_state:
+    enabled_strategy: dmo_backed_data_cloud_retriever
+    purpose:
+      - enterprise_scale
+      - governance
+      - reusable_retrieval_for_30_plus_agents
+      - stronger_metadata_filtering
+
+tradeoff:
+  controlled_grounding_layer:
+    strengths:
+      - faster_setup
+      - simpler_demo_operation
+      - deterministic_behavior_for_panel
+      - easier_source_trace_validation
+    limitations:
+      - weaker_metadata_filtering
+      - less_scalable_for_multi_agent_reuse
+      - weaker_target_architecture_story
+
+  dmo_backed_data_cloud_retriever:
+    strengths:
+      - richer_metadata_filtering
+      - better_document_segmentation_control
+      - stronger_fit_for_financial_research_scale
+      - easier_extension_to_multi_agent_future_state
+    limitations:
+      - higher_setup_complexity
+      - more_dependencies_for_full_productionization
+
+selection_rules:
+  - if: environment == "local_demo"
+    use: controlled_grounding_layer
+  - if: environment == "test"
+    use: controlled_grounding_layer
+  - if: environment == "target_architecture"
+    use: dmo_backed_data_cloud_retriever
+  - if: environment == "production"
+    use: dmo_backed_data_cloud_retriever

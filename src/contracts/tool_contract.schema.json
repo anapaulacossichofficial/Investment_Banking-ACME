@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ToolContract",
+  "type": "object",
+  "required": ["tool_name", "input_schema", "output_schema", "version"],
+  "properties": {
+    "tool_name": { "type": "string" },
+    "version": { "type": "string" },
+    "input_schema": { "type": "object" },
+    "output_schema": { "type": "object" },
+    "metadata": { "type": "object" }
+  }
+}

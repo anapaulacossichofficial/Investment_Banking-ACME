@@ -1,85 +1,49 @@
-<<<<<<< HEAD
-## Executive Summary: ACME Banking Application
-
-- What the ACME working build demonstrates
-- How to run the demo
-- Which account scenarios to use
-- How grounding, citations, and fallback behave
-- Link to validation matrix
-- Link to architecture
-- Link to prompt evolution
-
-
-## Enterprise Visual Preview
-
-The application includes an executive banking interface designed for
-institutional coverage workflows and competitive intelligence analysis.
-
-### Main Intelligence Hub
-
-![ACME_Banking Intelligence Hub](docs/screenshots/home-dashboard.png)
-
-![Competitive Intelligence](docs/screenshots/competitive-intelligence.png)
-
-![Executive Briefing](docs/screenshots/executive-briefing.png)
-
-![Peer Benchmarking](docs/screenshots/executive-briefing_peer-benchmarking.png)
-
-![Strategic Insights](docs/screenshots/executive-briefing_strategicinsights.png)
-=======
 # ACME Investment Banking Working Build
 
-A local Streamlit working build for executive meeting preparation, grounded CRM
-analysis, competitive intelligence workflows, and simulated observability
-validation.
+A local Streamlit working build for executive meeting preparation, grounded CRM analysis, competitive intelligence workflows, and simulated observability validation.
 
 ## Overview
 
-This repository demonstrates a deterministic working build aligned with
-enterprise coverage workflows.
+This repository demonstrates a deterministic working build aligned with enterprise coverage workflows.
 
 The solution combines:
 
-- executive meeting briefing generation;
-- CRM retrieval and grounding;
-- knowledge-source tracing and citations;
-- competitive intelligence analysis;
-- Zero-Trust prompt governance;
-- fallback handling for missing data;
-- Supervisor routing validation;
-- simulated observability KPI contracts.
+- Executive meeting briefing generation
+- CRM retrieval and grounding
+- Knowledge-source tracing and citations
+- Competitive intelligence analysis
+- Zero-Trust prompt governance
+- Fallback handling for missing data
+- Supervisor routing validation
+- Simulated observability KPI contracts
 
-## Validation Status
+## Executive Summary
 
-The current validation package includes:
+The ACME working build demonstrates:
 
-- Executive briefing UI evidence.
-- CRM and knowledge grounding evidence.
-- Citation and source tracing evidence.
-- Competitive intelligence routing evidence.
-- Missing-account and missing-knowledge fallback evidence.
-- Adversarial prompt rejection evidence.
-- Prompt governance contract validation.
-- Observability KPI contract validation.
-- Full regression and JUnit XML evidence.
+- Grounded executive briefing generation from local CRM fixtures and approved knowledge sources
+- Account and contact scoping before downstream analysis
+- Competitive intelligence, peer benchmarking, strategic insights, and meeting-preparation workflows
+- Citation, source-tracing, and no-evidence fallback behavior
+- Prompt, observability, regression, and JUnit-based validation evidence
 
-Current automated baseline:
+## Architecture at a Glance
 
-```text
-Prompt contract tests: 3 passed
-Observability contract tests: 8 passed
-Full regression suite: 31 passed
-Failures: 0
-```
+| Diagram | Purpose |
+|---|---|
+| [Solution Flow](docs/architecture/solution-flow.png) | Executive path from user interaction to evidence package |
+| [High-Level Architecture](docs/architecture/high-level-architecture.png) | Functional flow across agents, CRM, knowledge grounding, and assurance |
+| [Detailed Architecture & Salesforce Target Mapping](docs/architecture/detailed-architecture-salesforce-mapping.png) | Local implementation detail and target-state Salesforce / Agentforce mapping |
 
-Visual evidence is stored under `docs/screenshots/`, and automated evidence is
-stored under `docs/evidence/`.
+<p align="center">
+  <img src="docs/architecture/solution-flow.png" alt="Solution Flow" width="900">
+</p>
+
+For the complete architecture package, see [docs/architecture/README.md](docs/architecture/README.md).
 
 ## Enterprise Visual Preview
 
-The application includes an executive banking interface designed for
-institutional coverage workflows, grounded meeting preparation, and
-competitive intelligence analysis.
+The application provides an executive banking interface for institutional coverage workflows, grounded meeting preparation, and competitive intelligence analysis.
 
 ### Main Intelligence Hub
 
@@ -115,14 +79,29 @@ competitive intelligence analysis.
 
 ![Adversarial Prompt Rejection](docs/screenshots/8_Hallucination_adversarial-prompt.png)
 
+## Validation Status
+
+The validation package includes:
+
+- Executive briefing UI evidence
+- CRM and knowledge grounding evidence
+- Citation and source-tracing evidence
+- Competitive intelligence routing evidence
+- Missing-account and missing-knowledge fallback evidence
+- Adversarial prompt rejection evidence
+- Prompt governance contract validation
+- Observability KPI contract validation
+- Full regression and JUnit XML evidence
+
+Visual evidence is stored under `docs/screenshots/`, and automated evidence is stored under `docs/evidence/`.
+
 ## Test Architecture
 
 The repository validates behavior at three complementary levels:
 
-- **Visual validation**, through screenshots under `docs/screenshots/`;
-- **Prompt governance validation**, through `tests/test_prompts_contract.py`;
-- **Observability and regression validation**, through `tests/test_observability_contract.py`
-  and the full pytest suite.
+- **Visual validation** through screenshots under `docs/screenshots/`
+- **Prompt governance validation** through `tests/test_prompts_contract.py`
+- **Observability and regression validation** through `tests/test_observability_contract.py` and the full pytest suite
 
 Generated evidence includes:
 
@@ -134,56 +113,44 @@ docs/evidence/test-results.xml
 docs/evidence/test_performance_all.log
 ```
 
-## Run the Validation Suite
-> To run the full validation package and regenerate the evidence logs, use the
-> commands below.
-> Note: `chmod +x` and `./scripts/run_validation_suite.sh` must be run in the
-> terminal, not inside the script file itself.
+## Run the Application
 
-### 1. Validate the script syntax
+```bash
+streamlit run streamlit_app.py
+```
+
+## Run the Validation Suite
+
+Validate script syntax:
 
 ```bash
 bash -n scripts/run_validation_suite.sh
 ```
 
-### 2. Make the script executable
+Make the script executable:
 
 ```bash
 chmod +x scripts/run_validation_suite.sh
 ```
 
-### 3. Run the full validation suite
+Run the complete validation suite:
 
 ```bash
 ./scripts/run_validation_suite.sh
 ```
 
-This script executes:
-- prompt contract tests;
-- observability contract tests;
-- the full regression suite;
-- JUnit XML generation;
-- performance logging.
+The suite executes:
 
-### 4. Verify generated evidence
+- Prompt contract tests
+- Observability contract tests
+- Full regression suite
+- JUnit XML generation
+- Performance logging
+
+Review the generated evidence:
 
 ```bash
 ls -lh docs/evidence/
-```
-
-Expected generated artifacts:
-
-```text
-docs/evidence/test_prompts_contract.log
-docs/evidence/test_observability_contract.log
-docs/evidence/test_full_suite.log
-docs/evidence/test-results.xml
-docs/evidence/test_performance_all.log
-```
-
-### 5. Review the latest results
-
-```bash
 tail -n 20 docs/evidence/test_prompts_contract.log
 tail -n 20 docs/evidence/test_observability_contract.log
 tail -n 20 docs/evidence/test_full_suite.log
@@ -192,25 +159,25 @@ tail -n 20 docs/evidence/test_performance_all.log
 
 ## Observability Scope
 
-The observability layer in this repository is a local simulation aligned with
-Agentforce Session Tracing concepts.
+The observability layer is a local simulation aligned with Agentforce Session Tracing concepts.
 
 It validates deterministic KPI behavior for:
-- Grounded Answer Rate;
-- Fallback Rate;
-- Citation Coverage;
-- Session latency;
-- Supervisor route traceability;
-- Guardrail event traceability.
 
-This repository does **not** claim to expose live Salesforce production
-telemetry. It demonstrates the local measurement contract and its intended
-mapping to future enterprise observability integration.
+- Grounded Answer Rate
+- Fallback Rate
+- Citation Coverage
+- Session latency
+- Supervisor route traceability
+- Guardrail event traceability
+
+This repository does not claim to expose live Salesforce production telemetry. It demonstrates the local measurement contract and its intended mapping to a future enterprise observability integration.
 
 ## Repository References
 
 Primary evidence and validation files:
+
 ```text
+docs/architecture/README.md
 docs/evidence/interface/evidence-note.md
 docs/evidence/interface/screenshot-index.md
 docs/evidence/interface/validation-log.md
@@ -219,12 +186,8 @@ docs/TESTING.md
 scripts/run_validation_suite.sh
 ```
 
-### Demo Verification Commands for Presentation
-```bash
-bash -n scripts/run_validation_suite.sh
-chmod +x scripts/run_validation_suite.sh
-./scripts/run_validation_suite.sh
-ls -lh docs/evidence/
-tail -n 20 docs/evidence/test_full_suite.log
-```
->>>>>>> e614bac (Update docs and validation evidence)
+## Prompt Templates
+
+The single source of truth for prompt templates is the `src/prompts/` directory.
+
+Legacy prompt files are archived under `docs/templates/legacy-prompts/`.
