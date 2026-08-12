@@ -2,7 +2,7 @@
 Streamlit Local Laboratory UI (ib-agent-demo)
 
 Visualizes the Agentforce Meeting Prep Agent workflow
-for institutional accounts.
+for investment accounts.
 """
 
 import sys
@@ -47,6 +47,8 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
+# --- ENTERPRISE GENERATIVE SEARCH BAR (AWS/EINSTEIN STYLE) ---
 
 st.markdown("### 🤖 Ask Agentforce")
 generative_query = st.chat_input(
@@ -222,6 +224,11 @@ with st.sidebar:
         help="Shows test-only controls for fallback and hallucination screenshots.",
     )
 
+    validation_scenario = None
+    validation_account = None
+    validation_prompt = None
+    validation_execute = False
+
     if validation_mode:
         st.caption("Validation controls for evidence capture only.")
 
@@ -257,14 +264,10 @@ with st.sidebar:
             use_container_width=True,
             key="main_validation_execute",
         )
-    else:
-        validation_scenario = None
-        validation_account = None
-        validation_prompt = None
-        validation_execute = False
 
 col1, col2 = st.columns([2, 1])
 
+# --- VALIDATION MODE OUTPUT ---
 if validation_mode and validation_execute:
     with col1:
         if validation_scenario == "Fallback - missing account":

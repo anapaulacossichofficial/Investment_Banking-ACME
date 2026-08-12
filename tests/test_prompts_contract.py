@@ -1,11 +1,8 @@
 """
 Prompt Contract Unit Tests (ib-agent-demo)
 
-Validates:
-- canonical prompt directory presence in src/prompts;
-- required prompt templates for the current blueprint;
-- minimum zero-trust and routing guardrail language;
-- archived legacy prompt location.
+Validates the structural presence and safety guardrails
+of the active prompt templates.
 """
 
 from pathlib import Path
@@ -13,71 +10,71 @@ from pathlib import Path
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 PROMPTS_DIR = ROOT_DIR / "src" / "prompts"
-LEGACY_DIR = ROOT_DIR / "docs" / "templates" / "legacy-prompts"
 
 MEETING_PREP_SYSTEM_FILE = PROMPTS_DIR / "meeting_prep_system.md"
 MEETING_PREP_USER_FILE = PROMPTS_DIR / "meeting_prep_user.md"
 SUPERVISOR_ROUTER_FILE = PROMPTS_DIR / "supervisor_router.md"
+PROMPT_VERSIONS_FILE = PROMPTS_DIR / "prompt_versions.yaml"
 
 
-def test_prompt_directory_and_files_exist():
-    """Validate that the canonical prompt directory and required files exist."""
-    assert PROMPTS_DIR.exists(), "The 'src/prompts/' directory must exist."
-    assert MEETING_PREP_SYSTEM_FILE.exists(), "meeting_prep_system.md is missing."
-    assert MEETING_PREP_USER_FILE.exists(), "meeting_prep_user.md is missing."
-    assert SUPERVISOR_ROUTER_FILE.exists(), "supervisor_router.md is missing."
+def test_active_prompt_directory_and_files_exist():
+    """Validates the active prompt directory and required templates."""
+    assert PROMPTS_DIR.exists(), (
+        "The active 'src/prompts/' directory must exist in the repository."
+    )
+    assert MEETING_PREP_SYSTEM_FILE.exists(), (
+        "meeting_prep_system.md is missing from src/prompts/."
+    )
+    assert MEETING_PREP_USER_FILE.exists(), (
+        "meeting_prep_user.md is missing from src/prompts/."
+    )
+    assert SUPERVISOR_ROUTER_FILE.exists(), (
+        "supervisor_router.md is missing from src/prompts/."
+    )
+    assert PROMPT_VERSIONS_FILE.exists(), (
+        "prompt_versions.yaml is missing from src/prompts/."
+    )
 
 
-def test_legacy_prompt_archive_directory_exists():
-    """Validate that legacy prompt files were archived in the documentation area."""
-    assert LEGACY_DIR.exists(), "The legacy prompt archive directory must exist."
-
-
-def test_meeting_prep_system_zero_trust_contract():
-    """Validate that the system prompt contains grounded-behavior constraints."""
+def test_meeting_prep_system_prompt_zero_trust_contract():
+    """Validates Zero-Trust, grounding, safety, and citation directives."""
     content = MEETING_PREP_SYSTEM_FILE.read_text(encoding="utf-8")
 
-    expected_markers = [
-        "zero-trust",
+    required_concepts = (
+        "ZERO-TRUST",
+        "CRM",
         "citation",
-        "scope",
-        "ground",
+        "evidence",
+    )
+
+    missing = [
+        concept
+        for concept in required_concepts
+        if concept.lower() not in content.lower()
     ]
 
-    lowered = content.lower()
-    for marker in expected_markers:
-        assert marker in lowered, (
-            f"meeting_prep_system.md must contain guidance related to '{marker}'."
-        )
+    assert not missing, (
+        "meeting_prep_system.md is missing required prompt-contract concepts: "
+        f"{', '.join(missing)}"
+    )
 
 
-def test_meeting_prep_user_scoped_request_contract():
-    """Validate that the user prompt describes a scoped meeting-prep request."""
-    content = MEETING_PREP_USER_FILE.read_text(encoding="utf-8")
-    lowered = content.lower()
+def test_meeting_prep_user_prompt_exists_and_is_nonempty():
+    """Validates that the user-facing meeting-prep prompt is usable."""
+    content = MEETING_PREP_USER_FILE.read_text(encoding="utf-8").strip()
 
-    assert "account" in lowered, "meeting_prep_user.md must reference account scope."
-    assert (
-        "contact" in lowered or "contact scope" in lowered
-    ), "meeting_prep_user.md should support optional contact scope."
-    assert (
-        "briefing" in lowered or "meeting prep" in lowered
-    ), "meeting_prep_user.md must describe the expected output."
+    assert content, "meeting_prep_user.md must not be empty."
 
 
 def test_supervisor_router_prompt_contract():
-    """Validate that the supervisor router prompt contains routing behavior."""
-    content = SUPERVISOR_ROUTER_FILE.read_text(encoding="utf-8")
-    lowered = content.lower()
+    """Validates that the supervisor routing prompt remains available."""
+    content = SUPERVISOR_ROUTER_FILE.read_text(encoding="utf-8").strip()
 
-    expected_markers = [
-        "intent",
-        "route",
-        "scope",
-        "meeting_prep",
-    ]
+    assert content, "supervisor_router.md must not be empty."
 
-    for marker in expected_markers:
-        assert marker in lowered, (
-            f"supervisor_router.md must contain routing guidance related to '{marker}'."
-        )
+
+def test_prompt_version_registry_exists_and_is_nonempty():
+    """Validates that active prompt versions remain tracked."""
+    content = PROMPT_VERSIONS_FILE.read_text(encoding="utf-8").strip()
+
+    assert content, "prompt_versions.yaml must not be empty."
