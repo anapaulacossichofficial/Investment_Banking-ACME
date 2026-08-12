@@ -2,9 +2,11 @@ from __future__ import annotations
 from pathlib import Path
 import yaml
 
+
 BASE_DIR = Path(__file__).resolve().parents[1]
 CONFIG_DIR = BASE_DIR / "config"
 PROMPTS_DIR = BASE_DIR / "prompts"
+
 
 DEFAULTS = {
     "data_source_strategy": {
@@ -99,11 +101,20 @@ DEFAULTS = {
     },
 }
 
+
+DEFAULT_PROMPTS = {
+    "meeting_prep_system": """You are the Meeting Prep Agent...""",
+    "meeting_prep_user": """Prepare a meeting briefing for the following scoped request...""",
+    "supervisor_router": """You are the Supervisor Router...""",
+}
+
+
 def _safe_load(path: Path):
     if not path.exists():
         return None
     with path.open("r", encoding="utf-8") as f:
         return yaml.safe_load(f) or {}
+
 
 def deep_merge(base, override):
     if not isinstance(base, dict) or not isinstance(override, dict):
@@ -113,6 +124,7 @@ def deep_merge(base, override):
         merged[k] = deep_merge(base.get(k), v)
     return merged
 
+
 def load_yaml_config(name: str):
     path = CONFIG_DIR / f"{name}.yaml"
     loaded = _safe_load(path)
@@ -121,19 +133,37 @@ def load_yaml_config(name: str):
         return default
     return deep_merge(default, loaded)
 
+
 def load_prompt(name: str):
     path = PROMPTS_DIR / f"{name}.md"
     if path.exists():
         return path.read_text(encoding="utf-8")
-    fallback = {
-        "meeting_prep_system": DEFAULT_PROMPTS["meeting_prep_system"],
-        "meeting_prep_user": DEFAULT_PROMPTS["meeting_prep_user"],
-        "supervisor_router": DEFAULT_PROMPTS["supervisor_router"],
-    }
-    return fallback.get(name, "")
+    return DEFAULT_PROMPTS.get(name, "")
 
-DEFAULT_PROMPTS = {
-    "meeting_prep_system": """You are the Meeting Prep Agent...""",
-    "meeting_prep_user": """Prepare a meeting briefing for the following scoped request...""",
-    "supervisor_router": """You are the Supervisor Router...""",
-}
+
+class ConfigLoader:
+    """Convenience wrapper around YAML and prompt loading."""
+
+    def get_data_source_strategy(self):
+        return load_yaml_config("data_source_strategy")
+
+    def get_retrieval_policy(self):
+        return load_yaml_config("retrieval_policy")
+
+    def get_citation_policy(self):
+        return load_yaml_config("citation_policy")
+
+    def get_guardrail_policy(self):
+        return load_yaml_config("guardrail_policy")
+
+    def get_fallback_policy(self):
+        return load_yaml_config("fallback_policy")
+
+    def get_observability_policy(self):
+        return load_yaml_config("observability_policy")
+
+    def get_agent_profile(self):
+        return load_yaml_config("agent_profile")
+
+    def get_prompt(self, name: str):
+        return load_prompt(name)

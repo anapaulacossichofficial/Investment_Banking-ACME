@@ -25,3 +25,14 @@ institutional coverage workflows and competitive intelligence analysis.
 ![Peer Benchmarking](docs/screenshots/executive-briefing_peer-benchmarking.png)
 
 ![Strategic Insights](docs/screenshots/executive-briefing_strategicinsights.png)
+
+## Prompt Templates:
+>> The single source of truth for prompt templates is the `src/prompts/` directory.
+
+>> Legacy prompt files were archived in `docs/templates/legacy-prompts/`.
+
+
+### Demo Execution Tests:
+python -m pytest -q
+python -m pytest -v
+streamlit run streamlit_app.py

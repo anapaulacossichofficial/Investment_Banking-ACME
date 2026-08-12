@@ -3,12 +3,10 @@ from pathlib import Path
 
 import streamlit as st
 
-
 ROOT_DIR = Path(__file__).resolve().parent.parent
 
 if str(ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR))
-
 
 from agents.competitive_intelligence_agent import (
     CompetitiveIntelligenceAgent,
@@ -20,13 +18,37 @@ from ui.styles import apply_bankiq_style
 
 
 st.set_page_config(
-    page_title="ACME_Banking Competitive Intelligence",
+    page_title="Competitive Intelligence",
     page_icon="📊",
     layout="wide",
-    initial_sidebar_state="expanded",
 )
 
 apply_bankiq_style()
+
+st.markdown(
+    """
+    <style>
+    section[data-testid="stSidebar"] {
+        min-width: 330px;
+        max-width: 380px;
+    }
+
+    section[data-testid="stSidebar"] .stMultiSelect {
+        width: 100%;
+    }
+
+    section[data-testid="stSidebar"] [data-baseweb="tag"] {
+        margin: 0.15rem 0.15rem 0.15rem 0;
+    }
+
+    section[data-testid="stSidebar"] [data-baseweb="tag"] span {
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
 
 @st.cache_resource
@@ -35,9 +57,7 @@ def get_retriever() -> CompetitiveIntelligenceRetriever:
 
 
 @st.cache_resource
-def get_agent(
-    base_institution: str,
-) -> CompetitiveIntelligenceAgent:
+def get_agent(base_institution: str) -> CompetitiveIntelligenceAgent:
     return CompetitiveIntelligenceAgent(
         base_institution=base_institution,
     )
@@ -45,20 +65,18 @@ def get_agent(
 
 retriever = get_retriever()
 
-
 st.markdown(
     """
     <div class="enterprise-header">
-        <h1>📊 ACME_Banking Competitive Intelligence Hub</h1>
+        <h1>📊 ACME_Banking Competitive Intelligence</h1>
         <p>
-            Institutional peer benchmarking, market metrics,
-            and strategic positioning insights
+            Institutional peer benchmarking, strategic insight support,
+            and approved source tracing.
         </p>
     </div>
     """,
     unsafe_allow_html=True,
 )
-
 
 institutions = retriever.get_institution_options()
 
@@ -66,13 +84,9 @@ if not institutions:
     st.error("No competitive institutions were found.")
     st.stop()
 
-
 with st.sidebar:
-    st.markdown("### ⚙️ Benchmark Configuration")
-    st.caption(
-        "Select the institutional base and peer comparison set."
-    )
-    st.markdown("---")
+    st.markdown("## Analysis Scope")
+    st.caption("Select the base institution and peer benchmarks.")
 
     default_base = (
         "ACME_Banking"
@@ -85,17 +99,13 @@ with st.sidebar:
         options=institutions,
         index=institutions.index(default_base),
         key="competitive_base_institution",
-        help="Institution used as the primary benchmark reference.",
+        help="Institution used as the primary comparison reference.",
     )
 
-    peer_options = retriever.get_peer_options(
-        base_institution
-    )
+    peer_options = retriever.get_peer_options(base_institution)
 
     if not peer_options:
-        st.warning(
-            f"No peer benchmarks found for {base_institution}."
-        )
+        st.warning(f"No peer benchmarks were found for {base_institution}.")
         st.stop()
 
     selected_peers = st.multiselect(
@@ -104,120 +114,71 @@ with st.sidebar:
         default=[],
         key="competitive_peer_institutions",
         placeholder="Choose one or more peers",
-        help="Select one or more institutions for comparison.",
+        help="Select the institutions to include in the comparison.",
     )
 
-    generate_briefing = st.button(
+    run_analysis = st.button(
         "Generate Competitive Briefing",
         type="primary",
         use_container_width=True,
+        key="competitive_run_analysis",
     )
-
-
-st.markdown(
-    f"""
-    <div class="scope-card">
-        <strong>Active Analysis Scope:</strong>
-        {base_institution}
-        &nbsp;&nbsp;|&nbsp;&nbsp;
-        <strong>Peer Set:</strong>
-        {
-            ", ".join(selected_peers)
-            if selected_peers
-            else "None selected"
-        }
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
-
 
 if not selected_peers:
     st.info(
-        "Select at least one peer institution in the sidebar."
+        "Select at least one peer institution in the sidebar "
+        "to generate the competitive briefing."
     )
     st.stop()
 
-
-if not generate_briefing:
+if not run_analysis:
     st.info(
-        "Click **Generate Competitive Briefing** "
-        "to render the executive analysis."
+        "Click **Generate Competitive Briefing** to run the analysis."
     )
     st.stop()
-
 
 agent = get_agent(base_institution)
 
-
-tab_briefing, tab_metrics, tab_insights = st.tabs(
-    [
-        "📑 Executive Briefing",
-        "📈 Peer Benchmarking",
-        "💡 Strategic Insights & Sources",
-    ]
+briefing = agent.generate_competitive_briefing(
+    peer_institutions=selected_peers,
 )
 
+st.caption(
+    f"Analysis scope: {base_institution} versus "
+    f"{', '.join(selected_peers)}"
+)
 
-with tab_briefing:
-    st.subheader("Autonomous Briefing Synthesis")
+col1, col2 = st.columns([1.6, 1])
 
-    briefing = agent.generate_competitive_briefing(
-        peer_institutions=selected_peers,
-    )
-
+with col1:
+    st.subheader("Executive Competitive Briefing")
     st.code(briefing, language="text")
 
-    st.markdown(
-        """
-        <div class="guardrail-card">
-            <strong>Validation note:</strong>
-            The briefing is grounded in approved local competitive fixtures
-            and should be validated against current CRM coverage context.
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-
-with tab_metrics:
-    st.subheader("Key Financial & Market Metrics")
+    st.markdown("---")
+    st.subheader("Peer Metrics")
 
     for peer in selected_peers:
-        st.markdown(
-            f"""
-            <div class="peer-card">
-                <div class="peer-card-title">🏛️ {peer}</div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
         metrics = retriever.get_metrics(
             base_institution_name=base_institution,
             peer_name=peer,
         )
 
+        st.markdown(f"**{peer}**")
+
         if not metrics:
             st.info("No metrics available.")
             continue
 
-        columns = st.columns(len(metrics))
+        metric_columns = st.columns(len(metrics))
 
         for column, (metric_name, metric_value) in zip(
-            columns,
+            metric_columns,
             metrics.items(),
         ):
-            column.metric(
-                metric_name,
-                metric_value,
-            )
+            column.metric(metric_name, metric_value)
 
-
-with tab_insights:
-    st.subheader(
-        "Approved Research & Compliance Insights"
-    )
+with col2:
+    st.subheader("Approved Insight References")
 
     for peer in selected_peers:
         insight = retriever.get_insight(
@@ -226,56 +187,34 @@ with tab_insights:
         )
 
         if not insight:
-            st.info(
-                f"No approved insights available for {peer}."
+            st.info(f"No approved insight available for {peer}.")
+            continue
+
+        with st.container(border=True):
+            st.markdown(f"**{peer}**")
+            st.write(
+                f"**Takeaway:** {insight.get('takeaway', 'Not available')}"
             )
-            continue
-
-        st.markdown(
-            f"""
-            <div class="insight-card">
-                <div class="peer-card-title">vs {peer}</div>
-                <div>
-                    <strong>Takeaway:</strong>
-                    {insight.get("takeaway", "Not available")}
-                </div>
-                <div>
-                    <strong>Recommendation:</strong>
-                    {insight.get("recommendation", "Not available")}
-                </div>
-                <div>
-                    <strong>Confidence:</strong>
-                    {insight.get("confidence", "Unknown")}
-                </div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
-        source_id = insight.get("source_id")
-
-        if not source_id:
-            st.caption("No source identifier available.")
-            continue
-
-        sources = retriever.get_sources(
-            [str(source_id)]
-        )
-
-        if not sources:
+            st.write(
+                "**Recommendation:** "
+                f"{insight.get('recommendation', 'Not available')}"
+            )
             st.caption(
-                "No approved source labels available."
+                f"Confidence: {insight.get('confidence', 'Unknown')}"
             )
-            continue
 
-        st.markdown("**Verified Sources**")
+            source_id = insight.get("source_id")
 
-        for source in sources:
-            st.markdown(
-                f"""
-                <div class="source-card">
-                    ✓ {source}
-                </div>
-                """,
-                unsafe_allow_html=True,
-            )
+            if source_id:
+                sources = retriever.get_sources([str(source_id)])
+
+                if sources:
+                    st.markdown("**Sources:**")
+                    for source in sources:
+                        st.code(source, language="text")
+
+st.markdown("---")
+st.caption(
+    "Competitive Intelligence capability aligned to approved local fixtures "
+    "and source-trace requirements."
+)
