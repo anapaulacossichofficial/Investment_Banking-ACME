@@ -3,61 +3,60 @@ platform linux -- Python 3.12.3, pytest-9.1.1, pluggy-1.6.0 -- /mnt/c/4_SalesFor
 cachedir: .pytest_cache
 rootdir: /mnt/c/4_SalesForce/2_PannelAnalysis_Investment-Banking
 plugins: anyio-4.14.2
-collecting ... collected 31 items
+collecting ... collected 35 items
 
-tests/test_competitive_intelligence_agent.py::test_competitive_intelligence_agent_module_imports PASSED [  3%]
-tests/test_competitive_intelligence_agent.py::test_competitive_intelligence_agent_exposes_something_usable PASSED [  6%]
-tests/test_competitive_intelligence_retriever.py::test_retriever_initialization PASSED [  9%]
-tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_institutions-required_columns0] PASSED [ 12%]
-tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_peers-required_columns1] PASSED [ 16%]
-tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_metrics-required_columns2] PASSED [ 19%]
-tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_insights-required_columns3] PASSED [ 22%]
-tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_sources-required_columns4] PASSED [ 25%]
-tests/test_competitive_intelligence_retriever.py::test_get_institution_options_contains_base_institution PASSED [ 29%]
-tests/test_competitive_intelligence_retriever.py::test_get_peer_options_returns_configured_peers PASSED [ 32%]
-tests/test_competitive_intelligence_retriever.py::test_get_metrics_returns_dictionary_for_valid_peer PASSED [ 35%]
-tests/test_competitive_intelligence_retriever.py::test_get_insight_contains_expected_fields_for_valid_peer PASSED [ 38%]
-tests/test_competitive_intelligence_retriever.py::test_get_sources_returns_approved_source_labels PASSED [ 41%]
-tests/test_competitive_intelligence_retriever.py::test_current_retriever_does_not_require_get_context PASSED [ 45%]
-tests/test_crm_retriever.py::test_get_account_bundle_returns_expected_keys PASSED [ 48%]
-tests/test_crm_retriever.py::test_get_account_bundle_filters_by_account_id PASSED [ 51%]
-tests/test_observability_contract.py::test_observability_fixture_exists PASSED [ 54%]
-tests/test_observability_contract.py::test_required_event_schema PASSED  [ 58%]
-tests/test_observability_contract.py::test_grounded_answer_rate PASSED   [ 61%]
-tests/test_observability_contract.py::test_fallback_rate PASSED          [ 64%]
-tests/test_observability_contract.py::test_citation_coverage PASSED      [ 67%]
-tests/test_observability_contract.py::test_session_latency PASSED        [ 70%]
-tests/test_observability_contract.py::test_supervisor_route_trace PASSED [ 74%]
-tests/test_observability_contract.py::test_guardrail_event_is_traceable PASSED [ 77%]
-tests/test_page_competitive_intelligence.py::test_page_competitive_intelligence_imports_without_app_templates PASSED [ 80%]
-tests/test_prompts_contract.py::test_prompt_directory_and_files_exist PASSED [ 83%]
-tests/test_prompts_contract.py::test_fallback_prompt_safety_contract PASSED [ 87%]
-tests/test_prompts_contract.py::test_meeting_prep_prompt_zero_trust_contract PASSED [ 90%]
-tests/test_smoke.py::test_smoke PASSED                                   [ 93%]
-tests/test_supervisor_and_meeting_prep.py::test_supervisor_routes_intents PASSED [ 96%]
-tests/test_supervisor_and_meeting_prep.py::test_meeting_prep_agent_generates_briefing PASSED [100%]
+tests/test_competitive_intelligence_agent.py::test_competitive_intelligence_agent_module_imports PASSED [  2%]
+tests/test_competitive_intelligence_agent.py::test_competitive_intelligence_agent_exposes_something_usable PASSED [  5%]
+tests/test_competitive_intelligence_retriever.py::test_retriever_initialization PASSED [  8%]
+tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_institutions-required_columns0] PASSED [ 11%]
+tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_peers-required_columns1] PASSED [ 14%]
+tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_metrics-required_columns2] PASSED [ 17%]
+tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_insights-required_columns3] PASSED [ 20%]
+tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_sources-required_columns4] PASSED [ 22%]
+tests/test_competitive_intelligence_retriever.py::test_get_institution_options_contains_base_institution PASSED [ 25%]
+tests/test_competitive_intelligence_retriever.py::test_get_peer_options_returns_configured_peers PASSED [ 28%]
+tests/test_competitive_intelligence_retriever.py::test_get_metrics_returns_dictionary_for_valid_peer PASSED [ 31%]
+tests/test_competitive_intelligence_retriever.py::test_get_insight_contains_expected_fields_for_valid_peer PASSED [ 34%]
+tests/test_competitive_intelligence_retriever.py::test_get_sources_returns_approved_source_labels PASSED [ 37%]
+tests/test_competitive_intelligence_retriever.py::test_current_retriever_does_not_require_get_context PASSED [ 40%]
+tests/test_crm_retriever.py::test_get_account_bundle_returns_expected_keys PASSED [ 42%]
+tests/test_crm_retriever.py::test_get_account_bundle_filters_by_account_id PASSED [ 45%]
+tests/test_handoff_contract.py::test_handoff_contract_generation PASSED  [ 48%]
+tests/test_observability_contract.py::test_observability_fixture_exists PASSED [ 51%]
+tests/test_observability_contract.py::test_required_event_schema PASSED  [ 54%]
+tests/test_observability_contract.py::test_grounded_answer_rate PASSED   [ 57%]
+tests/test_observability_contract.py::test_fallback_rate PASSED          [ 60%]
+tests/test_observability_contract.py::test_citation_coverage PASSED      [ 62%]
+tests/test_observability_contract.py::test_session_latency PASSED        [ 65%]
+tests/test_observability_contract.py::test_supervisor_route_trace PASSED [ 68%]
+tests/test_observability_contract.py::test_guardrail_event_is_traceable PASSED [ 71%]
+tests/test_page_competitive_intelligence.py::test_page_competitive_intelligence_imports_without_app_templates PASSED [ 74%]
+tests/test_prompts_contract.py::test_active_prompt_directory_and_files_exist PASSED [ 77%]
+tests/test_prompts_contract.py::test_meeting_prep_system_prompt_zero_trust_contract PASSED [ 80%]
+tests/test_prompts_contract.py::test_meeting_prep_user_prompt_exists_and_is_nonempty PASSED [ 82%]
+tests/test_prompts_contract.py::test_supervisor_router_prompt_contract PASSED [ 85%]
+tests/test_prompts_contract.py::test_prompt_version_registry_exists_and_is_nonempty PASSED [ 88%]
+tests/test_smoke.py::test_smoke PASSED                                   [ 91%]
+tests/test_supervisor_and_meeting_prep.py::test_supervisor_routes_intents PASSED [ 94%]
+tests/test_supervisor_and_meeting_prep.py::test_meeting_prep_agent_generates_briefing PASSED [ 97%]
+tests/test_tool_contract_schema.py::test_tool_contract_schema_validity PASSED [100%]
 
 ============================== slowest durations ===============================
-9.24s call     tests/test_page_competitive_intelligence.py::test_page_competitive_intelligence_imports_without_app_templates
-0.05s call     tests/test_competitive_intelligence_retriever.py::test_get_sources_returns_approved_source_labels
-0.04s call     tests/test_competitive_intelligence_retriever.py::test_get_insight_contains_expected_fields_for_valid_peer
-0.04s call     tests/test_supervisor_and_meeting_prep.py::test_meeting_prep_agent_generates_briefing
-0.03s call     tests/test_competitive_intelligence_retriever.py::test_get_metrics_returns_dictionary_for_valid_peer
-0.03s call     tests/test_crm_retriever.py::test_get_account_bundle_returns_expected_keys
+5.44s call     tests/test_page_competitive_intelligence.py::test_page_competitive_intelligence_imports_without_app_templates
+0.06s call     tests/test_crm_retriever.py::test_get_account_bundle_returns_expected_keys
+0.04s call     tests/test_competitive_intelligence_retriever.py::test_get_metrics_returns_dictionary_for_valid_peer
+0.04s call     tests/test_crm_retriever.py::test_get_account_bundle_filters_by_account_id
+0.04s call     tests/test_competitive_intelligence_retriever.py::test_get_sources_returns_approved_source_labels
+0.03s call     tests/test_competitive_intelligence_retriever.py::test_get_insight_contains_expected_fields_for_valid_peer
+0.03s call     tests/test_supervisor_and_meeting_prep.py::test_meeting_prep_agent_generates_briefing
 0.03s call     tests/test_competitive_intelligence_retriever.py::test_get_peer_options_returns_configured_peers
-0.02s call     tests/test_crm_retriever.py::test_get_account_bundle_filters_by_account_id
 0.02s call     tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_institutions-required_columns0]
-0.02s call     tests/test_observability_contract.py::test_fallback_rate
-0.02s call     tests/test_observability_contract.py::test_citation_coverage
-0.01s call     tests/test_observability_contract.py::test_supervisor_route_trace
-0.01s call     tests/test_observability_contract.py::test_session_latency
 0.01s call     tests/test_competitive_intelligence_retriever.py::test_get_institution_options_contains_base_institution
 0.01s call     tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_sources-required_columns4]
-0.01s call     tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_insights-required_columns3]
-0.01s call     tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_peers-required_columns1]
-0.01s call     tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_metrics-required_columns2]
-0.01s call     tests/test_observability_contract.py::test_guardrail_event_is_traceable
+0.01s call     tests/test_prompts_contract.py::test_meeting_prep_system_prompt_zero_trust_contract
+0.01s call     tests/test_observability_contract.py::test_required_event_schema
+0.01s call     tests/test_observability_contract.py::test_session_latency
 0.01s call     tests/test_observability_contract.py::test_grounded_answer_rate
 
-(73 durations < 0.005s hidden.  Use -vv to show these durations.)
-============================= 31 passed in 13.21s ==============================
+(90 durations < 0.005s hidden.  Use -vv to show these durations.)
+============================== 35 passed in 8.51s ==============================
