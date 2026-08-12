@@ -3,10 +3,12 @@ from pathlib import Path
 
 import streamlit as st
 
+
 ROOT_DIR = Path(__file__).resolve().parent.parent
 
 if str(ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR))
+
 
 from agents.competitive_intelligence_agent import (
     CompetitiveIntelligenceAgent,
@@ -14,7 +16,6 @@ from agents.competitive_intelligence_agent import (
 from retrieval.competitive_intelligence_retriever import (
     CompetitiveIntelligenceRetriever,
 )
-from ui.styles import apply_bankiq_style
 
 
 st.set_page_config(
@@ -22,8 +23,6 @@ st.set_page_config(
     page_icon="📊",
     layout="wide",
 )
-
-apply_bankiq_style()
 
 st.markdown(
     """
@@ -46,7 +45,8 @@ st.markdown(
         overflow-wrap: anywhere;
     }
     </style>
-    """,
+    """
+    ,
     unsafe_allow_html=True,
 )
 
@@ -65,17 +65,9 @@ def get_agent(base_institution: str) -> CompetitiveIntelligenceAgent:
 
 retriever = get_retriever()
 
-st.markdown(
-    """
-    <div class="enterprise-header">
-        <h1>📊 ACME_Banking Competitive Intelligence</h1>
-        <p>
-            Institutional peer benchmarking, strategic insight support,
-            and approved source tracing.
-        </p>
-    </div>
-    """,
-    unsafe_allow_html=True,
+st.title("ACME_Banking Competitive Intelligence")
+st.caption(
+    "Institutional peer benchmarking and relationship coverage support."
 )
 
 institutions = retriever.get_institution_options()
@@ -105,7 +97,9 @@ with st.sidebar:
     peer_options = retriever.get_peer_options(base_institution)
 
     if not peer_options:
-        st.warning(f"No peer benchmarks were found for {base_institution}.")
+        st.warning(
+            f"No peer benchmarks were found for {base_institution}."
+        )
         st.stop()
 
     selected_peers = st.multiselect(
@@ -121,100 +115,76 @@ with st.sidebar:
         "Generate Competitive Briefing",
         type="primary",
         use_container_width=True,
-        key="competitive_run_analysis",
     )
 
+st.caption(
+    f"Analysis scope: {base_institution} "
+    f"versus {', '.join(selected_peers) or 'no selected peers'}"
+)
+
 if not selected_peers:
-    st.info(
-        "Select at least one peer institution in the sidebar "
-        "to generate the competitive briefing."
-    )
+    st.info("Select at least one peer institution in the sidebar.")
     st.stop()
 
 if not run_analysis:
-    st.info(
-        "Click **Generate Competitive Briefing** to run the analysis."
-    )
+    st.info("Click **Generate Competitive Briefing** to run the analysis.")
     st.stop()
 
 agent = get_agent(base_institution)
-
 briefing = agent.generate_competitive_briefing(
     peer_institutions=selected_peers,
 )
 
-st.caption(
-    f"Analysis scope: {base_institution} versus "
-    f"{', '.join(selected_peers)}"
-)
-
-col1, col2 = st.columns([1.6, 1])
-
-with col1:
-    st.subheader("Executive Competitive Briefing")
-    st.code(briefing, language="text")
-
-    st.markdown("---")
-    st.subheader("Peer Metrics")
-
-    for peer in selected_peers:
-        metrics = retriever.get_metrics(
-            base_institution_name=base_institution,
-            peer_name=peer,
-        )
-
-        st.markdown(f"**{peer}**")
-
-        if not metrics:
-            st.info("No metrics available.")
-            continue
-
-        metric_columns = st.columns(len(metrics))
-
-        for column, (metric_name, metric_value) in zip(
-            metric_columns,
-            metrics.items(),
-        ):
-            column.metric(metric_name, metric_value)
-
-with col2:
-    st.subheader("Approved Insight References")
-
-    for peer in selected_peers:
-        insight = retriever.get_insight(
-            base_institution_name=base_institution,
-            peer_name=peer,
-        )
-
-        if not insight:
-            st.info(f"No approved insight available for {peer}.")
-            continue
-
-        with st.container(border=True):
-            st.markdown(f"**{peer}**")
-            st.write(
-                f"**Takeaway:** {insight.get('takeaway', 'Not available')}"
-            )
-            st.write(
-                "**Recommendation:** "
-                f"{insight.get('recommendation', 'Not available')}"
-            )
-            st.caption(
-                f"Confidence: {insight.get('confidence', 'Unknown')}"
-            )
-
-            source_id = insight.get("source_id")
-
-            if source_id:
-                sources = retriever.get_sources([str(source_id)])
-
-                if sources:
-                    st.markdown("**Sources:**")
-                    for source in sources:
-                        st.code(source, language="text")
+st.subheader("Executive Competitive Briefing")
+st.code(briefing, language="text")
 
 st.markdown("---")
-st.caption(
-    "Competitive Intelligence capability aligned to approved local fixtures "
-    "and source-trace requirements."
-)
+st.subheader("Peer Metrics")
+
+for peer in selected_peers:
+    metrics = retriever.get_metrics(
+        base_institution_name=base_institution,
+        peer_name=peer,
+    )
+
+    st.markdown(f"**{peer}**")
+    if not metrics:
+        st.info("No metrics available.")
+        continue
+
+    metric_columns = st.columns(len(metrics))
+    for column, (metric_name, metric_value) in zip(
+        metric_columns,
+        metrics.items(),
+    ):
+        column.metric(metric_name, metric_value)
+
+st.markdown("---")
+st.subheader("Approved Insight References")
+
+for peer in selected_peers:
+    insight = retriever.get_insight(
+        base_institution_name=base_institution,
+        peer_name=peer,
+    )
+
+    if not insight:
+        st.info(f"No approved insight available for {peer}.")
+        continue
+
+    st.markdown(f"**{peer}**")
+    st.write(f"**Takeaway:** {insight.get('takeaway', 'Not available')}")
+    st.write(
+        "**Recommendation:** "
+        f"{insight.get('recommendation', 'Not available')}"
+    )
+    st.caption(f"Confidence: {insight.get('confidence', 'Unknown')}")
+
+    source_id = insight.get("source_id")
+
+    if source_id:
+        sources = retriever.get_sources([str(source_id)])
+        if sources:
+            st.markdown("**Sources:**")
+            for source in sources:
+                st.code(source, language="text")
