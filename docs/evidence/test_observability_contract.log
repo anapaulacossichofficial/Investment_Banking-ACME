@@ -14,4 +14,4 @@ tests/test_observability_contract.py::test_session_latency PASSED        [ 75%]
 tests/test_observability_contract.py::test_supervisor_route_trace PASSED [ 87%]
 tests/test_observability_contract.py::test_guardrail_event_is_traceable PASSED [100%]
 
-============================== 8 passed in 0.34s ===============================
+============================== 8 passed in 0.17s ===============================

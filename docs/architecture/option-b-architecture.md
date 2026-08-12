@@ -51,3 +51,10 @@ flowchart TD
 - Knowledge Retriever -> Agentforce Data Library
 - Grounded prompt -> Prompt Builder template
 - Validation and fallback -> agent guardrails and operational checks
+
+| Artifact | Role | Used in demo/presentation | Runtime claim allowed |
+|---|---|---:|---|
+| `option-b-architecture.md` | Target/reference architecture | No | No |
+| `architecture-diagram.md` | Presentation-ready HLD | Yes | Yes, only where verified |
+| `solution-blueprint.md` | Presentation-ready solution flow | Yes | Yes, only where verified |
+| `target-vs-demo-runtime.md` | Internal validation control | No | Internal verification only |

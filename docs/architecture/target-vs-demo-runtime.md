@@ -1,49 +1,12 @@
-# Demo Runtime vs Target Runtime
+## Scope and Usage
 
-## Purpose
-This document separates the current local demo implementation from the final target enterprise runtime.
+This document is an internal Front 3 control artifact.
 
-## Demo Runtime
-The demo runtime is the current Streamlit-based working build.
+`docs/architecture/option-b-architecture.md` describes a target-state or reference architecture and is not part of the live demo or presentation narrative.
 
-Characteristics:
-- local and deterministic;
-- suitable for screenshots and regression evidence;
-- uses fixtures and controlled data sources;
-- optimized for validation and narrative clarity.
+The demo and presentation are supported by the presentation-ready architecture artifacts:
 
-What it should prove:
-- the solution is grounded;
-- the supervisor routes correctly;
-- citations are retained;
-- fallback behavior works.
+- `docs/architecture/architecture-diagram.md`
+- `docs/architecture/solution-blueprint.md`
 
-## Target Runtime
-The target runtime is the Salesforce/Agentforce implementation.
-
-Characteristics:
-- enterprise-grade;
-- reusable across agent capabilities;
-- integrated with trust, guardrails, and retrieval patterns;
-- ready for production workflows.
-
-What it should add:
-- stronger platform orchestration;
-- enterprise data source integration;
-- prompt template management;
-- richer observability;
-- broader agent reuse.
-
-## What Stays the Same
-- account and contact scoping;
-- evidence-grounded generation;
-- citation discipline;
-- fallback when evidence is missing;
-- clear separation between facts and interpretation.
-
-## What Can Change
-- data source implementation;
-- orchestration runtime;
-- prompt storage and management;
-- platform-specific observability;
-- authentication and access patterns.
+These artifacts must describe only capabilities that are observable in the working build. Any target-platform mapping, future-state component, or conceptual integration must be clearly identified as non-runtime reference material and must not be presented as an implemented demo capability.
