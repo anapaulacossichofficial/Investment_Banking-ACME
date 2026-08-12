@@ -1,4 +1,4 @@
-citation_policy:
+citation:
   require_citations_for_material_claims: true
   require_source_attribution: true
   require_snippet_or_reference_binding: true

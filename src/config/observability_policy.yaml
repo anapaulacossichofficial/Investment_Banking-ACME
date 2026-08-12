@@ -1,4 +1,4 @@
-observability_policy:
+observability:
   tracing:
     trace_requests: true
     trace_agent_handoffs: true

@@ -9,6 +9,18 @@ rationale:
   - scalable_reuse_for_future_agents
   - stronger_architecture_judgment_for_enterprise_ib
 
+runtime_profiles:
+  demo:
+    enabled_strategy: controlled_grounding_layer
+    crm_source: local_structured_fixtures
+    knowledge_source: local_unstructured_documents
+    competitive_source: data/competitive
+  target:
+    enabled_strategy: dmo_backed_data_cloud_retriever
+    crm_source: salesforce_crm_or_data_cloud
+    knowledge_source: enterprise_knowledge_store
+    competitive_source: approved_market_intelligence_provider
+
 runtime_modes:
   local_demo:
     enabled_strategy: controlled_grounding_layer

@@ -1,4 +1,4 @@
-fallback_policy:
+fallback:
   enabled: true
 
   scenarios:

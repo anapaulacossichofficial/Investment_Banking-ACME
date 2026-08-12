@@ -1,28 +1,27 @@
-agents:
-  supervisor:
-    role: intent_router_and_scope_controller
-    responsibilities:
-      - validate_request_scope
-      - resolve_supported_intent
-      - select_target_agent
-      - enforce_allowed_tools
-    allowed_handoffs:
-      - meeting_prep_agent
+solution_name: salesforce-banker-assistant-lab
+primary_capability: meeting_prep
+secondary_capability: competitive_intelligence
 
-  meeting_prep_agent:
-    role: knowledge_grounded_meeting_preparation
-    responsibilities:
-      - assemble_grounding_bundle
-      - prepare_banker_ready_briefing
-      - attach_citations
-      - enforce_fallback_and_guardrails
-    allowed_tools:
-      - crm_retriever
-      - knowledge_retriever
-      - citation_builder
-      - source_trace
-    output_contract:
-      - executive_brief
-      - citations
-      - evidence_flags
-      - scope_summary
+supervisor:
+  enabled: true
+  responsibilities:
+    - intent_routing
+    - scope_validation
+    - guardrail_gate
+    - capability_delegation
+
+capabilities:
+  meeting_prep:
+    enabled: true
+    owner: MeetingPrepAgent
+    scope:
+      - account_briefing
+      - contact_preparation
+      - meeting_summary
+  competitive_intelligence:
+    enabled: true
+    owner: CompetitiveIntelligenceAgent
+    scope:
+      - peer_benchmarking
+      - strategic_comparison
+      - source_grounded_comp_brief

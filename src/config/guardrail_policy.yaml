@@ -1,28 +1,28 @@
-guardrail_policy:
+guardrails:
   enforce_on_topic_behavior: true
   require_scope_lock: true
   prevent_prompt_injection: true
   disallow_unsourced_claims: true
   disallow_cross_account_leakage: true
 
-  supported_scope:
-    - meeting_preparation
-    - account_summary
-    - relationship_context
-    - recent_activity_summary
-    - evidence_grounded_client_briefing
+supported_scope:
+  - meeting_preparation
+  - account_summary
+  - relationship_context
+  - recent_activity_summary
+  - evidence_grounded_client_briefing
 
-  unsupported_scope_behavior:
-    action: redirect_to_supported_scope
-    message_key: unsupported_scope
+unsupported_scope_behavior:
+  action: redirect_to_supported_scope
+  message_key: unsupported_scope
 
-  refusal_conditions:
-    - missing_required_scope
-    - prompt_injection_attempt
-    - unsupported_request_type
-    - evidence_free_speculation
+refusal_conditions:
+  - missing_required_scope
+  - prompt_injection_attempt
+  - unsupported_request_type
+  - evidence_free_speculation
 
-  output_rules:
-    separate_confirmed_facts_from_inferences: true
-    explicitly_call_out_evidence_gaps: true
-    preserve_original_source_meaning: true
+output_rules:
+  separate_confirmed_facts_from_inferences: true
+  explicitly_call_out_evidence_gaps: true
+  preserve_original_source_meaning: true
