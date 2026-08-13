@@ -127,7 +127,24 @@ class MeetingPrepAgent:
         overview_lines.extend(
             [
                 "",
-                "4. Recommended Next Actions:",
+                "4. Evidence Context:",
+                f"- Structured evidence bundle includes CRM account, contact, opportunity, and activity records for {self.client_name}.",
+            ]
+        )
+
+        if docs:
+            overview_lines.append(
+                f"- Approved knowledge sources available: {', '.join(sorted(docs))}."
+            )
+        else:
+            overview_lines.append(
+                "- No approved knowledge documents were available at runtime; use CRM-only fallback."
+            )
+
+        overview_lines.extend(
+            [
+                "",
+                "5. Recommended Next Actions:",
             ]
         )
 
@@ -143,7 +160,7 @@ class MeetingPrepAgent:
             overview_lines.extend(
                 [
                     "",
-                    "5. Competitive Intelligence Context:",
+                    "6. Competitive Intelligence Context:",
                 ]
             )
 
@@ -167,7 +184,7 @@ class MeetingPrepAgent:
         overview_lines.extend(
             [
                 "",
-                "6. Validation Guardrail:",
+                "7. Validation Guardrail:",
                 "- Validate all claims against CRM records and approved source materials before client delivery.",
             ]
         )
