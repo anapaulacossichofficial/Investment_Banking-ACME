@@ -4,6 +4,8 @@ secondary_capability: competitive_intelligence
 
 supervisor:
   enabled: true
+  role: "Intent Router / Orchestration Layer"
+  routing_mode: capability_first
   responsibilities:
     - intent_routing
     - scope_validation
@@ -18,6 +20,12 @@ capabilities:
       - account_briefing
       - contact_preparation
       - meeting_summary
+    primary_sources:
+      - crm_accounts
+      - crm_opportunities
+      - relationship_notes
+      - pitch_materials
+
   competitive_intelligence:
     enabled: true
     owner: CompetitiveIntelligenceAgent
@@ -25,3 +33,15 @@ capabilities:
       - peer_benchmarking
       - strategic_comparison
       - source_grounded_comp_brief
+    primary_sources:
+      - institutions.csv
+      - peers.csv
+      - metrics.csv
+      - insights.csv
+
+architectural_alignment:
+  salesforce_target_runtime: "Agentforce orchestration pattern"
+  trust_layer_position: "Cross-cutting trust and governance layer"
+  interoperability_support:
+    mcp: "Architecturally supported"
+    a2a: "Architecturally supported"

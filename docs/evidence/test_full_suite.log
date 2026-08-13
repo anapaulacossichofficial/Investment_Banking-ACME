@@ -43,7 +43,7 @@ tests/test_tool_contract_schema.py::test_tool_contract_schema_validity PASSED [1
 
 - generated xml file: /mnt/c/4_SalesForce/2_PannelAnalysis_Investment-Banking/docs/evidence/test-results.xml -
 ============================= slowest 10 durations =============================
-5.32s call     tests/test_page_competitive_intelligence.py::test_page_competitive_intelligence_imports_without_app_templates
+6.54s call     tests/test_page_competitive_intelligence.py::test_page_competitive_intelligence_imports_without_app_templates
 
 (9 durations < 0.1s hidden.)
-============================== 35 passed in 8.58s ==============================
+============================= 35 passed in 10.94s ==============================

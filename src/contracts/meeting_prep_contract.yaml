@@ -1,0 +1,37 @@
+capability: meeting_prep
+
+input_contract:
+  required:
+    - account_id
+    - account_name
+  optional:
+    - contact_name
+    - meeting_objective
+    - recency_window
+
+sources:
+  structured:
+    - crm_accounts
+    - crm_opportunities
+  unstructured:
+    - relationship_notes
+    - pitch_materials
+
+output_contract:
+  required_sections:
+    - client_snapshot
+    - open_opportunities
+    - relationship_context
+    - recommended_talking_points
+    - citations
+  rules:
+    - grounded_only
+    - no_unsupported_claims
+    - cite_every_knowledge_backed_statement
+    - citations_required_when_evidence_used
+    - preserve_account_scope
+
+fallback_behavior:
+  if_crm_data_missing: "State explicitly which CRM fields are unavailable."
+  if_knowledge_evidence_missing: "Omit the unsupported claim and return a safe fallback."
+  if_scope_ambiguous: "Do not infer account context; request clarification or return a scoped fallback."

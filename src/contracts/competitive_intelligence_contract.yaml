@@ -1,0 +1,42 @@
+capability: competitive_intelligence
+
+input_contract:
+  required:
+    - base_institution_name
+  optional:
+    - selected_peers
+    - metric_family
+
+sources:
+  fixtures:
+    - institutions.csv
+    - peers.csv
+    - metrics.csv
+    - insights.csv
+
+runtime_methods_allowed:
+  - get_institution_options
+  - get_peer_options
+  - get_metrics
+  - get_insight
+  - get_sources
+
+forbidden_assumptions:
+  - do_not_use_get_context
+  - do_not_infer_unavailable_metrics
+  - do_not_generate_unapproved_sources
+
+output_contract:
+  required_sections:
+    - peer_benchmarking_metrics
+    - strategic_insights
+    - source_trace
+  rules:
+    - fixture_grounded_only
+    - no_unsupported_peer_claims
+    - explicit_empty_state_when_needed
+
+fallback_behavior:
+  if_no_peer_selected: "Return a structured empty-state briefing."
+  if_no_metrics_for_peer: "State explicitly that no approved metrics are available."
+  if_no_sources: "Do not synthesize source attribution."

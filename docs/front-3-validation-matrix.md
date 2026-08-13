@@ -1,0 +1,101 @@
+# Front 3 Validation Matrix
+
+## Purpose
+
+This document records the engineering evidence used to validate the local implementation patterns that support the Salesforce target architecture.
+
+The local runtime is engineering evidence for contracts, grounding, routing, fallback behavior, and observability. It is not presented as a one-to-one replacement for Salesforce managed runtime services.
+
+## Architecture Positioning
+
+| Architecture Layer | Local Evidence | Salesforce Target Runtime Alignment |
+|---|---|---|
+| Orchestration | Supervisor Router classifies intent, validates scope, and delegates to approved capabilities | Agentforce orchestration, agent topics, actions, and capability routing |
+| Meeting Preparation | `MeetingPrepAgent` returns account-scoped, evidence-backed briefing output | Agentforce Meeting Prep capability pattern |
+| Competitive Intelligence | `CompetitiveIntelligenceAgent` uses approved local fixture sources and retriever methods only | Grounded comparative-analysis capability pattern |
+| Knowledge Grounding | CRM fixtures, relationship notes, pitch materials, and approved competitive datasets | Data Library, Data Cloud, Salesforce data sources, and retrieval grounding |
+| Trust and Governance | Contracts, fallback behavior, citation rules, prompt versioning, and observability events | Einstein Trust Layer as cross-cutting trust, security, privacy, and governance layer |
+| Enterprise Interoperability | Contract-based boundary for external capability invocation | MCP tool interoperability and A2A agent-to-agent collaboration patterns |
+
+## Evidence Status Rules
+
+| Status | Meaning |
+|---|---|
+| PASS | Test, log, or exported artifact proves the stated control |
+| PARTIAL | Implementation exists, but test or artifact evidence is incomplete |
+| PLANNED | Design decision is approved, but implementation evidence has not yet been produced |
+| N/A | Not applicable to the local runtime validation |
+
+## Validation Matrix
+
+| Test Group | Validation Goal | Required Local Evidence | Status | Target Runtime Alignment |
+|---|---|---|---|---|
+| Configuration Integrity | Required Front 3 configuration, contracts, prompts, and documentation exist and parse correctly | `scripts/validate_front3_configs.sh` output | PARTIAL | Configuration discipline for managed agent capability design |
+| Blueprint Alignment | Local implementation remains consistent with the approved Front 3 architecture | `scripts/audit_front3_alignment.py` output | PARTIAL | Architecture governance and implementation traceability |
+| Input / Output Contract | Each capability respects explicit inputs, output sections, rules, and fallback behavior | Contract tests and YAML contracts under `src/contracts/` | PARTIAL | Agent capability input/output discipline |
+| Meeting Prep Grounding | Briefing claims remain tied to available CRM and knowledge evidence | Meeting Prep contract tests and response evidence | PARTIAL | Grounding through Salesforce data and knowledge retrieval |
+| Competitive Runtime Integrity | Competitive output uses only approved fixture data and approved retriever methods | Competitive agent tests; no unsupported retrieval paths | PARTIAL | Grounded comparative capability with controlled sources |
+| Citation Coverage | Knowledge-backed claims include a valid source trace when evidence is available | Citation contract tests and response artifacts | PARTIAL | Source attribution and trusted AI response patterns |
+| Fallback: Missing Evidence | Unsupported claims are omitted and the response explicitly states evidence gaps | Negative-path test output | PARTIAL | Guarded conversational fallback |
+| Fallback: Ambiguous Scope | The system asks for clarification or produces scoped fallback instead of inferring account or institution context | Scope validation test output | PARTIAL | Agentforce topic and action boundary control |
+| Supervisor Behavior | Intent is classified before delegation; banker-content requests are routed to approved capabilities | Supervisor routing tests | PARTIAL | Agentforce orchestration and topic routing |
+| Guardrail Enforcement | Prompt overrides, unsupported requests, and evidence-free requests are rejected or redirected | Guardrail test output | PARTIAL | Einstein Trust Layer-aligned control posture |
+| Prompt Versioning | Prompt versions, goals, and improvements are documented and auditable | `src/prompts/prompt_versions.yaml` | PARTIAL | Prompt governance and controlled release discipline |
+| Observability: Routing | Route selection, scope resolution, and agent handoffs are traceable | Observability logs or contract tests | PARTIAL | Session tracing and runtime execution monitoring |
+| Observability: Retrieval | Retrieval events, source usage, citation generation, and missing-evidence events are captured | Observability logs or contract tests | PARTIAL | Source attribution and retrieval monitoring |
+| Observability: Fallback | Fallback events and guardrail events are recorded for later review | Observability logs or contract tests | PARTIAL | Trust, safety, and fallback monitoring |
+| Regression Protection | Full suite runs without breaking validated baseline behavior | `pytest -v` log and JUnit XML | PARTIAL | Engineering quality gate before target-runtime deployment |
+| Evidence Preservation | Test outputs and validation artifacts are retained for walkthrough and review | `docs/evidence/` artifacts | PARTIAL | Demonstrable governance and audit readiness |
+| Salesforce Working Build | A minimal but functional configuration is demonstrated in a Salesforce Developer Org | Org screenshots, configuration notes, walkthrough evidence | PLANNED | Required managed-platform proof |
+| MCP / A2A Interoperability | External tools and agents are represented as governed, contract-based integrations | Architecture diagram, contracts, and bounded proof of capability | PLANNED | MCP and A2A interoperability support |
+
+## Required Evidence Artifacts
+
+| Artifact | Expected Location | Purpose |
+|---|---|---|
+| Structural validation output | `docs/evidence/front3_structural_validation.log` | Proves required configuration and file integrity |
+| Alignment audit output | `docs/evidence/front3_alignment_audit.log` | Proves blueprint-to-implementation consistency |
+| Prompt contract output | `docs/evidence/front3_prompt_contracts.log` | Proves prompt and contract behavior |
+| Observability contract output | `docs/evidence/front3_observability_contracts.log` | Proves trace and event expectations |
+| Full regression output | `docs/evidence/test_full_suite.log` | Proves no baseline regressions |
+| JUnit XML | `docs/evidence/test-results.xml` | Machine-readable test evidence |
+| Salesforce org evidence | `docs/evidence/salesforce-org/` | Screenshots and notes for working-build walkthrough |
+| Architecture evidence | `docs/evidence/architecture/` | Final diagram and architecture decision records |
+
+## Minimum Execution Sequence
+
+```bash
+./scripts/validate_front3_configs.sh \
+  | tee docs/evidence/front3_structural_validation.log
+
+python3 scripts/audit_front3_alignment.py \
+  | tee docs/evidence/front3_alignment_audit.log
+
+pytest tests/test_prompts_contract.py -v \
+  | tee docs/evidence/front3_prompt_contracts.log
+
+pytest tests/test_observability_contract.py -v \
+  | tee docs/evidence/front3_observability_contracts.log
+
+pytest -v \
+  --durations=10 \
+  --durations-min=0.1 \
+  --junitxml=docs/evidence/test-results.xml \
+  | tee docs/evidence/test_full_suite.log
+```
+
+## Completion Criteria
+
+A Front 3 validation item moves to `PASS` only when:
+
+1. The implementation exists in the expected location.
+2. A corresponding automated test, log, or exported artifact is available.
+3. The artifact is stored under `docs/evidence/` or linked from this document.
+4. The behavior is consistent with the approved target architecture.
+5. The evidence does not overclaim one-to-one equivalence between the local runtime and Salesforce managed runtime.
+
+## Architecture Statement
+
+The solution uses a capability-first orchestration model. The local `Supervisor Router` provides engineering evidence for intent routing, scope validation, guardrail gating, and capability delegation. The target Salesforce implementation is expressed through Agentforce orchestration, managed actions, grounded data access, and the Einstein Trust Layer as a cross-cutting trust and governance layer.
+
+Enterprise interoperability is not described as a future-only boundary. The architecture already supports governed integration with external tools and agents through explicit contracts, with MCP and A2A positioned as interoperability patterns to be progressively demonstrated at the appropriate runtime scale.

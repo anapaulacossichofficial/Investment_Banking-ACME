@@ -17,7 +17,7 @@ prompts:
           - anti_hallucination_rules
 
   supervisor_router:
-    current_version: v2
+    current_version: v3
     versions:
       v1:
         goal: basic_intent_routing
@@ -28,6 +28,13 @@ prompts:
           - explicit_supported_scope
           - missing_scope_clarification
           - delegation_rules
+      v3:
+        goal: multi_capability_routing
+        improvements:
+          - competitive_intelligence_routing
+          - institution_scope_detection
+          - safe_ambiguity_fallback
+          - explicit_no_direct_answer_rule
 
   meeting_prep_user:
     current_version: v1
