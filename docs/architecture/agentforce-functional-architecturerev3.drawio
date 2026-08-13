@@ -1,0 +1,216 @@
+<mxfile host="app.diagrams.net" agent="Perplexity" pages="2">
+  <diagram name="Cópia do Functional Architecture" id="onBEWt83sa3pb3IWdWWS">
+    <mxGraphModel dx="1571" dy="931" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="65OhxaRB2LSAViwX8edg-0" />
+        <mxCell id="65OhxaRB2LSAViwX8edg-1" parent="65OhxaRB2LSAViwX8edg-0" />
+        <mxCell id="65OhxaRB2LSAViwX8edg-2" parent="65OhxaRB2LSAViwX8edg-1" style="swimlane;fontStyle=1;horizontal=1;startSize=34;fillColor=#F8FAFC;strokeColor=#64748B;fontColor=#0F172A;rounded=1;" value="DEMO RUNTIME (validated pattern)" vertex="1">
+          <mxGeometry height="570" width="350" x="50" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="65OhxaRB2LSAViwX8edg-3" parent="65OhxaRB2LSAViwX8edg-1" style="swimlane;fontStyle=1;horizontal=1;startSize=34;fillColor=#EFF6FF;strokeColor=#2563EB;fontColor=#0F172A;rounded=1;" value="SALESFORCE / AGENTFORCE RUNTIME (target solution)" vertex="1">
+          <mxGeometry height="570" width="690" x="450" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="65OhxaRB2LSAViwX8edg-4" parent="65OhxaRB2LSAViwX8edg-1" style="swimlane;fontStyle=1;horizontal=1;startSize=34;fillColor=#F0FDF4;strokeColor=#16A34A;fontColor=#0F172A;rounded=1;" value="ENTERPRISE INTEROPERABILITY (supported capability)" vertex="1">
+          <mxGeometry height="570" width="350" x="1190" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="65OhxaRB2LSAViwX8edg-5" parent="65OhxaRB2LSAViwX8edg-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0F172A;fontColor=#FFFFFF;strokeColor=#0F172A;fontSize=15;fontStyle=1;" value="Investment Banker&#xa;Meeting prep request" vertex="1">
+          <mxGeometry height="60" width="290" x="75" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="65OhxaRB2LSAViwX8edg-6" parent="65OhxaRB2LSAViwX8edg-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E3A8A;fontColor=#FFFFFF;strokeColor=#1E3A8A;fontSize=14;fontStyle=1;" value="Supervisor Agent&#xa;intent routing + delegation" vertex="1">
+          <mxGeometry height="65" width="290" x="75" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="65OhxaRB2LSAViwX8edg-7" parent="65OhxaRB2LSAViwX8edg-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2563EB;fontColor=#0F172A;fontSize=14;fontStyle=1;" value="Meeting Prep Agent&#xa;account-scoped briefing" vertex="1">
+          <mxGeometry height="65" width="290" x="75" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="65OhxaRB2LSAViwX8edg-8" parent="65OhxaRB2LSAViwX8edg-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2563EB;fontColor=#0F172A;fontSize=14;fontStyle=1;" value="Competitive Intelligence Agent&#xa;peer insights + evidence" vertex="1">
+          <mxGeometry height="65" width="290" x="75" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="65OhxaRB2LSAViwX8edg-9" parent="65OhxaRB2LSAViwX8edg-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E2E8F0;strokeColor=#64748B;fontColor=#0F172A;fontSize=13;" value="Local retrievers + approved fixtures&#xa;CRM | knowledge | citations | tests" vertex="1">
+          <mxGeometry height="55" width="290" x="75" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="65OhxaRB2LSAViwX8edg-10" parent="65OhxaRB2LSAViwX8edg-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E3A8A;fontColor=#FFFFFF;strokeColor=#1E3A8A;fontSize=15;fontStyle=1;" value="Agentforce Meeting Prep Agent&#xa;topics, instructions, actions" vertex="1">
+          <mxGeometry height="68" width="300" x="485" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="65OhxaRB2LSAViwX8edg-11" parent="65OhxaRB2LSAViwX8edg-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2563EB;fontColor=#0F172A;fontSize=13;" value="Actions&#xa;structured CRM retrieval&#xa;account/contact scope" vertex="1">
+          <mxGeometry height="82" width="190" x="485" y="285" as="geometry" />
+        </mxCell>
+        <mxCell id="65OhxaRB2LSAViwX8edg-12" parent="65OhxaRB2LSAViwX8edg-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2563EB;fontColor=#0F172A;fontSize=13;" value="Prompt Builder&#xa;grounded prompt template&#xa;output contract + citations" vertex="1">
+          <mxGeometry height="82" width="190" x="715" y="285" as="geometry" />
+        </mxCell>
+        <mxCell id="65OhxaRB2LSAViwX8edg-13" parent="65OhxaRB2LSAViwX8edg-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2563EB;fontColor=#0F172A;fontSize=13;" value="Data Cloud / Data Library&#xa;retrieval + source attribution" vertex="1">
+          <mxGeometry height="82" width="160" x="945" y="285" as="geometry" />
+        </mxCell>
+        <mxCell id="65OhxaRB2LSAViwX8edg-14" parent="65OhxaRB2LSAViwX8edg-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontColor=#78350F;fontSize=14;fontStyle=1;" value="Einstein Trust Layer&#xa;masking | grounding controls | safety | audit" vertex="1">
+          <mxGeometry height="70" width="620" x="485" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="65OhxaRB2LSAViwX8edg-15" parent="65OhxaRB2LSAViwX8edg-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#16A34A;fontColor=#14532D;fontSize=14;fontStyle=1;" value="Trusted, cited briefing&#xa;meeting preparation output" vertex="1">
+          <mxGeometry height="58" width="260" x="665" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="65OhxaRB2LSAViwX8edg-16" parent="65OhxaRB2LSAViwX8edg-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#16A34A;fontColor=#0F172A;fontSize=13;" value="MCP tool / system interoperability&#xa;approved external tools and services" vertex="1">
+          <mxGeometry height="75" width="290" x="1220" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="65OhxaRB2LSAViwX8edg-17" parent="65OhxaRB2LSAViwX8edg-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#16A34A;fontColor=#0F172A;fontSize=13;" value="A2A agent delegation&#xa;ACME and partner agents" vertex="1">
+          <mxGeometry height="75" width="290" x="1220" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="65OhxaRB2LSAViwX8edg-18" parent="65OhxaRB2LSAViwX8edg-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#16A34A;fontColor=#14532D;fontSize=13;fontStyle=1;" value="Policy, identity, consent and observability&#xa;applies across runtime boundaries" vertex="1">
+          <mxGeometry height="78" width="290" x="1220" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="65OhxaRB2LSAViwX8edg-19" edge="1" parent="65OhxaRB2LSAViwX8edg-1" source="65OhxaRB2LSAViwX8edg-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#475569;strokeWidth=2;" target="65OhxaRB2LSAViwX8edg-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="65OhxaRB2LSAViwX8edg-20" edge="1" parent="65OhxaRB2LSAViwX8edg-1" source="65OhxaRB2LSAViwX8edg-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#475569;strokeWidth=2;" target="65OhxaRB2LSAViwX8edg-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="65OhxaRB2LSAViwX8edg-21" edge="1" parent="65OhxaRB2LSAViwX8edg-1" source="65OhxaRB2LSAViwX8edg-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#475569;strokeWidth=2;" target="65OhxaRB2LSAViwX8edg-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="65OhxaRB2LSAViwX8edg-22" edge="1" parent="65OhxaRB2LSAViwX8edg-1" source="65OhxaRB2LSAViwX8edg-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#475569;strokeWidth=2;" target="65OhxaRB2LSAViwX8edg-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="65OhxaRB2LSAViwX8edg-23" edge="1" parent="65OhxaRB2LSAViwX8edg-1" source="65OhxaRB2LSAViwX8edg-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#2563EB;strokeWidth=2;fontSize=12;fontColor=#1E3A8A;labelBackgroundColor=#FFFFFF;" target="65OhxaRB2LSAViwX8edg-10" value="implementation mapping">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="65OhxaRB2LSAViwX8edg-24" edge="1" parent="65OhxaRB2LSAViwX8edg-1" source="65OhxaRB2LSAViwX8edg-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#2563EB;strokeWidth=2;" target="65OhxaRB2LSAViwX8edg-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="65OhxaRB2LSAViwX8edg-25" edge="1" parent="65OhxaRB2LSAViwX8edg-1" source="65OhxaRB2LSAViwX8edg-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#2563EB;strokeWidth=2;" target="65OhxaRB2LSAViwX8edg-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="65OhxaRB2LSAViwX8edg-26" edge="1" parent="65OhxaRB2LSAViwX8edg-1" source="65OhxaRB2LSAViwX8edg-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#2563EB;strokeWidth=2;" target="65OhxaRB2LSAViwX8edg-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="65OhxaRB2LSAViwX8edg-27" edge="1" parent="65OhxaRB2LSAViwX8edg-1" source="65OhxaRB2LSAViwX8edg-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#D97706;strokeWidth=2;" target="65OhxaRB2LSAViwX8edg-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="65OhxaRB2LSAViwX8edg-28" edge="1" parent="65OhxaRB2LSAViwX8edg-1" source="65OhxaRB2LSAViwX8edg-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#D97706;strokeWidth=2;" target="65OhxaRB2LSAViwX8edg-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="65OhxaRB2LSAViwX8edg-29" edge="1" parent="65OhxaRB2LSAViwX8edg-1" source="65OhxaRB2LSAViwX8edg-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#D97706;strokeWidth=2;" target="65OhxaRB2LSAViwX8edg-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="65OhxaRB2LSAViwX8edg-30" edge="1" parent="65OhxaRB2LSAViwX8edg-1" source="65OhxaRB2LSAViwX8edg-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16A34A;strokeWidth=2;" target="65OhxaRB2LSAViwX8edg-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="65OhxaRB2LSAViwX8edg-31" edge="1" parent="65OhxaRB2LSAViwX8edg-1" source="65OhxaRB2LSAViwX8edg-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16A34A;strokeWidth=2;" target="65OhxaRB2LSAViwX8edg-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="65OhxaRB2LSAViwX8edg-32" edge="1" parent="65OhxaRB2LSAViwX8edg-1" source="65OhxaRB2LSAViwX8edg-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16A34A;strokeWidth=2;" target="65OhxaRB2LSAViwX8edg-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="65OhxaRB2LSAViwX8edg-33" edge="1" parent="65OhxaRB2LSAViwX8edg-1" source="65OhxaRB2LSAViwX8edg-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16A34A;strokeWidth=2;dashed=1;" target="65OhxaRB2LSAViwX8edg-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="65OhxaRB2LSAViwX8edg-34" edge="1" parent="65OhxaRB2LSAViwX8edg-1" source="65OhxaRB2LSAViwX8edg-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16A34A;strokeWidth=2;dashed=1;" target="65OhxaRB2LSAViwX8edg-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="agentforce-functional" name="Functional Architecture">
+    <mxGraphModel dx="4040" dy="2394" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="demo" parent="1" style="swimlane;fontStyle=1;horizontal=1;startSize=34;fillColor=#F8FAFC;strokeColor=#64748B;fontColor=#0F172A;rounded=1;" value="DEMO RUNTIME (validated pattern)" vertex="1">
+          <mxGeometry height="570" width="350" x="50" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="salesforce" parent="1" style="swimlane;fontStyle=1;horizontal=1;startSize=34;fillColor=#EFF6FF;strokeColor=#2563EB;fontColor=#0F172A;rounded=1;" value="SALESFORCE / AGENTFORCE RUNTIME (target solution)" vertex="1">
+          <mxGeometry height="570" width="690" x="450" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="interop" parent="1" style="swimlane;fontStyle=1;horizontal=1;startSize=34;fillColor=#F0FDF4;strokeColor=#16A34A;fontColor=#0F172A;rounded=1;" value="ENTERPRISE INTEROPERABILITY (supported capability)" vertex="1">
+          <mxGeometry height="570" width="350" x="1190" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="banker" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0F172A;fontColor=#FFFFFF;strokeColor=#0F172A;fontSize=15;fontStyle=1;" value="Investment Banker&#xa;Meeting prep request" vertex="1">
+          <mxGeometry height="60" width="290" x="75" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="supervisor" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E3A8A;fontColor=#FFFFFF;strokeColor=#1E3A8A;fontSize=14;fontStyle=1;" value="Supervisor Agent&#xa;intent routing + delegation" vertex="1">
+          <mxGeometry height="65" width="290" x="75" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="meeting" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2563EB;fontColor=#0F172A;fontSize=14;fontStyle=1;" value="Meeting Prep Agent&#xa;account-scoped briefing" vertex="1">
+          <mxGeometry height="65" width="290" x="75" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="ci" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2563EB;fontColor=#0F172A;fontSize=14;fontStyle=1;" value="Competitive Intelligence Agent&#xa;peer insights + evidence" vertex="1">
+          <mxGeometry height="65" width="290" x="75" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="localretrieval" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E2E8F0;strokeColor=#64748B;fontColor=#0F172A;fontSize=13;" value="Local retrievers + approved fixtures&#xa;CRM | knowledge | citations | tests" vertex="1">
+          <mxGeometry height="55" width="290" x="75" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="afagent" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E3A8A;fontColor=#FFFFFF;strokeColor=#1E3A8A;fontSize=15;fontStyle=1;" value="Agentforce Meeting Prep Agent&#xa;topics, instructions, actions" vertex="1">
+          <mxGeometry height="68" width="300" x="485" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="actions" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2563EB;fontColor=#0F172A;fontSize=13;" value="Actions&#xa;structured CRM retrieval&#xa;account/contact scope" vertex="1">
+          <mxGeometry height="82" width="190" x="485" y="285" as="geometry" />
+        </mxCell>
+        <mxCell id="prompt" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2563EB;fontColor=#0F172A;fontSize=13;" value="Prompt Builder&#xa;grounded prompt template&#xa;output contract + citations" vertex="1">
+          <mxGeometry height="82" width="190" x="715" y="285" as="geometry" />
+        </mxCell>
+        <mxCell id="knowledge" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2563EB;fontColor=#0F172A;fontSize=13;" value="Data Cloud / Data Library&#xa;retrieval + source attribution" vertex="1">
+          <mxGeometry height="82" width="160" x="945" y="285" as="geometry" />
+        </mxCell>
+        <mxCell id="trust" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontColor=#78350F;fontSize=14;fontStyle=1;" value="Einstein Trust Layer&#xa;masking | grounding controls | safety | audit" vertex="1">
+          <mxGeometry height="70" width="620" x="485" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="response" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#16A34A;fontColor=#14532D;fontSize=14;fontStyle=1;" value="Trusted, cited briefing&#xa;meeting preparation output" vertex="1">
+          <mxGeometry height="58" width="260" x="665" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="mcp" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#16A34A;fontColor=#0F172A;fontSize=13;" value="MCP tool / system interoperability&#xa;approved external tools and services" vertex="1">
+          <mxGeometry height="75" width="290" x="1220" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="a2a" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#16A34A;fontColor=#0F172A;fontSize=13;" value="A2A agent delegation&#xa;ACME and partner agents" vertex="1">
+          <mxGeometry height="75" width="290" x="1220" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="govern" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#16A34A;fontColor=#14532D;fontSize=13;fontStyle=1;" value="Policy, identity, consent and observability&#xa;applies across runtime boundaries" vertex="1">
+          <mxGeometry height="78" width="290" x="1220" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="banker" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#475569;strokeWidth=2;" target="supervisor">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="supervisor" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#475569;strokeWidth=2;" target="meeting">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="supervisor" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#475569;strokeWidth=2;" target="ci">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="meeting" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#475569;strokeWidth=2;" target="localretrieval">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="supervisor" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#2563EB;strokeWidth=2;fontSize=12;fontColor=#1E3A8A;labelBackgroundColor=#FFFFFF;" target="afagent" value="implementation mapping">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="afagent" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#2563EB;strokeWidth=2;" target="actions">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="afagent" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#2563EB;strokeWidth=2;" target="prompt">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="afagent" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#2563EB;strokeWidth=2;" target="knowledge">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="actions" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#D97706;strokeWidth=2;" target="trust">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="prompt" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#D97706;strokeWidth=2;" target="trust">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="knowledge" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#D97706;strokeWidth=2;" target="trust">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="trust" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16A34A;strokeWidth=2;" target="response">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" edge="1" parent="1" source="afagent" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16A34A;strokeWidth=2;" target="mcp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" edge="1" parent="1" source="afagent" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16A34A;strokeWidth=2;" target="a2a">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e15" edge="1" parent="1" source="mcp" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16A34A;strokeWidth=2;dashed=1;" target="govern">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e16" edge="1" parent="1" source="a2a" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16A34A;strokeWidth=2;dashed=1;" target="govern">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

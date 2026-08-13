@@ -1,41 +1,45 @@
-# Architecture Diagram
-
-## Diagram
+# Architecture Diagram: Meeting Prep Target Runtime
 
 ```mermaid
-flowchart TD
-    User[Banker] --> UI[Streamlit Application]
-    UI --> Supervisor[ACME Supervisor / Orchestrator]
+flowchart LR
+    Banker[Banker] --> UX[Salesforce UI / Agentforce Experience]
 
-    Supervisor --> MeetingPrep[Meeting Prep Agent]
-    Supervisor --> Competitive[Competitive Intelligence Agent]
+    subgraph SF[Salesforce Target Runtime]
+        Agent[Agentforce Meeting Prep Agent]
+        Topic[Meeting Preparation Topic]
+        Prompt[Prompt Builder Template]
+        CRM[CRM Context and Retrieval]
+        Know[Knowledge Grounding]
+        Trust[Einstein Trust Layer]
+        Brief[Grounded Executive Briefing]
 
-    MeetingPrep --> Scope[Account and Contact Scoping]
-    Scope --> CRM[CRM Retriever]
-    Scope --> Knowledge[Knowledge Retriever]
+        Agent --> Topic
+        Topic --> Prompt
+        Prompt --> CRM
+        Prompt --> Know
+        CRM --> Trust
+        Know --> Trust
+        Prompt --> Trust
+        Trust --> Brief
+    end
 
-    CRM --> CRMData[(CRM Fixtures)]
-    Knowledge --> Docs[(Knowledge Documents)]
+    UX --> Agent
+    Brief --> UX
 
-    CRMData --> Evidence[Grounding Bundle]
-    Docs --> Evidence
+    subgraph Demo[Demo Runtime - Local ACME Working Build]
+        LocalOrch[Local Orchestration and Capability Logic]
+        LocalRet[Local Retrieval and Fixtures]
+        LocalTests[Tests, Fallback, Validation, Observability]
+    end
 
-    Evidence --> Prompt[Grounded Prompt Contract]
-    Prompt --> Validation[Evidence and Guardrail Validation]
+    LocalOrch --> LocalRet
+    LocalRet --> LocalTests
 
-    Validation --> Output[Executive Briefing]
-    Validation --> Sources[Citations and Source Metadata]
-    Validation --> Fallback[No-Evidence Fallback]
+    subgraph Enterprise[Enterprise Interoperability Layer]
+        Systems[Approved Enterprise Systems]
+        ExtCaps[Additional ACME Capabilities / External Agents]
+    end
 
-    Output --> UI
-    Sources --> UI
-    Fallback --> UI
+    Agent -->|Governed actions and integrations| Systems
+    Agent -->|Governed interoperability pattern| ExtCaps
 ```
-
-## Reading the Diagram
-- The banker starts in the Streamlit interface.
-- The supervisor resolves intent and routes the request.
-- The meeting prep agent narrows the request to a specific account and contact.
-- Structured and unstructured retrieval feed a shared grounding bundle.
-- The prompt contract generates the answer only after validation.
-- The final response returns citations, source metadata, or fallback behavior when needed.
