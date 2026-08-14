@@ -41,6 +41,54 @@ The ACME working build demonstrates:
 
 For the complete architecture package, see [docs/architecture/README.md](docs/architecture/README.md).
 
+## Agentforce Dev Working Build
+
+This section documents the Salesforce Agentforce configuration captured during the **14/08/2026 dev build session**. It maps the target-state Agentforce components — prompt builder, data model, and routing — to the local working build contracts validated in this repository.
+
+> **Scope:** These screenshots represent a dev/sandbox Agentforce configuration. They are visual evidence of the intended enterprise target state, complementing the local test contracts.
+
+### Agentforce — CRM Data Model (Target)
+
+The target Salesforce data model maps accounts, contacts, and opportunities for QUANTUM and GlobalTrust entities:
+
+![Target Data Model — GlobalTrust](docs/screenshots/1_target_data-model-GLOBALTRUST.png)
+
+![Target Data Model — QUANTUM Base Object](docs/screenshots/1_target_data-model-QUANTUM.png)
+
+![Target Data Model — QUANTUM Contacts Relationship](docs/screenshots/1_target_data-model-QUANTUM_contacts.png)
+
+![Target Data Model — QUANTUM Opportunities Relationship](docs/screenshots/1_target_data-model-QUANTUM_opps.png)
+
+### Agentforce — Prompt Builder (Target)
+
+The target prompt configuration in Agentforce Builder, aligned with the Zero-Trust prompt governance contracts in `tests/test_prompts_contract.py`:
+
+![Target Prompt Builder Configuration](docs/screenshots/1_target_prompt_builder.png)
+
+![QUANTUM Agent Prompt Preview](docs/screenshots/1_QUANTUM_prompt_PREVIEW.png)
+
+![Prompt Template Configuration](docs/screenshots/1_prompt_template.png)
+
+### Agentforce — Routing Configuration (Target)
+
+The target Agentforce supervisor routing configuration, aligned with the routing validation contracts in `tests/test_supervisor_and_meeting_prep.py`:
+
+![Target Agentforce Routing Configuration](docs/screenshots/1_target_agentforce_routing.png)
+
+### Agentforce — CRM Account Seeding (Target)
+
+Salesforce account records and data seeding validated as part of the 14/08/2026 build session:
+
+![ACME New Account Creation](docs/screenshots/1_ACME_newacc.png)
+
+![ACME Account Record View](docs/screenshots/1_ACMEacc.png)
+
+![Account List — CRM Data Seeding](docs/screenshots/1_AccList.png)
+
+![GlobalTrust Peer Account Record](docs/screenshots/1_Globaltrust_peerAccount.png)
+
+Full mapping of all Agentforce target screenshots is available in [docs/evidence/interface/screenshot-index.md](docs/evidence/interface/screenshot-index.md) (SS-20 to SS-31).
+
 ## Enterprise Visual Preview
 
 The application provides an executive banking interface for institutional coverage workflows, grounded meeting preparation, and competitive intelligence analysis.
@@ -92,6 +140,7 @@ The validation package includes:
 - Prompt governance contract validation
 - Observability KPI contract validation
 - Full regression and JUnit XML evidence
+- Agentforce target build evidence (prompt builder, data model, routing) — 14/08/2026
 
 Visual evidence is stored under `docs/screenshots/`, and automated evidence is stored under `docs/evidence/`.
 
