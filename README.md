@@ -41,6 +41,30 @@ The ACME working build demonstrates:
 
 For the complete architecture package, see [docs/architecture/README.md](docs/architecture/README.md).
 
+## Agentforce Dev Working Build
+
+> **Scope:** These screenshots document the **target-state Agentforce sandbox configuration** — Prompt Builder templates, CRM Data Model, and Agent routing — as evidence of the dev working build. They complement the local Streamlit validation layer and demonstrate alignment between the local simulation contracts and the Salesforce platform target.
+
+### Prompt Builder (Target)
+
+The Prompt Builder screenshots capture the configured prompt templates used by the Agentforce agents for executive briefing and competitive intelligence tasks.
+
+![Target Prompt Builder](docs/screenshots/11_target_prompt_builder.png)
+
+### CRM Data Model (Target)
+
+The data model screenshot shows the target Salesforce object schema — Accounts, Contacts, and Opportunities — as configured in the dev sandbox, aligned with the CRM grounding layer of the working build.
+
+![Target CRM Data Model](docs/screenshots/12_target_data_model.png)
+
+### Agentforce Routing Configuration (Target)
+
+The routing screenshot captures the Agentforce supervisor routing configuration, demonstrating how inbound requests are dispatched to the correct specialist agents in the target environment.
+
+![Target Agentforce Routing](docs/screenshots/13_target_agentforce_routing.png)
+
+For the full interface screenshot index (SS-01 through SS-31), see [docs/evidence/interface/screenshot-index.md](docs/evidence/interface/screenshot-index.md).
+
 ## Enterprise Visual Preview
 
 The application provides an executive banking interface for institutional coverage workflows, grounded meeting preparation, and competitive intelligence analysis.
@@ -92,6 +116,7 @@ The validation package includes:
 - Prompt governance contract validation
 - Observability KPI contract validation
 - Full regression and JUnit XML evidence
+- **Agentforce target build evidence** — Prompt Builder, CRM Data Model, and routing configuration (SS-29 to SS-31, `docs/screenshots/11_*` through `13_*`)
 
 Visual evidence is stored under `docs/screenshots/`, and automated evidence is stored under `docs/evidence/`.
 
