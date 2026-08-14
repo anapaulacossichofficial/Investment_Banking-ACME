@@ -28,6 +28,22 @@ programmatic evidence.
 | **SS-13** | `docs/screenshots/8_Hallucination_adversarial-prompt.png` | Generic adversarial prompt rejection | HR-01, `tests/test_prompts_contract.py`, `tests/test_observability_contract.py` | Collected | Visual and contract-linked |
 | **SS-14** | `docs/screenshots/8_Hallucination_Orion-adversarial-prompt.png` | Orion adversarial prompt rejection | HR-01, `tests/test_prompts_contract.py`, `tests/test_observability_contract.py` | Collected | Visual and contract-linked |
 | **SS-15** | `docs/screenshots/8_Hallucination_Existing-account_adversarial-prompt.png` | Existing-account adversarial prompt rejection | HR-01, `tests/test_prompts_contract.py`, `tests/test_observability_contract.py` | Collected | Visual and contract-linked |
+| **SS-16** | `docs/screenshots/9_Observability_Testing.png` | Agentforce observability test run overview | OBS-01, `tests/test_observability_contract.py` | Collected — 14/08/2026 | Visual and contract-linked |
+| **SS-17** | `docs/screenshots/9_Observability_Contract_Testing.png` | Observability contract test execution | OBS-01, `tests/test_observability_contract.py` | Collected — 14/08/2026 | Visual and contract-linked |
+| **SS-18** | `docs/screenshots/9_Full_suite_Testing.png` | Full test suite execution evidence | QA-01, all test modules | Collected — 14/08/2026 | Visual and contract-linked |
+| **SS-19** | `docs/screenshots/9_Blueprint_Validation_Architecture_evidence.png` | Architecture blueprint validation | ARCH-01, `tests/test_supervisor_and_meeting_prep.py` | Collected — 14/08/2026 | Visual |
+| **SS-20** | `docs/screenshots/1_ACME_newacc.png` | ACME new account creation in Salesforce | DS-01, CRM-01 | Collected — 14/08/2026 | Visual |
+| **SS-21** | `docs/screenshots/1_ACMEacc.png` | ACME account record view | DS-01, CRM-01 | Collected — 14/08/2026 | Visual |
+| **SS-22** | `docs/screenshots/1_AccList.png` | Account list — CRM data seeding validation | DS-01, CRM-01 | Collected — 14/08/2026 | Visual |
+| **SS-23** | `docs/screenshots/1_Globaltrust_peerAccount.png` | GlobalTrust peer account record | DS-01, CRM-02 | Collected — 14/08/2026 | Visual |
+| **SS-24** | `docs/screenshots/1_target_data-model-GLOBALTRUST.png` | Target data model — GlobalTrust object mapping | DM-01, DS-02 | Collected — 14/08/2026 | Visual |
+| **SS-25** | `docs/screenshots/1_target_data-model-QUANTUM.png` | Target data model — QUANTUM base object | DM-01, DS-02 | Collected — 14/08/2026 | Visual |
+| **SS-26** | `docs/screenshots/1_target_data-model-QUANTUM_contacts.png` | Target data model — QUANTUM Contacts relationship | DM-01, DS-02 | Collected — 14/08/2026 | Visual |
+| **SS-27** | `docs/screenshots/1_target_data-model-QUANTUM_opps.png` | Target data model — QUANTUM Opportunities relationship | DM-01, DS-02 | Collected — 14/08/2026 | Visual |
+| **SS-28** | `docs/screenshots/1_target_prompt_builder.png` | Agentforce target prompt builder configuration | PB-01, `tests/test_prompts_contract.py` | Collected — 14/08/2026 | Visual and contract-linked |
+| **SS-29** | `docs/screenshots/1_target_agentforce_routing.png` | Agentforce target routing configuration | SR-01, `tests/test_supervisor_and_meeting_prep.py` | Collected — 14/08/2026 | Visual and contract-linked |
+| **SS-30** | `docs/screenshots/1_QUANTUM_prompt_PREVIEW.png` | QUANTUM agent prompt preview in Agentforce builder | PB-01, `tests/test_prompts_contract.py` | Collected — 14/08/2026 | Visual and contract-linked |
+| **SS-31** | `docs/screenshots/1_prompt_template.png` | Prompt template configuration in Agentforce builder | PB-01, `tests/test_prompts_contract.py` | Collected — 14/08/2026 | Visual and contract-linked |
 
 ## Automated Evidence References
 
@@ -37,7 +53,8 @@ programmatic evidence.
 | `docs/evidence/test_observability_contract.log` | KPI and telemetry contract | Automated |
 | `docs/evidence/test_full_suite.log` | Full regression execution | Automated |
 | `docs/evidence/test-results.xml` | Structured JUnit test report | Automated |
-| `docs/evidence/test_performance_all.log` | Performance and duration evidence | Automated |
+| `docs/evidence/test_performance_all.log` | Performance and duration evidence — updated 14/08/2026 | Automated |
+| `data/crm/activities_fixed.csv` | CRM activity seed data — fixed dataset 14/08/2026 | Data fixture |
 | `tests/fixtures/observability_events.jsonl` | Deterministic telemetry fixture | Test fixture |
 
 ## Status Definitions
@@ -81,6 +98,8 @@ simulation of these contracts, not a live Salesforce production trace.
 - [x] All existing screenshot files are mapped with their real names.
 - [x] Fallback screenshots are marked collected.
 - [x] Hallucination rejection screenshots are marked collected.
-- [x] Automated evidence is listed separately from visual evidence.
+- [x] Observability and full-suite test screenshots from 14/08/2026 added (SS-16..SS-19).
+- [x] Agentforce target build screenshots from 14/08/2026 added (SS-20..SS-31).
+- [x] Automated evidence updated: test_performance_all.log and activities_fixed.csv.
 - [x] Screenshot references use `.png` filenames that match the repository.
 - [x] Validation baseline reflects the current automated test results.
