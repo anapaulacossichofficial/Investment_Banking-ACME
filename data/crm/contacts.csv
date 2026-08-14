@@ -1,5 +1,5 @@
-ContactId,AccountId,FirstName,LastName,Title,Email
-CON-001,ACC-001,Arthur,Pendleton,Chief Investment Officer,apendleton@quantuminvestments.com
-CON-002,ACC-001,Beatrice,Sterling,Managing Director of Portfolio Strategy,bsterling@quantuminvestments.com
-CON-003,ACC-002,Laura,Whitfield,Head of Capital Markets,lwhitfield@globaltrustcapital.com
-CON-004,ACC-002,Marcus,Feldman,Director of Strategic Investments,mfeldman@globaltrustcapital.com
+ContactId,AccountId,SalesforceAccountId,SalesforceContactId,FirstName,LastName,Title,Email
+CON-001,ACC-001,001aj00003M0sTjAAJ,003aj000027aA73AAE,Arthur,Pendleton,Chief Investment Officer,apendleton@quantuminvestments.com
+CON-002,ACC-001,001aj00003M0sTjAAJ,003aj000027aA74AAE,Beatrice,Sterling,Managing Director of Portfolio Strategy,bsterling@quantuminvestments.com
+CON-003,ACC-002,001aj00003M2aN4AAJ,003aj000027aA75AAE,Laura,Whitfield,Head of Capital Markets,lwhitfield@globaltrustcapital.com
+CON-004,ACC-002,001aj00003M2aN4AAJ,003aj000027aA76AAE,Marcus,Feldman,Director of Strategic Investments,mfeldman@globaltrustcapital.com

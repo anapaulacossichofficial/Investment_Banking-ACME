@@ -1,0 +1,52 @@
+{
+  "records": [
+    {
+      "attributes": { "type": "Account", "referenceId": "ACC001" },
+      "Name": "QUANTUM INVESTMENTS",
+      "Industry": "Finance",
+      "Type": "Customer - Direct",
+      "Contacts": {
+        "records": [
+          {
+            "attributes": { "type": "Contact", "referenceId": "CON001" },
+            "FirstName": "Arthur",
+            "LastName": "Pendleton",
+            "Title": "Chief Investment Officer",
+            "Email": "apendleton@quantuminvestments.com"
+          },
+          {
+            "attributes": { "type": "Contact", "referenceId": "CON002" },
+            "FirstName": "Beatrice",
+            "LastName": "Sterling",
+            "Title": "Managing Director of Portfolio Strategy",
+            "Email": "bsterling@quantuminvestments.com"
+          }
+        ]
+      }
+    },
+    {
+      "attributes": { "type": "Account", "referenceId": "ACC002" },
+      "Name": "GLOBALTRUST CAPITAL",
+      "Industry": "Finance",
+      "Type": "Customer - Direct",
+      "Contacts": {
+        "records": [
+          {
+            "attributes": { "type": "Contact", "referenceId": "CON003" },
+            "FirstName": "Laura",
+            "LastName": "Whitfield",
+            "Title": "Head of Capital Markets",
+            "Email": "lwhitfield@globaltrustcapital.com"
+          },
+          {
+            "attributes": { "type": "Contact", "referenceId": "CON004" },
+            "FirstName": "Marcus",
+            "LastName": "Feldman",
+            "Title": "Director of Strategic Investments",
+            "Email": "mfeldman@globaltrustcapital.com"
+          }
+        ]
+      }
+    }
+  ]
+}

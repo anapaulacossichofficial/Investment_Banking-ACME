@@ -61,7 +61,7 @@ Use the diagrams in this order during the panel:
 4. **Detailed Architecture & Salesforce Target Mapping** — connect the local working build to the Salesforce target-state design
 
 This sequence helps distinguish:
-- what is implemented in the local engineering runtime;
+- what is implemented in the Demo engineering runtime;
 - what is validated as architecture and behavior;
 - what is proposed as the Salesforce enterprise target runtime.
 EOF
