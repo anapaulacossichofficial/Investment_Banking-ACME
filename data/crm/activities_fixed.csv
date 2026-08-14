@@ -1,0 +1,5 @@
+ActivityId,AccountId,SalesforceAccountId,Subject,ActivityDate,Type,Description
+ACT-001,ACC-001,001aj00003M0sTjAAJ,Quantum Investment Strategy Review,2026-05-12,Meeting,Reviewed pipeline and financing priorities
+ACT-002,ACC-001,001aj00003M0sTjAAJ,Quantum ECM Pipeline Sync,2026-06-05,Call,Aligned equity capital markets next steps
+ACT-003,ACC-002,001aj00003M2aN4AAJ,Green Bond Structuring Call,2026-06-18,Call,Discussed ESG bond structuring terms
+ACT-004,ACC-002,001aj00003M2aN4AAJ,Cross-Border Deal Sync,2026-07-02,Meeting,Reviewed restructuring milestones and timeline
