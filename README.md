@@ -43,27 +43,61 @@ For the complete architecture package, see [docs/architecture/README.md](docs/ar
 
 ## Agentforce Dev Working Build
 
-> **Scope:** These screenshots document the **target-state Agentforce sandbox configuration** — Prompt Builder templates, CRM Data Model, and Agent routing — as evidence of the dev working build. They complement the local Streamlit validation layer and demonstrate alignment between the local simulation contracts and the Salesforce platform target.
+> **Scope:** These screenshots document the target-state Agentforce sandbox configuration and validation evidence collected on 14 August 2026. They complement the local Streamlit working build and demonstrate alignment between deterministic engineering contracts and the Salesforce platform target.
 
-### Prompt Builder (Target)
+### Prompt Builder and Grounding
 
-The Prompt Builder screenshots capture the configured prompt templates used by the Agentforce agents for executive briefing and competitive intelligence tasks.
+The configured Prompt Builder templates and preview demonstrate the prompt layer used for executive briefing and competitive-intelligence workflows.
 
-![Target Prompt Builder](docs/screenshots/11_target_prompt_builder.png)
+![Target Prompt Builder](docs/screenshots/1_target_prompt_builder.png)
 
-### CRM Data Model (Target)
+![Quantum Prompt Preview](docs/screenshots/1_QUANTUM_prompt_PREVIEW.png)
 
-The data model screenshot shows the target Salesforce object schema — Accounts, Contacts, and Opportunities — as configured in the dev sandbox, aligned with the CRM grounding layer of the working build.
+![Prompt Template Configuration](docs/screenshots/1_prompt_template.png)
 
-![Target CRM Data Model](docs/screenshots/12_target_data_model.png)
+### CRM Data Model and Account Context
 
-### Agentforce Routing Configuration (Target)
+The target CRM evidence covers the account, contact, and opportunity context used by the grounding layer.
 
-The routing screenshot captures the Agentforce supervisor routing configuration, demonstrating how inbound requests are dispatched to the correct specialist agents in the target environment.
+![Target CRM Data Model — GlobalTrust](docs/screenshots/1_target_data-model-GLOBALTRUST.png)
 
-![Target Agentforce Routing](docs/screenshots/13_target_agentforce_routing.png)
+![Target CRM Data Model — Quantum](docs/screenshots/1_target_data-model-QUANTUM.png)
 
-For the full interface screenshot index (SS-01 through SS-31), see [docs/evidence/interface/screenshot-index.md](docs/evidence/interface/screenshot-index.md).
+![Target CRM Data Model — Quantum Contacts](docs/screenshots/1_target_data-model-QUANTUM_contacts.png)
+
+![Target CRM Data Model — Quantum Opportunities](docs/screenshots/1_target_data-model-QUANTUM_opps.png)
+
+### Account Seeding and Peer Context
+
+The sandbox account evidence verifies account creation, account-list visibility, and peer-account context.
+
+![New ACME Account](docs/screenshots/1_ACME_newacc.png)
+
+![ACME Account Record](docs/screenshots/1_ACMEacc.png)
+
+![Account List](docs/screenshots/1_AccList.png)
+
+![GlobalTrust Peer Account](docs/screenshots/1_Globaltrust_peerAccount.png)
+
+### Agentforce Routing
+
+The routing configuration captures how requests are dispatched through the Agentforce target build.
+
+![Target Agentforce Routing](docs/screenshots/1_target_agentforce_routing.png)
+
+### Validation Evidence
+
+The screenshots below record the validation runs added on 14 August 2026 for observability, contract checks, full regression, and architecture-blueprint evidence.
+
+![Observability Testing](docs/screenshots/9_Observability_Testing.png)
+
+![Observability Contract Testing](docs/screenshots/9_Observability_Contract_Testing.png)
+
+![Full Suite Testing](docs/screenshots/9_Full_suite_Testing.png)
+
+![Blueprint Validation Architecture Evidence](docs/screenshots/9_Blueprint_Validation_Architecture_evidence.png)
+
+For the complete screenshot catalog, see [docs/evidence/interface/screenshot-index.md](docs/evidence/interface/screenshot-index.md).
 
 ## Enterprise Visual Preview
 
@@ -116,7 +150,8 @@ The validation package includes:
 - Prompt governance contract validation
 - Observability KPI contract validation
 - Full regression and JUnit XML evidence
-- **Agentforce target build evidence** — Prompt Builder, CRM Data Model, and routing configuration (SS-29 to SS-31, `docs/screenshots/11_*` through `13_*`)
+- **Agentforce target build evidence** — Prompt Builder, CRM data model, account seeding, and routing configuration (`docs/screenshots/1_*.png`)
+- **Validation-run evidence** — Observability, contract, full-suite, and blueprint-validation runs (`docs/screenshots/9_*.png`)
 
 Visual evidence is stored under `docs/screenshots/`, and automated evidence is stored under `docs/evidence/`.
 
@@ -131,8 +166,9 @@ The repository validates behavior at three complementary levels:
 Generated evidence includes:
 
 ```text
-docs/evidence/test_prompts_contract.log
-docs/evidence/test_observability_contract.log
+docs/evidence/front3_prompt_contracts.log
+docs/evidence/front3_observability_contracts.log
+docs/evidence/front3_structural_validation.log
 docs/evidence/test_full_suite.log
 docs/evidence/test-results.xml
 docs/evidence/test_performance_all.log
