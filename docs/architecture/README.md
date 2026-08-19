@@ -65,3 +65,6 @@ This sequence helps distinguish:
 - what is validated as architecture and behavior;
 - what is proposed as the Salesforce enterprise target runtime.
 EOF
+## Design Trade-offs
+
+See [design-trade-offs.md](design-trade-offs.md) for the documented architectural trade-offs (runtime choice, CRM fixtures vs. Data Cloud, second-capability breadth) and their migration paths to native Agentforce/Data Cloud production.

@@ -203,3 +203,7 @@ Scale comes from shared patterns rather than duplicated prompts and agents:
 ## 12. Platform Limitations
 
 Known implementation, retrieval, citation, observability, and scope boundaries are documented in [Platform Limitations](platform-limitations.md).
+
+## Related Trade-off Documentation
+
+The architectural trade-offs underlying this blueprint — Streamlit local runtime vs. native Agentforce runtime, local CRM fixtures vs. Data Cloud DMOs, and second-capability breadth vs. single-capability depth — are documented in detail in [docs/architecture/design-trade-offs.md](design-trade-offs.md). See also the consolidated visual summary in [2_acme-agentforce-pattern_Tradeoffs.png](2_acme-agentforce-pattern_Tradeoffs.png) and the Option B functional pattern in [2_acme-optionB-functionaldiagram.png](2_acme-optionB-functionaldiagram.png).
