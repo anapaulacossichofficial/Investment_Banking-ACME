@@ -45,25 +45,35 @@ tests/test_supervisor_and_meeting_prep.py::test_meeting_prep_agent_generates_hyb
 tests/test_tool_contract_schema.py::test_tool_contract_schema_validity PASSED [100%]
 
 ============================== slowest durations ===============================
-5.67s call     tests/test_page_competitive_intelligence.py::test_page_competitive_intelligence_imports_without_app_templates
-0.06s call     tests/test_competitive_intelligence_retriever.py::test_get_institution_options_contains_base_institution
-0.06s call     tests/test_competitive_intelligence_retriever.py::test_get_metrics_returns_dictionary_for_valid_peer
+31.17s call     tests/test_page_competitive_intelligence.py::test_page_competitive_intelligence_imports_without_app_templates
+0.07s call     tests/test_supervisor_and_meeting_prep.py::test_meeting_prep_agent_generates_hybrid_grounded_briefing
+0.07s call     tests/test_competitive_intelligence_retriever.py::test_get_sources_returns_approved_source_labels
+0.05s call     tests/test_competitive_intelligence_retriever.py::test_get_metrics_returns_dictionary_for_valid_peer
+0.05s call     tests/test_competitive_intelligence_retriever.py::test_get_insight_contains_expected_fields_for_valid_peer
 0.05s call     tests/test_competitive_intelligence_retriever.py::test_get_peer_options_returns_configured_peers
 0.05s call     tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_institutions-required_columns0]
-0.04s call     tests/test_competitive_intelligence_retriever.py::test_get_sources_returns_approved_source_labels
-0.04s call     tests/test_supervisor_and_meeting_prep.py::test_meeting_prep_agent_generates_hybrid_grounded_briefing
-0.03s call     tests/test_competitive_intelligence_retriever.py::test_get_insight_contains_expected_fields_for_valid_peer
-0.02s call     tests/test_crm_retriever.py::test_get_account_bundle_filters_by_account_id
-0.02s call     tests/test_crm_retriever.py::test_get_account_bundle_returns_expected_keys
-0.02s call     tests/test_prompts_contract.py::test_meeting_prep_system_prompt_zero_trust_contract
-0.01s call     tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_sources-required_columns4]
-0.01s call     tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_insights-required_columns3]
-0.01s call     tests/test_prompts_contract.py::test_supervisor_router_prompt_contract
-0.01s call     tests/test_prompts_contract.py::test_prompt_version_registry_exists_and_is_nonempty
-0.01s call     tests/test_prompts_contract.py::test_meeting_prep_user_prompt_exists_and_is_nonempty
+0.04s call     tests/test_crm_retriever.py::test_get_account_bundle_returns_expected_keys
+0.04s call     tests/test_crm_retriever.py::test_get_account_bundle_filters_by_account_id
+0.03s call     tests/test_competitive_intelligence_retriever.py::test_get_institution_options_contains_base_institution
 0.01s call     tests/test_prompts_contract.py::test_active_prompt_directory_and_files_exist
-0.01s call     tests/test_observability_contract.py::test_fallback_rate
 0.01s call     tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_metrics-required_columns2]
+0.01s call     tests/test_observability_contract.py::test_fallback_rate
+0.01s call     tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_insights-required_columns3]
+0.01s call     tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_sources-required_columns4]
+0.01s call     tests/test_observability_contract.py::test_supervisor_route_trace
+0.01s call     tests/test_observability_contract.py::test_grounded_answer_rate
+0.01s call     tests/test_tool_contract_schema.py::test_tool_contract_schema_validity
+0.01s call     tests/test_prompts_contract.py::test_prompt_version_registry_exists_and_is_nonempty
+0.01s call     tests/test_observability_contract.py::test_session_latency
+0.01s call     tests/test_competitive_intelligence_agent.py::test_competitive_intelligence_agent_module_imports
+0.01s call     tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_peers-required_columns1]
+0.01s call     tests/test_prompts_contract.py::test_supervisor_router_prompt_contract
+0.01s call     tests/test_observability_contract.py::test_citation_coverage
+0.01s call     tests/test_observability_contract.py::test_guardrail_event_is_traceable
+0.01s call     tests/test_observability_contract.py::test_required_event_schema
+0.01s call     tests/test_prompts_contract.py::test_meeting_prep_system_prompt_zero_trust_contract
+0.01s call     tests/test_prompts_contract.py::test_meeting_prep_user_prompt_exists_and_is_nonempty
+0.01s setup    tests/test_competitive_intelligence_agent.py::test_competitive_intelligence_agent_module_imports
 
-(95 durations < 0.005s hidden.  Use -vv to show these durations.)
-============================== 38 passed in 9.76s ==============================
+(85 durations < 0.005s hidden.  Use -vv to show these durations.)
+============================= 38 passed in 37.50s ==============================

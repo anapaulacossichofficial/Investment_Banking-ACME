@@ -31,14 +31,14 @@ The ACME working build demonstrates:
 
 | Diagram | Purpose |
 |---|---|
-| [Solution Flow](docs/architecture/solution-flow.png) | Executive path from user interaction to evidence package |
+| [Solution Flow (updated)](docs/architecture/2_acme-flow-diagram-tradeoffs.png) | Executive path from user interaction to evidence package |
 | [High-Level Architecture](docs/architecture/high-level-architecture.png) | Functional flow across agents, CRM, knowledge grounding, and assurance |
 | [Detailed Architecture & Salesforce Target Mapping](docs/architecture/detailed-architecture-salesforce-mapping.png) | Engineering Demo runtime detail and Agentforce working Build |
 | [Option B Functional Diagram (Salesforce Pattern)](docs/architecture/2_acme-optionB-functionaldiagram.png) | Knowledge-grounded Meeting Prep pattern aligned to Salesforce Architects' Guide |
 | [Architecture Trade-offs Diagram](docs/architecture/2_acme-agentforce-pattern_Tradeoffs.png) | Consolidated trade-offs view referencing docs/architecture/design-trade-offs.md |
 
 <p align="center">
-  <img src="docs/architecture/solution-flow.png" alt="Solution Flow" width="900">
+  <img src="docs/architecture/2_acme-flow-diagram-tradeoffs.png" alt="Solution Flow" width="900">
 </p>
 
 For the complete architecture package, see [docs/architecture/README.md](docs/architecture/README.md).

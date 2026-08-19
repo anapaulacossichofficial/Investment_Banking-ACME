@@ -11,4 +11,4 @@ tests/test_prompts_contract.py::test_meeting_prep_user_prompt_exists_and_is_none
 tests/test_prompts_contract.py::test_supervisor_router_prompt_contract PASSED [ 80%]
 tests/test_prompts_contract.py::test_prompt_version_registry_exists_and_is_nonempty PASSED [100%]
 
-============================== 5 passed in 0.15s ===============================
+============================== 5 passed in 0.27s ===============================

@@ -13,7 +13,7 @@ The diagram set is intentionally layered:
 
 Shows the executive path from the reviewer interaction through the UI, AI runtime, assurance controls, and evidence package.
 
-![Solution Flow](solution-flow.png)
+![Solution Flow](2_acme-flow-diagram-tradeoffs.png)
 
 ## 2. High-Level Architecture
 
