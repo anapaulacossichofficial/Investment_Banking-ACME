@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ACME Investment Bank — Option B: Knowledge-Grounded Meeting Prep Agent</title>
+<style>
+  body { font-family: 'Segoe UI', Arial, sans-serif; background:#F3F3F3; margin:0; padding:30px; color:#032D60; }
+  .wrap { max-width:1400px; margin:0 auto; background:#fff; border-radius:10px; padding:30px 40px 40px; box-shadow:0 2px 10px rgba(0,0,0,0.08); }
+  h1 { font-size:22px; margin-bottom:2px; }
+  .subtitle { color:#706E6B; font-size:13px; margin-bottom:25px; }
+  .row { display:flex; gap:16px; align-items:stretch; margin-bottom:16px; }
+  .box { border-radius:8px; padding:14px 16px; color:#fff; font-size:12.5px; line-height:1.5; }
+  .channel { background:#0B5CAB; width:190px; display:flex; flex-direction:column; justify-content:center; font-weight:600;}
+  .agent-container { flex:1; background:#EEF4FF; border:2px solid #5867E8; border-radius:10px; padding:14px; }
+  .agent-title { color:#032D60; font-weight:700; font-size:14px; margin-bottom:10px; text-align:center; }
+  .agent-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .agent-item { background:#5867E8; border-radius:6px; padding:10px 12px; font-size:12px; }
+  .agent-item.guard { background:#8B6D9C; }
+  .data-container { width:310px; background:#E3F3EC; border:2px solid #04844B; border-radius:10px; padding:14px; }
+  .data-title { color:#032D60; font-weight:700; font-size:13.5px; margin-bottom:10px; text-align:center; }
+  .data-item { background:#04844B; border-radius:6px; padding:9px 11px; font-size:11.5px; margin-bottom:7px; }
+  .data-item.doc { background:#02703E; }
+  .data-item.src { background:#747474; font-weight:600; }
+  .arrow { display:flex; align-items:center; justify-content:center; font-size:24px; color:#032D60; }
+  .bottom-row { display:flex; gap:16px; margin-bottom:25px; }
+  .output-box { width:220px; background:#0B5CAB; color:#fff; border-radius:8px; padding:12px 14px; font-size:12px; font-weight:600; }
+  .trust { flex:1; background:#FFF6E0; border:1px solid #B88C00; color:#5C4400; border-radius:8px; padding:12px 16px; font-size:13px; font-weight:600; text-align:center; }
+  .bonus-box { width:340px; background:#F5F0FF; border:1px dashed #8B6D9C; color:#4A3B57; border-radius:8px; padding:10px 12px; font-size:11px; }
+  h2 { font-size:16px; margin:25px 0 10px; color:#032D60; }
+  .interactions { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:10px; }
+  .step { background:#F4F6FE; border:1px solid #C9D3F7; border-radius:8px; padding:10px; font-size:11.5px; }
+  .step .num { display:inline-block; width:22px; height:22px; background:#5867E8; color:#fff; border-radius:50%; text-align:center; line-height:22px; font-weight:700; margin-bottom:6px; font-size:12px; }
+  table { width:100%; border-collapse:collapse; font-size:12.5px; margin-top:8px; }
+  th { background:#EEEEEE; text-align:left; padding:8px 10px; color:#032D60; }
+  td { padding:8px 10px; border-bottom:1px solid #E5E5E5; vertical-align:top; }
+  .icon { font-size:16px; margin-right:6px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>ACME Investment Bank — Option B: Knowledge-Grounded Meeting Prep Agent</h1>
+  <div class="subtitle">Conversational Agent Pattern, aligned to the Salesforce Architects' Guide (Section 2.1) — grounded in structured CRM data and unstructured Account-linked documents</div>
+
+  <div class="row">
+    <div class="box channel">
+      <span class="icon">💬</span>Channel<br>Banker Workspace / CRM UI<br><span style="font-weight:400;opacity:.85;">"Prep me for my meeting with [Account]"</span>
+    </div>
+    <div class="arrow">→</div>
+    <div class="agent-container">
+      <div class="agent-title">Agentforce Agent — Meeting Prep Agent (Option B core)</div>
+      <div class="agent-grid">
+        <div class="agent-item"><span class="icon">💬</span><b>Topics &amp; Instructions</b><br>Account resolution &amp; confirmation, Meeting Prep topic</div>
+        <div class="agent-item"><span class="icon">⚙️</span><b>Actions</b><br>Structured CRM retrieval (Apex), Account/Contact/Opportunity scoping</div>
+        <div class="agent-item guard"><span class="icon">🛡️</span><b>Guardrails</b><br>Account-scope enforcement, no ranking/advice, missing-data fallback</div>
+        <div class="agent-item guard"><span class="icon">📄</span><b>Prompt Templates</b><br>Merges CRM + retrieved passages, grounding &amp; citation instructions</div>
+      </div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="data-container">
+      <div class="data-title">Data 360 (Salesforce Data Cloud)<br>Knowledge Grounding Layer</div>
+      <div class="data-item"><span class="icon">🗄️</span><b>Structured DMOs</b><br>Account, Contact, Opportunity, Task</div>
+      <div class="data-item doc"><span class="icon">📁</span><b>Unstructured Document DMOs</b><br>Pitch decks, relationship notes, research</div>
+      <div class="data-item"><span class="icon">🔎</span><b>Account-Rooted Vector Store / RAG Retriever</b><br>Hybrid Search Index filtered by confirmed Account ID</div>
+      <div class="data-item src"><span class="icon">☁️</span><b>Source System</b><br>Sales Cloud CRM</div>
+    </div>
+  </div>
+
+  <div class="bottom-row">
+    <div class="output-box"><span class="icon">✅</span>Cited Meeting Briefing<br><span style="font-weight:400;">Grounded facts + document evidence + source trace, returned to the banker</span></div>
+    <div class="trust">🔒 Einstein Trust Layer — prompt/response masking • zero data retention • audit signals • model routing</div>
+    <div class="bonus-box"><b>Bonus — Second Capability</b> (outside Option B core scope)<br>Competitive Intelligence Agent: peer benchmarking, strategic insights, reusing the same Agent/Guardrail/Retriever pattern</div>
+  </div>
+
+  <h2>Interactions</h2>
+  <div class="interactions">
+    <div class="step"><span class="num">1</span>Banker asks the agent to prepare for a meeting with a named Account.</div>
+    <div class="step"><span class="num">2</span>The agent resolves the Account and asks for confirmation, disambiguating duplicate names via location details.</div>
+    <div class="step"><span class="num">3</span>Actions retrieve approved, structured CRM context (Account, Contact, Opportunity, Task) once the Account is confirmed.</div>
+    <div class="step"><span class="num">4</span>The Account-rooted retriever pulls relevant passages from linked pitch decks, relationship notes, and research documents.</div>
+    <div class="step"><span class="num">5</span>The Prompt Template merges structured CRM facts with retrieved document evidence, comparing current CRM data against document evidence.</div>
+    <div class="step"><span class="num">6</span>Guardrails check evidence sufficiency, refuse ranking/investment-advice requests, and trigger a stated fallback when CRM data or documents are unavailable.</div>
+    <div class="step" style="grid-column:span 2;"><span class="num">7</span>The Einstein Trust Layer applies masking and audit logging before the cited, grounded briefing returns to the banker.</div>
+  </div>
+
+  <h2>Trade-Offs</h2>
+  <table>
+    <tr><th>Aspect</th><th>Gain</th><th>Cost</th></tr>
+    <tr><td>Account-rooted retrieval</td><td>No cross-account data bleed; simple guardrail testing</td><td>Cannot start independently from Contact/Opportunity/Task</td></tr>
+    <tr><td>Grounded citations</td><td>Higher banker trust in generated briefings</td><td>Standard citations can resolve to the root Account instead of the specific File</td></tr>
+    <tr><td>Demo runtime first</td><td>Fast, deterministic contract testing (38+ tests)</td><td>No native Agentforce session-trace proof yet; requires Data Cloud provisioning</td></tr>
+  </table>
+</div>
+</body>
+</html>
