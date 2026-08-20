@@ -31,19 +31,16 @@ The ACME working build demonstrates:
 
 | Diagram | Purpose |
 |---|---|
-| [Solution HLD](docs/architecture/3_ACME_Investment_Bank_HLD_Architecture.png) | High-level design of the proposed solution: banker interaction, supervisor orchestration, specialized agents, CRM/Data Cloud retrieval, Einstein Trust Layer, and enterprise interoperability with 30+ agents |
-| [Functional Diagram — Option B](docs/architecture/2_acme-optionB-functionaldiagram.png) | Knowledge-grounded Meeting Prep pattern aligned to the Salesforce Architects' Guide (also available as an [interactive executive view](docs/architecture/2_acme-optionB-meeting-prep-diagram.html)) |
-| [Design Trade-offs (highlighted)](docs/architecture/2_acme-agentforce-pattern_Tradeoffs.png) | Consolidated trade-offs view referencing [docs/architecture/design-trade-offs.md](docs/architecture/design-trade-offs.md) |
-| [Solution Flow (previous version)](docs/architecture/2_acme-flow-diagram-tradeoffs.png) | Earlier executive path diagram, preserved as reference |
-| [High-Level Architecture (previous version)](docs/architecture/high-level-architecture.png) | Earlier HLD version, preserved as reference |
-| [Detailed Architecture & Salesforce Target Mapping](docs/architecture/detailed-architecture-salesforce-mapping.png) | Engineering demo runtime detail and Agentforce target build mapping |
-| [Salesforce Proposed Architecture](docs/architecture/Salesforce_Proposed_Architecture.png) | Additional Salesforce-aligned reference diagram |
+| [Solution HLD](docs/architecture/3_ACME_Investment_Bank_HLD_Architecture.png) | High-level design of the proposed solution: banker interaction, Salesforce UX, Agentforce Supervisor/Planner, Meeting Prep Agent, CRM/Data Cloud retrieval, Einstein Trust Layer, and enterprise interoperability with 30+ agents |
+| [Functional Diagram — Option B](docs/architecture/2_acme-optionB-functionaldiagram.png) | Knowledge-grounded Meeting Prep pattern aligned to the Salesforce Architects' Guide |
+| [Solution Flow](docs/architecture/2_acme-flow-diagram-tradeoffs.png) | Executive path from user interaction to evidence package |
+| [Design Trade-offs](docs/architecture/2_acme-agentforce-pattern_Tradeoffs.png) | Consolidated trade-offs view referencing [docs/architecture/design-trade-offs.md](docs/architecture/design-trade-offs.md) |
 
 <p align="center">
   <img src="docs/architecture/3_ACME_Investment_Bank_HLD_Architecture.png" alt="Solution HLD" width="900">
 </p>
 
-For the complete architecture package, see [docs/architecture/README.md](docs/architecture/README.md).
+For the complete architecture package, see [docs/architecture/README.md](https://github.com/anapaulacossichofficial/Investment_Banking-ACME/blob/main/docs/architecture/README.md).
 
 ## Agentforce Dev Working Build
 
