@@ -1,4 +1,3 @@
-cat <<'EOF' > docs/architecture/README.md
 # Architecture Diagrams
 
 This folder contains the presentation-ready architecture diagrams for the ACME Banking Intelligence Hub working build and its Salesforce target-state positioning.
@@ -30,7 +29,13 @@ Use this diagram when explaining:
 
 An interactive, executive-styled export of this same diagram is available at [2_acme-optionB-meeting-prep-diagram.html](2_acme-optionB-meeting-prep-diagram.html).
 
-## 3. Design Trade-offs (highlighted)
+## 3. Solution Flow
+
+Shows the executive path from the reviewer interaction through the UI, AI runtime, assurance controls, and evidence package.
+
+![Solution Flow](2_acme-flow-diagram-tradeoffs.png)
+
+## 4. Design Trade-offs (highlighted)
 
 Consolidated view of the key architectural trade-offs (runtime choice, CRM fixtures vs. Data Cloud, custom retriever vs. native retriever, account-scoped retrieval, second-capability breadth) and their migration paths to native Agentforce/Data Cloud production.
 
@@ -42,7 +47,6 @@ See [design-trade-offs.md](design-trade-offs.md) for the full documented rationa
 
 Complementary artifacts and earlier iterations of the architecture, preserved as engineering record and supporting documentation for the diagrams above:
 
-- [2_acme-flow-diagram-tradeoffs.png](2_acme-flow-diagram-tradeoffs.png) — earlier version of the executive solution flow diagram
 - [high-level-architecture.png](high-level-architecture.png) — earlier version of the HLD, prior to consolidation
 - [Salesforce_Proposed_Architecture.png](Salesforce_Proposed_Architecture.png) — additional Salesforce-aligned reference diagram
 - [detailed-architecture-salesforce-mapping.png](detailed-architecture-salesforce-mapping.png) — detailed local working build mapped to Salesforce/Agentforce target capabilities; present as an **architecture mapping view**, not a claim that every mapped component is already live in Salesforce
@@ -70,11 +74,11 @@ Use the diagrams in this order during the panel:
 
 1. **Solution HLD** — establish the executive architecture narrative
 2. **Functional Diagram — Option B** — explain runtime behavior in detail
-3. **Design Trade-offs** — proactively address platform judgment and known constraints
-4. **Solution Architecture and Detailed Blueprint** — reference for deeper technical follow-up questions
+3. **Solution Flow** — walk through the executive user journey end to end
+4. **Design Trade-offs** — proactively address platform judgment and known constraints
+5. **Solution Architecture and Detailed Blueprint** — reference for deeper technical follow-up questions
 
 This sequence helps distinguish:
 - what is implemented in the demo engineering runtime;
 - what is validated as architecture and behavior;
 - what is proposed as the Salesforce enterprise target runtime.
-EOF
