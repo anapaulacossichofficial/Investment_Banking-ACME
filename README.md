@@ -40,6 +40,10 @@ The ACME working build demonstrates:
   <img src="docs/architecture/3_ACME_Investment_Bank_HLD_Architecture.png" alt="Solution HLD" width="900">
 </p>
 
+<p align="center">
+  <img src="docs/architecture/2_acme-optionB-functionaldiagram.png" alt="Functional Diagram — Option B" width="900">
+</p>
+
 For the complete architecture package, see [docs/architecture/README.md](https://github.com/anapaulacossichofficial/Investment_Banking-ACME/blob/main/docs/architecture/README.md).
 
 ## Agentforce Dev Working Build
