@@ -20,3 +20,7 @@ tasks_vencidas.csv
 # Salesforce CLI local cache/tracking (not part of source control)
 .sf/
 .sfdx/
+
+# Salesforce CLI local cache/tracking (not part of source control)
+.sf/
+.sfdx/
