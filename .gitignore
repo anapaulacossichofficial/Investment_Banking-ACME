@@ -16,3 +16,7 @@ data/crm/activities_sf.csv
 data/crm/opportunities_fixed.csv
 data/crm/opportunities_sf.csv
 tasks_vencidas.csv
+
+# Salesforce CLI local cache/tracking (not part of source control)
+.sf/
+.sfdx/
