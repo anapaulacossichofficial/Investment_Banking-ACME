@@ -1,0 +1,21 @@
+RELATIONSHIP NOTE — QUANTUM INVESTMENTS
+Account: QUANTUM INVESTMENTS (ACC-001)
+Prepared by: Coverage Banker, ACME_Banking
+Date: 2026-06-15
+
+Summary:
+Quarterly relationship review call held with Head of Treasury. Sentiment positive
+regarding the proposed refinancing structure. Client expressed interest in
+expanding exposure to structured credit products in H2 2026.
+
+Key Points:
+- No material non-public information discussed.
+- Follow-up requested on structured credit product suite.
+- Relationship health: Strong, 3rd consecutive positive quarterly review.
+
+Next Steps:
+- Schedule structured credit product walkthrough within 30 days.
+- Loop in Structured Products desk for technical deep dive.
+
+Disclaimer: Fictional demo content created for the ACME Investment Banking
+Agentforce panel exercise. Does not represent real market data or advice.
