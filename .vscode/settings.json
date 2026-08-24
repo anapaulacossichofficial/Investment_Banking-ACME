@@ -5,5 +5,13 @@
   "extensions.autoCheckUpdates": false,
   "extensions.autoUpdate": false,
   "telemetry.telemetryLevel": "off",
-  "xml.preferences.showSchemaDocumentationType": "none"
+  "xml.preferences.showSchemaDocumentationType": "none",
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    ".mule": true
+  }
 }
