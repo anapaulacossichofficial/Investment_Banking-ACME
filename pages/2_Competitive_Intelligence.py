@@ -188,3 +188,42 @@ for peer in selected_peers:
             st.markdown("**Sources:**")
             for source in sources:
                 st.code(source, language="text")
+                
+    def get_metric_source_ids(self, base_institution_name: str, peer_name: str) -> dict[str, str]:
+    """Returns {MetricName: SourceId} without changing get_metrics()'s existing return format."""
+    institutions = self.load_institutions()
+    peers = self.load_peers()
+    metrics = self.load_metrics()
+
+    needed = {
+        "InstitutionName", "InstitutionId"
+    }.issubset(institutions.columns) if not institutions.empty else False
+    if not needed or peers.empty or metrics.empty:
+        return {}
+
+    base_rows = institutions[
+        institutions["InstitutionName"].astype(str).str.strip() == base_institution_name
+    ]
+    if base_rows.empty:
+        return {}
+    base_id = str(base_rows.iloc[0]["InstitutionId"]).strip()
+
+    peer_rows = peers[
+        (peers["PeerInstitutionName"].astype(str).str.strip() == peer_name)
+        & (peers["BaseInstitutionId"].astype(str).str.strip() == base_id)
+    ]
+    if peer_rows.empty:
+        return {}
+    peer_id = str(peer_rows.iloc[0]["PeerInstitutionId"]).strip()
+
+    selected = metrics[
+        (metrics["BaseInstitutionId"].astype(str).str.strip() == base_id)
+        & (metrics["PeerInstitutionId"].astype(str).str.strip() == peer_id)
+    ]
+
+    result: dict[str, str] = {}
+    for _, row in selected.iterrows():
+        name = str(row["MetricName"]).strip()
+        if "SourceId" in row and row["SourceId"]:
+            result[name] = str(row["SourceId"]).strip()
+    return result            

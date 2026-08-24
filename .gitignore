@@ -24,3 +24,4 @@ tasks_vencidas.csv
 # Salesforce CLI local cache/tracking (not part of source control)
 .sf/
 .sfdx/
+dotenv.env

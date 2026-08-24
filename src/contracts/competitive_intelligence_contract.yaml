@@ -5,7 +5,6 @@ input_contract:
     - base_institution_name
   optional:
     - selected_peers
-    - metric_family
 
 sources:
   fixtures:
