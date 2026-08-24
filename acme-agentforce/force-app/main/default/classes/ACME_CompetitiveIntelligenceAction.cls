@@ -1,8 +1,11 @@
 public class ACME_CompetitiveIntelligenceAction {
 
     public class Request {
-        @InvocableVariable(required=true label='Company Name or Ticker')
-        public String query;
+        @InvocableVariable(required=true label='Base Institution Name')
+        public String baseInstitutionName;
+
+        @InvocableVariable(required=false label='Selected Peers')
+        public List<String> selectedPeers;
     }
 
     public class Response {
@@ -18,9 +21,17 @@ public class ACME_CompetitiveIntelligenceAction {
             Response res = new Response();
             try {
                 HttpRequest httpReq = new HttpRequest();
-                httpReq.setEndpoint('callout:ACME_Competitive_Intelligence/competitive-intelligence?query=' + EncodingUtil.urlEncode(req.query, 'UTF-8'));
-                httpReq.setMethod('GET');
+                httpReq.setEndpoint('callout:ACME_Competitive_Intelligence/competitive-intelligence');
+                httpReq.setMethod('POST');
+                httpReq.setHeader('Content-Type', 'application/json');
                 httpReq.setTimeout(20000);
+
+                Map<String, Object> bodyMap = new Map<String, Object>();
+                bodyMap.put('base_institution_name', req.baseInstitutionName);
+                if (req.selectedPeers != null && !req.selectedPeers.isEmpty()) {
+                    bodyMap.put('selected_peers', req.selectedPeers);
+                }
+                httpReq.setBody(JSON.serialize(bodyMap));
 
                 Http http = new Http();
                 HttpResponse httpRes = http.send(httpReq);
