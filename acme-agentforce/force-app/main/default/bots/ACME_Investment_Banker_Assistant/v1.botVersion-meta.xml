@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BotVersion xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>v1</fullName>
+    <articleAnswersGPTEnabled>false</articleAnswersGPTEnabled>
+    <botDialogs>
+        <botSteps>
+            <botMessages>
+                <message>Welcome to your ACME Meeting Prep Assistant. I can help you prepare for client meetings with comprehensive briefings and competitive intelligence. Which client or meeting are you preparing for?</message>
+                <messageIdentifier>1f84d466-180a-4722-9fed-571e5b859e61</messageIdentifier>
+            </botMessages>
+            <stepIdentifier>96c938ae-937a-44e9-9259-d8722652c40e</stepIdentifier>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <stepIdentifier>e36e7468-3745-4703-904b-f658477d04da</stepIdentifier>
+            <type>Wait</type>
+        </botSteps>
+        <developerName>Welcome</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
+        <label>Welcome</label>
+        <showInFooterMenu>false</showInFooterMenu>
+    </botDialogs>
+    <botDialogs>
+        <botSteps>
+            <botMessages>
+                <message>Sorry, something went wrong while preparing your briefing. Please try again.</message>
+                <messageIdentifier>31b98235-7a13-4010-a9d1-b182d877b52c</messageIdentifier>
+            </botMessages>
+            <stepIdentifier>5ccd790a-71e2-43d4-af0c-63b3e5eb8867</stepIdentifier>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <stepIdentifier>53ef4c34-51ae-4d3f-9869-cb568ce9fbb8</stepIdentifier>
+            <type>Wait</type>
+        </botSteps>
+        <developerName>Rich_Content_Error_Handling</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
+        <label>Error Handler</label>
+        <showInFooterMenu>false</showInFooterMenu>
+    </botDialogs>
+    <botDialogs>
+        <botSteps>
+            <conversationSystemMessage>
+                <type>Transfer</type>
+            </conversationSystemMessage>
+            <stepIdentifier>d6aa61f6-0999-4eeb-8763-a2626f800137</stepIdentifier>
+            <type>SystemMessage</type>
+        </botSteps>
+        <developerName>Transfer_To_Agent</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
+        <label>Transfer To Agent</label>
+        <showInFooterMenu>false</showInFooterMenu>
+    </botDialogs>
+    <citationsEnabled>false</citationsEnabled>
+    <conversationDefinitionPlanners>
+        <genAiPlannerName>ACME_Investment_Banker_Assistant_v1</genAiPlannerName>
+    </conversationDefinitionPlanners>
+    <conversationSystemDialogs>
+        <dialog>Rich_Content_Error_Handling</dialog>
+        <type>ErrorHandling</type>
+    </conversationSystemDialogs>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>Tracks the generation ID of the primary Meeting Prep Briefing prompt response</description>
+        <developerName>Briefing_Generation_ID</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Briefing Generation ID</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <developerName>base_institution_name</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>base_institution_name</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>The next topic to be visited</description>
+        <developerName>AgentScriptInternal_next_topic</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Next Topic</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>This variable may also be referred to as VerifiedCustomerId</description>
+        <developerName>VerifiedCustomerId</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Verified Customer Id</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <developerName>Account_Snapshot</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Account Snapshot</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>Persists the full generated meeting briefing text produced by the Meeting_Prep_Briefing prompt template</description>
+        <developerName>briefing_output</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Briefing Output</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>Name of the client or account the banker is preparing to meet</description>
+        <developerName>client_name</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Client Name</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>Opportunities list</description>
+        <developerName>Opportunities_list</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Opportunities list</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>The agent instructions</description>
+        <developerName>AgentScriptInternal_agent_instructions</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Agent Instructions</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>Salesforce record ID of the client account or contact being researched</description>
+        <developerName>client_record_id</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Client Record Id</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <developerName>competitive_intelligence_result</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>competitive_intelligence_result</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Object</dataType>
+        <description>List of recent Tasks, Events, and Emails related to the client account.</description>
+        <developerName>activities_timeline</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>activities_timeline</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <developerName>Get_Client_Opportunities</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Get Client Opportunities</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <copilotPrimaryLanguage>en_US</copilotPrimaryLanguage>
+    <defaultStdObjForContactIdFltrEnabled>false</defaultStdObjForContactIdFltrEnabled>
+    <entryDialog>Welcome</entryDialog>
+    <intentDisambiguationEnabled>false</intentDisambiguationEnabled>
+    <intentV3Enabled>false</intentV3Enabled>
+    <isScriptCompatibleAgent>true</isScriptCompatibleAgent>
+    <knowledgeActionEnabled>false</knowledgeActionEnabled>
+    <knowledgeFallbackEnabled>false</knowledgeFallbackEnabled>
+    <smallTalkEnabled>false</smallTalkEnabled>
+    <staticPromptsEnabled>false</staticPromptsEnabled>
+    <stopRecPrompts>false</stopRecPrompts>
+    <stopWelcomePrompts>false</stopWelcomePrompts>
+    <surfacesEnabled>false</surfacesEnabled>
+    <toneType>Casual</toneType>
+</BotVersion>
