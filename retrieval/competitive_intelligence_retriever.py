@@ -111,43 +111,69 @@ class CompetitiveIntelligenceRetriever:
             result[name] = f"{float(value):.1f}%" if unit == "percent" else str(value)
         return result
 
-    def get_metric_source_ids(self, base_institution_name: str, peer_name: str) -> dict[str, str]:
-        """Returns {MetricName: SourceId} without changing get_metrics()'s existing return format."""
+    def get_metric_source_ids(
+        self,
+        base_institution_name: str,
+        peer_name: str,
+    ) -> dict[str, str]:
+        """Return metric-name-to-source-ID mappings for one approved peer."""
+
         institutions = self.load_institutions()
         peers = self.load_peers()
         metrics = self.load_metrics()
 
-        needed = {
-            "InstitutionName", "InstitutionId"
-        }.issubset(institutions.columns) if not institutions.empty else False
-        if not needed or peers.empty or metrics.empty:
+        required_columns = {"InstitutionName", "InstitutionId"}
+        if (
+            institutions.empty
+            or peers.empty
+            or metrics.empty
+            or not required_columns.issubset(institutions.columns)
+        ):
             return {}
 
         base_rows = institutions[
-            institutions["InstitutionName"].astype(str).str.strip() == base_institution_name
+            institutions["InstitutionName"].astype(str).str.strip()
+            == base_institution_name.strip()
         ]
         if base_rows.empty:
             return {}
+
         base_id = str(base_rows.iloc[0]["InstitutionId"]).strip()
 
         peer_rows = peers[
-            (peers["PeerInstitutionName"].astype(str).str.strip() == peer_name)
-            & (peers["BaseInstitutionId"].astype(str).str.strip() == base_id)
+            (
+                peers["PeerInstitutionName"].astype(str).str.strip()
+                == peer_name.strip()
+            )
+            & (
+                peers["BaseInstitutionId"].astype(str).str.strip()
+                == base_id
+            )
         ]
         if peer_rows.empty:
             return {}
+
         peer_id = str(peer_rows.iloc[0]["PeerInstitutionId"]).strip()
 
-        selected = metrics[
-            (metrics["BaseInstitutionId"].astype(str).str.strip() == base_id)
-            & (metrics["PeerInstitutionId"].astype(str).str.strip() == peer_id)
+        selected_metrics = metrics[
+            (
+                metrics["BaseInstitutionId"].astype(str).str.strip()
+                == base_id
+            )
+            & (
+                metrics["PeerInstitutionId"].astype(str).str.strip()
+                == peer_id
+            )
         ]
 
         result: dict[str, str] = {}
-        for _, row in selected.iterrows():
-            name = str(row["MetricName"]).strip()
-            if "SourceId" in row and row["SourceId"]:
-                result[name] = str(row["SourceId"]).strip()
+        for _, row in selected_metrics.iterrows():
+            metric_name = str(row.get("MetricName", "")).strip()
+            source_id = str(row.get("SourceId", "")).strip()
+
+            if metric_name and source_id:
+                result[metric_name] = source_id
+
         return result
 
     def get_insight(self, base_institution_name: str, peer_name: str) -> dict[str, str]:

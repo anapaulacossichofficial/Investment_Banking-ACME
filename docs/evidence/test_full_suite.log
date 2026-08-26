@@ -3,41 +3,42 @@ platform linux -- Python 3.12.3, pytest-9.1.1, pluggy-1.6.0 -- /home/anaza/2_Pan
 cachedir: .pytest_cache
 rootdir: /home/anaza/2_PannelAnalysis_Investment-Banking_Linux
 plugins: anyio-4.14.2
-collecting ... collected 38 items
+collecting ... collected 39 items
 
 tests/test_competitive_intelligence_agent.py::test_competitive_intelligence_agent_module_imports PASSED [  2%]
 tests/test_competitive_intelligence_agent.py::test_competitive_intelligence_agent_exposes_something_usable PASSED [  5%]
 tests/test_competitive_intelligence_retriever.py::test_retriever_initialization PASSED [  7%]
 tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_institutions-required_columns0] PASSED [ 10%]
-tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_peers-required_columns1] PASSED [ 13%]
+tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_peers-required_columns1] PASSED [ 12%]
 tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_metrics-required_columns2] PASSED [ 15%]
-tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_insights-required_columns3] PASSED [ 18%]
-tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_sources-required_columns4] PASSED [ 21%]
+tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_insights-required_columns3] PASSED [ 17%]
+tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_sources-required_columns4] PASSED [ 20%]
 tests/test_competitive_intelligence_retriever.py::test_get_institution_options_contains_base_institution PASSED [ 23%]
-tests/test_competitive_intelligence_retriever.py::test_get_peer_options_returns_configured_peers PASSED [ 26%]
+tests/test_competitive_intelligence_retriever.py::test_get_peer_options_returns_configured_peers PASSED [ 25%]
 tests/test_competitive_intelligence_retriever.py::test_get_metrics_returns_dictionary_for_valid_peer PASSED [ 28%]
-tests/test_competitive_intelligence_retriever.py::test_get_insight_contains_expected_fields_for_valid_peer PASSED [ 31%]
-tests/test_competitive_intelligence_retriever.py::test_get_sources_returns_approved_source_labels PASSED [ 34%]
-tests/test_competitive_intelligence_retriever.py::test_current_retriever_does_not_require_get_context PASSED [ 36%]
-tests/test_crm_retriever.py::test_get_account_bundle_returns_expected_keys PASSED [ 39%]
-tests/test_crm_retriever.py::test_get_account_bundle_filters_by_account_id PASSED [ 42%]
-tests/test_handoff_contract.py::test_handoff_contract_generation PASSED  [ 44%]
-tests/test_observability_contract.py::test_observability_fixture_exists PASSED [ 47%]
-tests/test_observability_contract.py::test_required_event_schema PASSED  [ 50%]
-tests/test_observability_contract.py::test_grounded_answer_rate PASSED   [ 52%]
-tests/test_observability_contract.py::test_fallback_rate PASSED          [ 55%]
-tests/test_observability_contract.py::test_citation_coverage PASSED      [ 57%]
-tests/test_observability_contract.py::test_session_latency PASSED        [ 60%]
-tests/test_observability_contract.py::test_supervisor_route_trace PASSED [ 63%]
-tests/test_observability_contract.py::test_guardrail_event_is_traceable PASSED [ 65%]
-tests/test_page_competitive_intelligence.py::test_page_competitive_intelligence_imports_without_app_templates PASSED [ 68%]
+tests/test_competitive_intelligence_retriever.py::test_get_insight_contains_expected_fields_for_valid_peer PASSED [ 30%]
+tests/test_competitive_intelligence_retriever.py::test_get_sources_returns_approved_source_labels PASSED [ 33%]
+tests/test_competitive_intelligence_retriever.py::test_current_retriever_does_not_require_get_context PASSED [ 35%]
+tests/test_competitive_intelligence_retriever.py::test_get_metric_source_ids_returns_source_mapping_for_valid_peer PASSED [ 38%]
+tests/test_crm_retriever.py::test_get_account_bundle_returns_expected_keys PASSED [ 41%]
+tests/test_crm_retriever.py::test_get_account_bundle_filters_by_account_id PASSED [ 43%]
+tests/test_handoff_contract.py::test_handoff_contract_generation PASSED  [ 46%]
+tests/test_observability_contract.py::test_observability_fixture_exists PASSED [ 48%]
+tests/test_observability_contract.py::test_required_event_schema PASSED  [ 51%]
+tests/test_observability_contract.py::test_grounded_answer_rate PASSED   [ 53%]
+tests/test_observability_contract.py::test_fallback_rate PASSED          [ 56%]
+tests/test_observability_contract.py::test_citation_coverage PASSED      [ 58%]
+tests/test_observability_contract.py::test_session_latency PASSED        [ 61%]
+tests/test_observability_contract.py::test_supervisor_route_trace PASSED [ 64%]
+tests/test_observability_contract.py::test_guardrail_event_is_traceable PASSED [ 66%]
+tests/test_page_competitive_intelligence.py::test_page_competitive_intelligence_imports_without_app_templates PASSED [ 69%]
 tests/test_prompts_contract.py::test_active_prompt_directory_and_files_exist PASSED [ 71%]
-tests/test_prompts_contract.py::test_meeting_prep_system_prompt_zero_trust_contract PASSED [ 73%]
+tests/test_prompts_contract.py::test_meeting_prep_system_prompt_zero_trust_contract PASSED [ 74%]
 tests/test_prompts_contract.py::test_meeting_prep_user_prompt_exists_and_is_nonempty PASSED [ 76%]
-tests/test_prompts_contract.py::test_supervisor_router_prompt_contract PASSED [ 78%]
-tests/test_prompts_contract.py::test_prompt_version_registry_exists_and_is_nonempty PASSED [ 81%]
+tests/test_prompts_contract.py::test_supervisor_router_prompt_contract PASSED [ 79%]
+tests/test_prompts_contract.py::test_prompt_version_registry_exists_and_is_nonempty PASSED [ 82%]
 tests/test_scope_resolver.py::test_scope_resolver_locks_known_account_scope PASSED [ 84%]
-tests/test_scope_resolver.py::test_scope_resolver_returns_not_found_for_unknown_account PASSED [ 86%]
+tests/test_scope_resolver.py::test_scope_resolver_returns_not_found_for_unknown_account PASSED [ 87%]
 tests/test_scope_resolver.py::test_scope_resolver_blocks_cross_account_boundary PASSED [ 89%]
 tests/test_smoke.py::test_smoke PASSED                                   [ 92%]
 tests/test_supervisor_and_meeting_prep.py::test_supervisor_routes_intents PASSED [ 94%]
@@ -46,7 +47,7 @@ tests/test_tool_contract_schema.py::test_tool_contract_schema_validity PASSED [1
 
 - generated xml file: /home/anaza/2_PannelAnalysis_Investment-Banking_Linux/docs/evidence/test-results.xml -
 ============================= slowest 10 durations =============================
-0.69s call     tests/test_page_competitive_intelligence.py::test_page_competitive_intelligence_imports_without_app_templates
+0.31s call     tests/test_page_competitive_intelligence.py::test_page_competitive_intelligence_imports_without_app_templates
 
 (9 durations < 0.1s hidden.)
-============================== 38 passed in 1.93s ==============================
+============================== 39 passed in 0.83s ==============================

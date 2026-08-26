@@ -153,3 +153,17 @@ def test_get_sources_returns_approved_source_labels(retriever):
 
 def test_current_retriever_does_not_require_get_context(retriever):
     assert not hasattr(retriever, "get_context")
+    
+
+def test_get_metric_source_ids_returns_source_mapping_for_valid_peer():
+    retriever = CompetitiveIntelligenceRetriever()
+
+    source_ids = retriever.get_metric_source_ids(
+        base_institution_name="ACME_Banking",
+        peer_name="QUANTUM INVESTMENTS",
+    )
+
+    assert isinstance(source_ids, dict)
+    assert source_ids
+    assert all(metric_name for metric_name in source_ids)
+    assert all(source_id for source_id in source_ids.values())
