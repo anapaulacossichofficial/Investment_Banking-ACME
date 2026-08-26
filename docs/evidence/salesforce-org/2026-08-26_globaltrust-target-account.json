@@ -1,0 +1,18 @@
+{
+  "status": 0,
+  "result": {
+    "records": [
+      {
+        "attributes": {
+          "type": "Account",
+          "url": "/services/data/v67.0/sobjects/Account/001aj00003M2aN4AAJ"
+        },
+        "Id": "001aj00003M2aN4AAJ",
+        "Name": "GLOBALTRUST CAPITAL"
+      }
+    ],
+    "totalSize": 1,
+    "done": true
+  },
+  "warnings": []
+}
