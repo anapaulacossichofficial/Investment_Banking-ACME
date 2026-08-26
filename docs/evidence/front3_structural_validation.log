@@ -21,7 +21,7 @@ PASS: Valid YAML — src/prompts/prompt_versions.yaml
 
 3) Running Front 3 alignment audit...
 Auditando aderência da Frente 3 ao blueprint local...
-Raiz do projeto: /mnt/c/4_SalesForce/2_PannelAnalysis_Investment-Banking
+Raiz do projeto: /home/anaza/2_PannelAnalysis_Investment-Banking_Linux
 
 Front 3 Alignment Audit
 ========================================================================

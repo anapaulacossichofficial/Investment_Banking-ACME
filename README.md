@@ -257,3 +257,27 @@ scripts/run_validation_suite.sh
 The single source of truth for prompt templates is the `src/prompts/` directory.
 
 Legacy prompt files are archived under `docs/templates/legacy-prompts/`.
+
+## Agentforce Dev Org — Active Environment
+
+| Item | Value |
+|---|---|
+| Target Org Alias | `acme-dev-org` |
+| Agent | `ACME_Investment_Banker_Assistant` |
+| Active Prompt Template | `Meeting_Prep_Briefing` (v4, `Published`) |
+| Last Activation Commit | `13a502f` (2026-08-25) |
+| Repository Tag | `v0.9.2` |
+| Known Open Issue | `pages/2_Competitive_Intelligence.py` — IndentationError blocking Streamlit page import (tracked, not yet fixed) |
+
+Session creation against the live org currently returns `404 NOT_FOUND` when invoked outside the Salesforce CLI agent test harness — this is expected until an active agent session/API version is configured for automated (non-interactive) test runs.
+
+## Agentforce Dev Org Environment
+
+This repository is tightly coupled with a Salesforce Agentforce Developer Edition Org to validate native AI orchestration.
+
+- **Target Org Alias:** `acme-dev-org`
+- **Agent Name:** `ACME_Investment_Banker_Assistant`
+- **Key Integrations:**
+  - Agentforce Custom Actions (Apex Invocables via `ACME_CompetitiveIntelligenceAction`)
+  - Grounding via Data Cloud / Data Library (`ACME_Meeting_Prep_Knowledge`)
+  - External boundary controls via Named Credentials (MCP/A2A patterns)

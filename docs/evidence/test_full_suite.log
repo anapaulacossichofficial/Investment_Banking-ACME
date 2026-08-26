@@ -64,16 +64,16 @@ args = (b'import sys\nfrom pathlib import Path\n\nimport streamlit as st\n\n\nRO
 kwds = {'dont_inherit': True, 'optimize': -1}
 
 >   ???
-E     File "/home/anaza/2_PannelAnalysis_Investment-Banking_Linux/pages/2_Competitive_Intelligence.py", line 193
-E       """Returns {MetricName: SourceId} without changing get_metrics()'s existing return format."""
-E       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-E   IndentationError: expected an indented block after function definition on line 192
+E     File "/home/anaza/2_PannelAnalysis_Investment-Banking_Linux/pages/2_Competitive_Intelligence.py", line 202
+E       return {}
+E       ^^^^^^^^^
+E   SyntaxError: 'return' outside function
 
-<frozen importlib._bootstrap>:488: IndentationError
+<frozen importlib._bootstrap>:488: SyntaxError
 - generated xml file: /home/anaza/2_PannelAnalysis_Investment-Banking_Linux/docs/evidence/test-results.xml -
 ============================= slowest 10 durations =============================
 
 (10 durations < 0.1s hidden.)
 =========================== short test summary info ============================
 FAILED tests/test_page_competitive_intelligence.py::test_page_competitive_intelligence_imports_without_app_templates
-========================= 1 failed, 37 passed in 1.23s =========================
+========================= 1 failed, 37 passed in 2.07s =========================

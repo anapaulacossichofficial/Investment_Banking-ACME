@@ -190,10 +190,10 @@ for peer in selected_peers:
                 st.code(source, language="text")
                 
     def get_metric_source_ids(self, base_institution_name: str, peer_name: str) -> dict[str, str]:
-    """Returns {MetricName: SourceId} without changing get_metrics()'s existing return format."""
-    institutions = self.load_institutions()
-    peers = self.load_peers()
-    metrics = self.load_metrics()
+        """Returns {MetricName: SourceId} without changing get_metrics()'s existing return format."""
+        institutions = self.load_institutions()
+        peers = self.load_peers()
+        metrics = self.load_metrics()
 
     needed = {
         "InstitutionName", "InstitutionId"
