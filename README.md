@@ -277,14 +277,3 @@ This repository is tightly coupled with a Salesforce Agentforce Developer Editio
 - External boundary controls via Named Credentials (MCP/A2A patterns)
 
 Session creation against the live org returns `404 NOT_FOUND` when invoked outside the Salesforce CLI agent test harness — expected until an active agent session/API version is configured for automated (non-interactive) test runs.
-
-## Agentforce Dev Org Environment
-
-This repository is tightly coupled with a Salesforce Agentforce Developer Edition Org to validate native AI orchestration.
-
-- **Target Org Alias:** `acme-dev-org`
-- **Agent Name:** `ACME_Investment_Banker_Assistant`
-- **Key Integrations:**
-  - Agentforce Custom Actions (Apex Invocables via `ACME_CompetitiveIntelligenceAction`)
-  - Grounding via Data Cloud / Data Library (`ACME_Meeting_Prep_Knowledge`)
-  - External boundary controls via Named Credentials (MCP/A2A patterns)
