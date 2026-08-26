@@ -1,0 +1,227 @@
+{
+  "status": 1,
+  "result": {
+    "checkOnly": true,
+    "completedDate": "2026-08-26T16:24:02.000Z",
+    "createdBy": "005aj00000b9t81",
+    "createdByName": "Ana Paula Cossich",
+    "createdDate": "2026-08-26T16:23:47.000Z",
+    "details": {
+      "componentFailures": [
+        {
+          "changed": false,
+          "componentType": "BotVersion",
+          "created": false,
+          "createdDate": "2026-08-26T16:24:02.000Z",
+          "deleted": false,
+          "fileName": "bots/ACME_Investment_Banker_Assistant.bot",
+          "fullName": "ACME_Investment_Banker_Assistant.v2",
+          "problem": "Can't edit an active bot version",
+          "problemType": "Error",
+          "success": false
+        }
+      ],
+      "componentSuccesses": [
+        {
+          "changed": true,
+          "componentType": "ApexClass",
+          "created": false,
+          "createdDate": "2026-08-26T16:23:57.000Z",
+          "deleted": false,
+          "fileName": "classes/ACME_CompetitiveIntelligenceAction.cls",
+          "fullName": "ACME_CompetitiveIntelligenceAction",
+          "id": "01paj00000WUgU1AAL",
+          "success": true
+        },
+        {
+          "changed": true,
+          "componentType": "ApexClass",
+          "created": false,
+          "createdDate": "2026-08-26T16:23:58.000Z",
+          "deleted": false,
+          "fileName": "classes/ACME_CompetitiveIntelligenceActionTest.cls",
+          "fullName": "ACME_CompetitiveIntelligenceActionTest",
+          "id": "01paj00000Wl8hFAAR",
+          "success": true
+        },
+        {
+          "changed": true,
+          "componentType": "ExternalCredential",
+          "created": true,
+          "createdDate": "2026-08-26T16:24:02.000Z",
+          "deleted": false,
+          "fileName": "externalCredentials/MCP_Auth_Provider.externalCredential",
+          "fullName": "MCP_Auth_Provider",
+          "id": "0ptaj000000lbnJAAQ",
+          "success": true
+        },
+        {
+          "changed": true,
+          "componentType": "NamedCredential",
+          "created": true,
+          "createdDate": "2026-08-26T16:24:02.000Z",
+          "deleted": false,
+          "fileName": "namedCredentials/MCP_External_Agent_Gateway.namedCredential",
+          "fullName": "MCP_External_Agent_Gateway",
+          "id": "0XAaj000001v8UvGAI",
+          "success": true
+        },
+        {
+          "changed": false,
+          "componentType": "Flow",
+          "created": false,
+          "createdDate": "2026-08-26T16:24:02.000Z",
+          "deleted": false,
+          "fileName": "flows/Meeting_Prep_Data_Injection.flow",
+          "fullName": "Meeting_Prep_Data_Injection",
+          "id": "301aj00003krPibAAE",
+          "success": true
+        },
+        {
+          "changed": false,
+          "componentType": "GenAiPromptTemplate",
+          "created": false,
+          "createdDate": "2026-08-26T16:24:02.000Z",
+          "deleted": false,
+          "fileName": "genAiPromptTemplates/Meeting_Prep_Briefing.genAiPromptTemplate",
+          "fullName": "Meeting_Prep_Briefing",
+          "id": "0hfaj00000UVLDNAA5",
+          "success": true
+        },
+        {
+          "changed": true,
+          "componentType": "Bot",
+          "created": false,
+          "createdDate": "2026-08-26T16:24:02.000Z",
+          "deleted": false,
+          "fileName": "bots/ACME_Investment_Banker_Assistant.bot",
+          "fullName": "ACME_Investment_Banker_Assistant",
+          "id": "0Xxaj000003rJ9FCAU",
+          "success": true
+        },
+        {
+          "changed": true,
+          "componentType": "BotVersion",
+          "created": false,
+          "createdDate": "2026-08-26T16:24:02.000Z",
+          "deleted": false,
+          "fileName": "bots/ACME_Investment_Banker_Assistant.bot",
+          "fullName": "ACME_Investment_Banker_Assistant.v1",
+          "id": "0X9aj000006bBYvCAM",
+          "success": true
+        },
+        {
+          "changed": true,
+          "componentType": "",
+          "created": false,
+          "createdDate": "2026-08-26T16:24:02.000Z",
+          "deleted": false,
+          "fileName": "package.xml",
+          "fullName": "package.xml",
+          "success": true
+        }
+      ],
+      "runTestResult": {
+        "numFailures": 0,
+        "numTestsRun": 0,
+        "totalTime": 0,
+        "codeCoverage": [],
+        "codeCoverageWarnings": [],
+        "failures": [],
+        "flowCoverage": [],
+        "flowCoverageWarnings": [],
+        "successes": []
+      }
+    },
+    "done": true,
+    "id": "0Afaj00000hztenCAA",
+    "ignoreWarnings": false,
+    "lastModifiedDate": "2026-08-26T16:24:02.000Z",
+    "numberComponentErrors": 1,
+    "numberComponentsDeployed": 8,
+    "numberComponentsTotal": 9,
+    "numberFiles": "16",
+    "numberTestErrors": 0,
+    "numberTestsCompleted": 0,
+    "numberTestsTotal": 0,
+    "rollbackOnError": true,
+    "runTestsEnabled": false,
+    "startDate": "2026-08-26T16:23:56.000Z",
+    "status": "Failed",
+    "success": false,
+    "zipSize": 10820,
+    "files": [
+      {
+        "fullName": "ACME_CompetitiveIntelligenceAction",
+        "type": "ApexClass",
+        "state": "Changed",
+        "filePath": "/home/anaza/2_PannelAnalysis_Investment-Banking_Linux/acme-agentforce/force-app/main/default/classes/ACME_CompetitiveIntelligenceAction.cls"
+      },
+      {
+        "fullName": "ACME_CompetitiveIntelligenceAction",
+        "type": "ApexClass",
+        "state": "Changed",
+        "filePath": "/home/anaza/2_PannelAnalysis_Investment-Banking_Linux/acme-agentforce/force-app/main/default/classes/ACME_CompetitiveIntelligenceAction.cls-meta.xml"
+      },
+      {
+        "fullName": "ACME_CompetitiveIntelligenceActionTest",
+        "type": "ApexClass",
+        "state": "Changed",
+        "filePath": "/home/anaza/2_PannelAnalysis_Investment-Banking_Linux/acme-agentforce/force-app/main/default/classes/ACME_CompetitiveIntelligenceActionTest.cls"
+      },
+      {
+        "fullName": "ACME_CompetitiveIntelligenceActionTest",
+        "type": "ApexClass",
+        "state": "Changed",
+        "filePath": "/home/anaza/2_PannelAnalysis_Investment-Banking_Linux/acme-agentforce/force-app/main/default/classes/ACME_CompetitiveIntelligenceActionTest.cls-meta.xml"
+      },
+      {
+        "fullName": "ACME_Investment_Banker_Assistant",
+        "type": "Bot",
+        "state": "Changed",
+        "filePath": "/home/anaza/2_PannelAnalysis_Investment-Banking_Linux/acme-agentforce/force-app/main/default/bots/ACME_Investment_Banker_Assistant/ACME_Investment_Banker_Assistant.bot-meta.xml"
+      },
+      {
+        "fullName": "ACME_Investment_Banker_Assistant.v1",
+        "type": "BotVersion",
+        "state": "Changed",
+        "filePath": "/home/anaza/2_PannelAnalysis_Investment-Banking_Linux/acme-agentforce/force-app/main/default/bots/ACME_Investment_Banker_Assistant/v1.botVersion-meta.xml"
+      },
+      {
+        "fullName": "ACME_Investment_Banker_Assistant.v2",
+        "type": "BotVersion",
+        "state": "Failed",
+        "problemType": "Error",
+        "filePath": "/home/anaza/2_PannelAnalysis_Investment-Banking_Linux/acme-agentforce/force-app/main/default/bots/ACME_Investment_Banker_Assistant/v2.botVersion-meta.xml",
+        "error": "Can't edit an active bot version"
+      },
+      {
+        "fullName": "MCP_Auth_Provider",
+        "type": "ExternalCredential",
+        "state": "Created",
+        "filePath": "/home/anaza/2_PannelAnalysis_Investment-Banking_Linux/acme-agentforce/force-app/main/default/externalCredentials/MCP_Auth_Provider.externalCredential-meta.xml"
+      },
+      {
+        "fullName": "Meeting_Prep_Data_Injection",
+        "type": "Flow",
+        "state": "Unchanged",
+        "filePath": "/home/anaza/2_PannelAnalysis_Investment-Banking_Linux/acme-agentforce/force-app/main/default/flows/Meeting_Prep_Data_Injection.flow-meta.xml"
+      },
+      {
+        "fullName": "Meeting_Prep_Briefing",
+        "type": "GenAiPromptTemplate",
+        "state": "Unchanged",
+        "filePath": "/home/anaza/2_PannelAnalysis_Investment-Banking_Linux/acme-agentforce/force-app/main/default/genAiPromptTemplates/Meeting_Prep_Briefing.genAiPromptTemplate-meta.xml"
+      },
+      {
+        "fullName": "MCP_External_Agent_Gateway",
+        "type": "NamedCredential",
+        "state": "Created",
+        "filePath": "/home/anaza/2_PannelAnalysis_Investment-Banking_Linux/acme-agentforce/force-app/main/default/namedCredentials/MCP_External_Agent_Gateway.namedCredential-meta.xml"
+      }
+    ],
+    "zipFileCount": 10,
+    "deployUrl": "https://orgfarm-ebb1ac24ab-dev-ed.develop.my.salesforce.com/lightning/setup/DeployStatus/page?address=%2Fchangemgmt%2FmonitorDeploymentsDetails.apexp%3FasyncId%3D0Afaj00000hztenCAA%26retURL%3D%252Fchangemgmt%252FmonitorDeployment.apexp"
+  },
+  "warnings": []
+}
