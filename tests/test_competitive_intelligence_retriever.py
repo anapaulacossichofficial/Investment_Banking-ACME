@@ -153,7 +153,7 @@ def test_get_sources_returns_approved_source_labels(retriever):
 
 def test_current_retriever_does_not_require_get_context(retriever):
     assert not hasattr(retriever, "get_context")
-    
+
 
 def test_get_metric_source_ids_returns_source_mapping_for_valid_peer():
     retriever = CompetitiveIntelligenceRetriever()
