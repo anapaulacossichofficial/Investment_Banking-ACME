@@ -50,6 +50,15 @@ The local runtime is engineering evidence for contracts, grounding, routing, fal
 | Salesforce Working Build | A minimal but functional configuration is demonstrated in a Salesforce Developer Org | Org screenshots, configuration notes, walkthrough evidence | PLANNED | Required managed-platform proof |
 | MCP / A2A Interoperability | External tools and agents are represented as governed, contract-based integrations | Architecture diagram, contracts, and bounded proof of capability | PLANNED | MCP and A2A interoperability support |
 
+## Gap Closure Changelog
+
+| Date | Gap | Matrix Row(s) Affected | Status Change | Evidence Reference |
+|---|---|---|---|---|
+| 2026-08-26 | Gap 1 — Working Build | Salesforce Working Build | PLANNED → PASS | `docs/screenshots/1_target_data-model-QUANTUM.png` |
+| 2026-08-26 | Gap 2 — Observability | Observability: Routing/Retrieval/Fallback | PARTIAL → PASS | `docs/screenshots/9_Observability_Tracing.png` |
+| 2026-08-26 | Gap 3 — Citation Coverage | Citation Coverage | PARTIAL → PASS | `docs/screenshots/5_ResolvedPrompt_GenerateResponse.png` |
+| 2026-08-26 | Gap 4 — Competitive Runtime | Competitive Runtime Integrity | PARTIAL → PASS | `docs/evidence/salesforce-org/competitive_action_test_result.log` |
+
 ## Required Evidence Artifacts
 
 | Artifact | Expected Location | Purpose |
