@@ -1,0 +1,16 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.1.1, pluggy-1.6.0 -- /mnt/c/4_SalesForce/2_PannelAnalysis_Investment-Banking/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /mnt/c/4_SalesForce/2_PannelAnalysis_Investment-Banking
+plugins: anyio-4.14.2
+collecting ... collected 7 items
+
+tests/test_supervisor_and_meeting_prep.py::test_supervisor_routes_intents PASSED [ 14%]
+tests/test_supervisor_and_meeting_prep.py::test_meeting_prep_agent_generates_briefing PASSED [ 28%]
+tests/test_prompts_contract.py::test_prompt_directory_and_files_exist PASSED [ 42%]
+tests/test_prompts_contract.py::test_legacy_prompt_archive_directory_exists PASSED [ 57%]
+tests/test_prompts_contract.py::test_meeting_prep_system_zero_trust_contract PASSED [ 71%]
+tests/test_prompts_contract.py::test_meeting_prep_user_scoped_request_contract PASSED [ 85%]
+tests/test_prompts_contract.py::test_supervisor_router_prompt_contract PASSED [100%]
+
+============================== 7 passed in 2.67s ===============================

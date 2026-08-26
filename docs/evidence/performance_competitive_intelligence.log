@@ -1,0 +1,35 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.1.1, pluggy-1.6.0 -- /mnt/c/4_SalesForce/2_PannelAnalysis_Investment-Banking/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /mnt/c/4_SalesForce/2_PannelAnalysis_Investment-Banking
+plugins: anyio-4.14.2
+collecting ... collected 14 items
+
+tests/test_competitive_intelligence_agent.py::test_competitive_intelligence_agent_module_imports PASSED [  7%]
+tests/test_competitive_intelligence_agent.py::test_competitive_intelligence_agent_exposes_something_usable PASSED [ 14%]
+tests/test_competitive_intelligence_retriever.py::test_retriever_initialization PASSED [ 21%]
+tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_institutions-required_columns0] PASSED [ 28%]
+tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_peers-required_columns1] PASSED [ 35%]
+tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_metrics-required_columns2] PASSED [ 42%]
+tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_insights-required_columns3] PASSED [ 50%]
+tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_sources-required_columns4] PASSED [ 57%]
+tests/test_competitive_intelligence_retriever.py::test_get_institution_options_contains_base_institution PASSED [ 64%]
+tests/test_competitive_intelligence_retriever.py::test_get_peer_options_returns_configured_peers PASSED [ 71%]
+tests/test_competitive_intelligence_retriever.py::test_get_metrics_returns_dictionary_for_valid_peer PASSED [ 78%]
+tests/test_competitive_intelligence_retriever.py::test_get_insight_contains_expected_fields_for_valid_peer PASSED [ 85%]
+tests/test_competitive_intelligence_retriever.py::test_get_sources_returns_approved_source_labels PASSED [ 92%]
+tests/test_competitive_intelligence_retriever.py::test_current_retriever_does_not_require_get_context PASSED [100%]
+
+============================== slowest durations ===============================
+0.04s call     tests/test_competitive_intelligence_retriever.py::test_get_sources_returns_approved_source_labels
+0.04s call     tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_institutions-required_columns0]
+0.03s call     tests/test_competitive_intelligence_retriever.py::test_get_metrics_returns_dictionary_for_valid_peer
+0.03s call     tests/test_competitive_intelligence_retriever.py::test_get_peer_options_returns_configured_peers
+0.03s call     tests/test_competitive_intelligence_retriever.py::test_get_insight_contains_expected_fields_for_valid_peer
+0.02s call     tests/test_competitive_intelligence_retriever.py::test_get_institution_options_contains_base_institution
+0.01s call     tests/test_competitive_intelligence_agent.py::test_competitive_intelligence_agent_module_imports
+0.01s call     tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_metrics-required_columns2]
+0.01s call     tests/test_competitive_intelligence_retriever.py::test_real_competitive_loaders[load_sources-required_columns4]
+
+(33 durations < 0.005s hidden.  Use -vv to show these durations.)
+============================== 14 passed in 3.77s ==============================

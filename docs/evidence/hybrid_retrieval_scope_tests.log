@@ -1,0 +1,14 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.1.1, pluggy-1.6.0 -- /mnt/c/4_SalesForce/2_PannelAnalysis_Investment-Banking/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /mnt/c/4_SalesForce/2_PannelAnalysis_Investment-Banking
+plugins: anyio-4.14.2
+collecting ... collected 5 items
+
+tests/test_supervisor_and_meeting_prep.py::test_supervisor_routes_intents PASSED [ 20%]
+tests/test_supervisor_and_meeting_prep.py::test_meeting_prep_agent_generates_hybrid_grounded_briefing PASSED [ 40%]
+tests/test_scope_resolver.py::test_scope_resolver_locks_known_account_scope PASSED [ 60%]
+tests/test_scope_resolver.py::test_scope_resolver_returns_not_found_for_unknown_account PASSED [ 80%]
+tests/test_scope_resolver.py::test_scope_resolver_blocks_cross_account_boundary PASSED [100%]
+
+============================== 5 passed in 3.03s ===============================

@@ -1,0 +1,55 @@
+Project root: /mnt/c/4_SalesForce/2_PannelAnalysis_Investment-Banking
+
+== 1. Arquivos esperados ==
+[OK]   exists: src/config/agent_profile.yaml
+[OK]   exists: src/config/data_source_strategy.yaml
+[OK]   exists: src/config/retrieval_policy.yaml
+[OK]   exists: src/config/citation_policy.yaml
+[OK]   exists: src/config/guardrail_policy.yaml
+[OK]   exists: src/config/fallback_policy.yaml
+[OK]   exists: src/config/observability_policy.yaml
+[OK]   exists: src/prompts/prompt_versions.yaml
+[OK]   exists: tests/test_prompts_contract.py
+[OK]   exists: tests/test_competitive_intelligence_retriever.py
+[OK]   exists: tests/test_observability_contract.py
+
+== 2. YAML parse ==
+[OK]   yaml valid: .github/workflows/auto-tag.yml
+[OK]   yaml valid: src/config/agent_profile.yaml
+[OK]   yaml valid: src/config/citation_policy.yaml
+[OK]   yaml valid: src/config/data_source_strategy.yaml
+[OK]   yaml valid: src/config/fallback_policy.yaml
+[OK]   yaml valid: src/config/guardrail_policy.yaml
+[OK]   yaml valid: src/config/observability_policy.yaml
+[OK]   yaml valid: src/config/retrieval_policy.yaml
+[OK]   yaml valid: src/prompts/prompt_versions.yaml
+
+== 3. Chaves obrigatorias das policies ==
+[OK]   key 'solution_name' present in src/config/agent_profile.yaml
+[OK]   key 'primary_capability' present in src/config/agent_profile.yaml
+[OK]   key 'capabilities' present in src/config/agent_profile.yaml
+[OK]   key 'runtime_profiles' present in src/config/data_source_strategy.yaml
+[OK]   key 'retrieval' present in src/config/retrieval_policy.yaml
+[OK]   key 'citation' present in src/config/citation_policy.yaml
+[OK]   key 'guardrails' present in src/config/guardrail_policy.yaml
+[OK]   key 'fallback' present in src/config/fallback_policy.yaml
+[OK]   key 'observability' present in src/config/observability_policy.yaml
+
+== 4. prompt_versions.yaml ==
+[OK]   entry 'meeting_prep_system' possui 'current_version' (aceito, mas prefira manter tambem 'current')
+[OK]   entry 'meeting_prep_system' possui versions
+[OK]   entry 'supervisor_router' possui 'current_version' (aceito, mas prefira manter tambem 'current')
+[OK]   entry 'supervisor_router' possui versions
+[OK]   entry 'meeting_prep_user' possui 'current_version' (aceito, mas prefira manter tambem 'current')
+[OK]   entry 'meeting_prep_user' possui versions
+
+== 5. Tokens proibidos (codigo do projeto) ==
+[OK]   nenhum token proibido encontrado no codigo do projeto
+
+== 6. Nome base da instituicao ==
+[OK]   'ACME_Banking' presente em tests/test_competitive_intelligence_retriever.py
+[OK]   'ACME_Banking' presente em agents/competitive_intelligence_agent.py
+[OK]   'ACME_Banking' presente em pages/2_Competitive_Intelligence.py
+
+==================================================================
+BLUEPRINT VALIDATION: PASS

@@ -1,0 +1,21 @@
+Auditando aderência da Frente 3 ao blueprint local...
+Raiz do projeto: /mnt/c/4_SalesForce/2_PannelAnalysis_Investment-Banking
+
+Front 3 Alignment Audit
+========================================================================
+[PASS] dependencies: PyYAML disponível.
+[PASS] docs/front-3-validation-matrix.md: Arquivo presente com conteúdo mínimo esperado.
+[PASS] src/config/agent_profile.yaml: YAML válido e campos mínimos presentes.
+[PASS] src/config/observability_policy.yaml: YAML válido e campos mínimos presentes.
+[PASS] src/contracts/competitive_intelligence_contract.yaml: Contrato competitivo declara os fixtures aprovados.
+[PASS] src/contracts/competitive_intelligence_contract.yaml: Métodos de runtime competitivo esperados estão declarados.
+[PASS] src/contracts/competitive_intelligence_contract.yaml: Nenhum método competitivo proibido foi declarado.
+[PASS] src/contracts/competitive_intelligence_contract.yaml: YAML válido e campos mínimos presentes.
+[PASS] src/contracts/meeting_prep_contract.yaml: YAML válido e campos mínimos presentes.
+[PASS] src/prompts/prompt_versions.yaml: YAML válido e campos mínimos presentes.
+[PASS] src/prompts/supervisor_routing.md: Arquivo presente com conteúdo mínimo esperado.
+[PASS] tests/test_observability_contract.py: Teste de evidência encontrado.
+[PASS] tests/test_prompts_contract.py: Teste de evidência encontrado.
+------------------------------------------------------------------------
+Resultado: 13 PASS | 0 WARN | 0 FAIL
+Status final: PASS — estrutura alinhada ao baseline da Frente 3.

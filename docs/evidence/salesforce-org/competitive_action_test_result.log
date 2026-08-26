@@ -1,0 +1,23 @@
+=== Test Results
+TEST NAME                                                                OUTCOME  MESSAGE  RUNTIME (MS)
+───────────────────────────────────────────────────────────────────────  ───────  ───────  ────────────
+ACME_CompetitiveIntelligenceActionTest.testGetIntelligenceReturnsResult  Pass              40          
+
+
+
+
+=== Test Summary
+NAME                 VALUE                                  
+───────────────────  ───────────────────────────────────────
+Outcome              Passed                                 
+Tests Ran            1                                      
+Pass Rate            100%                                   
+Fail Rate            0%                                     
+Skip Rate            0%                                     
+Test Run Id                                                 
+Test Setup Time      0 ms                                   
+Test Execution Time  50 ms                                  
+Test Total Time      50 ms                                  
+Org Id               00Daj000012BtUAEA0                     
+Username             anazanaroli.01211ce1c17f@agentforce.com
+

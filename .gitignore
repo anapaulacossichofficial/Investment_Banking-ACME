@@ -25,3 +25,5 @@ tasks_vencidas.csv
 .sf/
 .sfdx/
 dotenv.env
+!docs/evidence/
+!docs/evidence/**

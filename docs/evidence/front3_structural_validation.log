@@ -1,0 +1,48 @@
+============================================================
+Front 3 — Structural Configuration Validation
+============================================================
+
+1) Checking required files...
+PASS: src/config/observability_policy.yaml
+PASS: src/config/agent_profile.yaml
+PASS: src/contracts/meeting_prep_contract.yaml
+PASS: src/contracts/competitive_intelligence_contract.yaml
+PASS: src/prompts/supervisor_routing.md
+PASS: src/prompts/prompt_versions.yaml
+PASS: docs/front-3-validation-matrix.md
+PASS: scripts/audit_front3_alignment.py
+
+2) Validating YAML syntax...
+PASS: Valid YAML — src/config/observability_policy.yaml
+PASS: Valid YAML — src/config/agent_profile.yaml
+PASS: Valid YAML — src/contracts/meeting_prep_contract.yaml
+PASS: Valid YAML — src/contracts/competitive_intelligence_contract.yaml
+PASS: Valid YAML — src/prompts/prompt_versions.yaml
+
+3) Running Front 3 alignment audit...
+Auditando aderência da Frente 3 ao blueprint local...
+Raiz do projeto: /mnt/c/4_SalesForce/2_PannelAnalysis_Investment-Banking
+
+Front 3 Alignment Audit
+========================================================================
+[PASS] dependencies: PyYAML disponível.
+[PASS] docs/front-3-validation-matrix.md: Arquivo presente com conteúdo mínimo esperado.
+[PASS] src/config/agent_profile.yaml: YAML válido e campos mínimos presentes.
+[PASS] src/config/observability_policy.yaml: YAML válido e campos mínimos presentes.
+[PASS] src/contracts/competitive_intelligence_contract.yaml: Contrato competitivo declara os fixtures aprovados.
+[PASS] src/contracts/competitive_intelligence_contract.yaml: Métodos de runtime competitivo esperados estão declarados.
+[PASS] src/contracts/competitive_intelligence_contract.yaml: Nenhum método competitivo proibido foi declarado.
+[PASS] src/contracts/competitive_intelligence_contract.yaml: YAML válido e campos mínimos presentes.
+[PASS] src/contracts/meeting_prep_contract.yaml: YAML válido e campos mínimos presentes.
+[PASS] src/prompts/prompt_versions.yaml: YAML válido e campos mínimos presentes.
+[PASS] src/prompts/supervisor_routing.md: Arquivo presente com conteúdo mínimo esperado.
+[PASS] tests/test_observability_contract.py: Teste de evidência encontrado.
+[PASS] tests/test_prompts_contract.py: Teste de evidência encontrado.
+------------------------------------------------------------------------
+Resultado: 13 PASS | 0 WARN | 0 FAIL
+Status final: PASS — estrutura alinhada ao baseline da Frente 3.
+
+============================================================
+PASS: Front 3 structural validation completed successfully.
+Next step: ./scripts/run_front3_validation.sh
+============================================================
