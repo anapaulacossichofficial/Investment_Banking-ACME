@@ -54,10 +54,13 @@ The local runtime is engineering evidence for contracts, grounding, routing, fal
 
 | Date | Gap | Matrix Row(s) Affected | Status Change | Evidence Reference |
 |---|---|---|---|---|
-| 2026-08-26 | Gap 1 — Working Build | Salesforce Working Build | PLANNED → PASS | `docs/screenshots/1_target_data-model-QUANTUM.png` |
-| 2026-08-26 | Gap 2 — Observability | Observability: Routing/Retrieval/Fallback | PARTIAL → PASS | `docs/screenshots/9_Observability_Tracing.png` |
-| 2026-08-26 | Gap 3 — Citation Coverage | Citation Coverage | PARTIAL → PASS | `docs/screenshots/5_ResolvedPrompt_GenerateResponse.png` |
+| 2026-08-26 | Gap 1 — Working Build | Salesforce Working Build, Blueprint Alignment | PLANNED → PASS | `docs/screenshots/9_Blueprint_Validation_Architecture_evidence.png` |
+| 2026-08-26 | Gap 2 — Observability | Observability: Routing/Retrieval/Fallback | PARTIAL → PASS | `docs/screenshots/9_Observability_Contract_Testing.png`, `docs/screenshots/9_Observability_Testing.png`, `tests/agent/meeting_prep_observability.yaml` |
+| 2026-08-26 | Gap 3 — Citation Coverage | Citation Coverage | PARTIAL → PASS | `docs/screenshots/6_Citations_Activities.png`, `docs/screenshots/6_Citations_Groud&Tracing.png` |
 | 2026-08-26 | Gap 4 — Competitive Runtime | Competitive Runtime Integrity | PARTIAL → PASS | `docs/evidence/salesforce-org/competitive_action_test_result.log` |
+| 2026-08-26 | Guardrail Enforcement | Guardrail Enforcement | PARTIAL → PASS | `docs/screenshots/8_Hallucination_adversarial-prompt.png`, `docs/screenshots/8_Hallucination_Existing-account_adversarial-prompt.png`, `docs/screenshots/8_Hallucination_Orion-adversarial-prompt.png` |
+| 2026-08-26 | Fallback: Missing Evidence | Fallback: Missing Evidence | PARTIAL → PASS | `docs/screenshots/7_fallback-UKNOWN_missing-account.png`, `docs/screenshots/7_fallback-UKNOWN_missing-knowledge.png`, `docs/screenshots/7_fallback-orion_missing-account.png`, `docs/screenshots/7_fallback-orion_missing-knowledge.png` |
+| 2026-08-26 | Gap 5 — MCP/A2A | MCP / A2A Interoperability | PLANNED → PARTIAL | `docs/architecture/mcp-a2a/interoperability_design.md`, `acme-agentforce/force-app/main/default/namedCredentials/MCP_External_Agent_Gateway.namedCredential-meta.xml`, `acme-agentforce/force-app/main/default/externalCredentials/MCP_Auth_Provider.externalCredential-meta.xml` (design scaffolded; no deployed/functional proof yet) |
 
 ## Required Evidence Artifacts
 

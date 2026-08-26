@@ -1,0 +1,14 @@
+targetAgent: ACME_Investment_Banker_Assistant
+description: Validates intent routing and action execution for Meeting Prep capabilities.
+tests:
+  - name: "Meeting Prep Briefing Routing"
+    utterance: "Generate the meeting briefing for QUANTUM INVESTMENTS"
+    expectedIntent: "Meeting_Prep_Briefing"
+    expectedActions:
+      - "Get_Client_Opportunities"
+      - "Meeting_Prep_Data_Injection"
+    expectedCitations: true
+  - name: "Fallback - Unknown Account Guardrail"
+    utterance: "Generate briefing for UNKNOWN_CORP"
+    expectedIntent: "Meeting_Prep_Briefing"
+    expectedSystemResponse: "fallback"
