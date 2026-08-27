@@ -1,11 +1,11 @@
 public class ACME_CompetitiveIntelligenceAction {
 
-    public class Request {
-        @InvocableVariable(required=true label='Base Institution Name')
-        public String baseInstitutionName;
+public class Request {
+    @InvocableVariable(required=true label='Base Institution Name' description='Always pass ACME_Banking as the value here. This represents our own institution, not a peer.')
+    public String baseInstitutionName;
 
-        @InvocableVariable(required=false label='Selected Peers')
-        public List<String> selectedPeers;
+    @InvocableVariable(required=false label='Selected Peers' description='List of peer institution names mentioned by the user for comparison, such as QUANTUM INVESTMENTS or GLOBALTRUST CAPITAL. Never include ACME_Banking in this list. If the user does not specify any peer, leave this list empty rather than guessing a name.')
+    public List<String> selectedPeers;
     }
 
     public class Response {
