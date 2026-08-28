@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Allows custom permissions for Agentforce Agent : ACME_Investment_Banker_Assistant&apos;s agent user : acme_investment_banker_assistant@00daj000012btua578335307.ext.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>ACME_Investment_Banker_Assistant1012860999 Permissions</label>
+    <license>Einstein Agent</license>
+</PermissionSet>
