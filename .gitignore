@@ -6,11 +6,17 @@ __pycache__/
 .DS_Store
 .idea/
 output/
-*.log
+
+# MacOS / Windows system files
+.DS_Store
+Thumbs.db
+[Dd]esktop.ini
 
 # Local backup files
 *.backup
 *.bak
+
+# Ignored Data Files
 *.origdata/crm/activities_fixed.csv
 data/crm/activities_sf.csv
 data/crm/opportunities_fixed.csv
@@ -22,6 +28,5 @@ tasks_vencidas.csv
 .sfdx/
 
 # Salesforce CLI local cache/tracking (not part of source control)
-.sf/
-.sfdx/
+-env
 dotenv.env
