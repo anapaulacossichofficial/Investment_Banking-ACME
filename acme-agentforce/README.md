@@ -1,58 +1,70 @@
-# Salesforce DX Project
+# Salesforce Metadata Scaffold — Advanced Implementation
 
-Salesforce DX is a development approach that brings source-driven development, team collaboration, and continuous integration to the Salesforce Platform. Instead of working directly in an org through a web browser, you work with metadata as source files in a local DX project, track changes in version control, and deploy through automated processes.
+This directory contains the more advanced, independently maintained
+Salesforce Agentforce implementation, with completed Apex classes,
+`externalCredentials/`, `namedCredentials/`, and the published
+`Meeting_Prep_Briefing` Prompt Template (v5).
 
-This project template gets you started with the tools and structure you need to build Salesforce applications using source control, scratch orgs, and the Salesforce CLI.
+## Status
+
+This directory holds **real, committed Salesforce metadata** validated
+against the `acme-dev-org` Developer Edition org. It is the canonical,
+tested implementation referenced from the root README's "ACME Dev Org
+on Agentforce" section.
+
+## Relationship to `force-app/`
+
+The original scaffold — kept for historical reference of the migration
+path described in `docs/adr/adr-001-retrieval-strategy.md` — lives in
+[`force-app/`](../force-app/main/default/). That directory holds the 10
+Permission Sets retrieved directly from `acme-dev-org` via
+`sf project retrieve start --metadata PermissionSet` (agent-specific sets
+plus platform system-managed sets present in any Agentforce-enabled org).
+
+## What is included in this directory
+
+- `force-app/main/default/classes/` — completed Apex classes, including
+  `ACME_CompetitiveIntelligenceAction` (Apex Invocable).
+- `force-app/main/default/genAiPromptTemplates/` — the published
+  `Meeting_Prep_Briefing` Flex Prompt Template (v5).
+- `force-app/main/default/externalCredentials/` and `namedCredentials/` —
+  credential metadata supporting the MCP/A2A integration pattern.
+- `force-app/main/default/permissionsets/` — a single manually authored
+  set, `ACME_Agentforce_Integration_User.permissionset-meta.xml`, granting
+  the agent's integration user Apex class access and read-only
+  Account/Contact/Opportunity access. This set was **hand-written**, not
+  retrieved from the org — the 10 sets retrieved from `acme-dev-org` live
+  in `force-app/main/default/permissionsets/` at the repository root (see
+  "Relationship to `force-app/`" above).
+
+## What is NOT included yet
+
+- Agent Script / Agentforce Agent Builder authoring bundle.
+- Data Cloud DMOs, Account-to-File relationships, and Hybrid Search Index
+  configuration (these require org-level provisioning and cannot be fully
+  captured as deployable metadata alone).
+- Apex unit tests and Code Analyzer validation beyond current coverage.
 
 ## Prerequisites
 
-Before you start, make sure you have:
-
-- **Salesforce CLI** - Download from [developer.salesforce.com/tools/salesforcecli](https://developer.salesforce.com/tools/salesforcecli). See [Install Salesforce CLI](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm) for details.
-- **VS Code with Salesforce Extension Pack** - See [Installation Instructions](https://developer.salesforce.com/docs/platform/sfvscode-extensions/guide/install.html) for details. Includes the Agentforce Vibes extension.
-- **A development org** - Sign up for a free Developer Edition org [here](https://developer.salesforce.com/signup).
-- **Dev Hub enabled** (optional, required to create scratch orgs) - You can enable Dev Hub in your development org under Setup > Dev Hub.  See [Provide Developers Access to Salesforce DX Tools](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_setup_dx_tools.htm).
-
-## Project Structure
-
-Your DX project follows this structure:
-
-- **`force-app/main/default/`** - Your metadata source files live in this default package directory. You can configure additional package directories in the `sfdx-project.json` file.
-- **`config/`** - Scratch org definitions and project settings
-- **`scripts/`** - Automation scripts for common tasks
-- **`sfdx-project.json`** - Project manifest that defines package directories, namespace, API version, and other project-level settings
-
-See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm).
-
-## Get Started
-
-Ready to start developing? The [Get Started with Salesforce DX](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_get_started_dx.htm) guide walks you through your first project, from creating a scratch org to creating a simple Apex class or LWC to deploying your code to a sandbox.
+- **Salesforce CLI** — Download from [developer.salesforce.com/tools/salesforcecli](https://developer.salesforce.com/tools/salesforcecli).
+- **A development org** — sign up for a free Developer Edition org [here](https://developer.salesforce.com/signup).
 
 ## Common Salesforce CLI Commands
 
-Here are common CLI commands that you'll use the most:
-
 - `sf org login web`: Authorize an org
-- `sf org open`: Open your org in a browser
-- `sf org create scratch`: Create a scratch org
 - `sf project deploy start`: Deploy metadata to your org
 - `sf project retrieve start`: Retrieve metadata from your org
-- `sf template generate <artifact>`: Scaffold new components, such as Apex classes and triggers, LWC components, Lightning apps, and more
-- `sf apex <command>`: Run Apex tests, run anonymous Apex blocks, and view logs
-- `sf data <command>`: Work with test data
-- `sf alias <command>`: Manage org aliases
-- `sf config <command>`: Configure CLI settings
 
-## Use Agentforce Vibes to Build Lightning Apps
+## Deployment
 
-Transform your ideas into custom Lightning apps that extend CRM workflows directly in Lightning Experience. Through natural conversations with Agentforce Vibes, implement custom objects and fields, complex business logic, and dynamic UI components. See [Build a Lightning App Using Agentforce Vibes](https://developer.salesforce.com/docs/platform/einstein-for-devs/guide/lexapp-overview.html).
+```bash
+sf org login web --alias ACMEOrg
+sf project deploy start --source-dir acme-agentforce/force-app --target-org ACMEOrg
+```
 
-## Additional Resources
-
-- [Agentforce Vibes Developer Guide](https://developer.salesforce.com/docs/platform/einstein-for-devs/guide/einstein-overview.html)
-- [Salesforce CLI Installation Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/)
-- [Salesforce CLI Plugin Development Guide](https://developer.salesforce.com/docs/platform/salesforce-cli-plugin/guide/conceptual-overview.html)
-- [Salesforce VS Code Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-
+Deploying this metadata alone does not reproduce the complete runtime.
+Data Cloud ingestion, Search Index activation, and Agent Script
+publication/activation are separate lifecycle steps, consistent with the
+platform limitations already documented in
+`docs/architecture/platform-limitations.md`.
