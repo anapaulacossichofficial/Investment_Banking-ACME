@@ -51,9 +51,7 @@ Complementary artifacts and earlier iterations of the architecture, preserved as
 - [Salesforce_Proposed_Architecture.png](Salesforce_Proposed_Architecture.png) — additional Salesforce-aligned reference diagram
 - [detailed-architecture-salesforce-mapping.png](detailed-architecture-salesforce-mapping.png) — detailed local working build mapped to Salesforce/Agentforce target capabilities; present as an **architecture mapping view**, not a claim that every mapped component is already live in Salesforce
 - [architecture-diagram.md](architecture-diagram.md) — current HLD in Mermaid (text-based, accessible format)
-- [architecture-diagram11-08.md](architecture-diagram11-08.md) — earlier (Aug 11) Mermaid version of the HLD
 - [solution-blueprint.md](solution-blueprint.md) — current full solution blueprint (problem statement through reusability pattern)
-- [solution-blueprint11-08.md](solution-blueprint11-08.md) — earlier (Aug 11) version of the solution blueprint
 - [option-b-architecture.md](option-b-architecture.md) — Option B target/reference architecture (not part of the live demo runtime)
 - [platform-judgment-callout.md](platform-judgment-callout.md) — platform judgment: custom stack vs. native Agentforce/Data Cloud
 - [platform-limitations.md](platform-limitations.md) — documented platform-level constraints (e.g., Data Cloud citation resolution)
