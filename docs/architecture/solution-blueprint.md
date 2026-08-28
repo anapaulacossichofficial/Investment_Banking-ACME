@@ -11,8 +11,8 @@ The proposed enterprise implementation is the **Salesforce Target Runtime**: an 
 This positioning is intentional:
 
 - The business capability demonstrated is Meeting Prep
-- The target runtime for panel defense is Salesforce
-- The local laboratory is the engineering environment used to validate contracts, prompts, retrieval, fallback, source attribution, observability, and regression
+- The ACME Dev Org represents the ACME Investment Banking running on Agentforce Dev Working-build to validate the Meeting Prep capability
+- The Demo Runtime is the engineering environment used to validate contracts, prompts, retrieval, fallback, source attribution, observability, and regression
 
 ## 2. Capability in Scope
 
@@ -196,7 +196,7 @@ Scale comes from shared patterns rather than duplicated prompts and agents:
 - Broader enterprise interoperability
 - Governed integrations with enterprise systems and additional agent endpoints
 
-## 11. Panel Positioning Statement
+## 11. Engineering Lab and Agentforce runtime Statement
 
 > We built Meeting Prep as a reusable, grounded pattern. The final architecture uses DMO-backed hybrid retrieval: deterministic CRM facts plus approved, metadata-filtered document retrieval converge in an Evidence Context before response generation. The local ACME environment is the reliable engineering runtime used to validate that contract through prompts, retrieval behavior, citations, fallback rules, observability, and regression safety. Salesforce is the target business runtime for enterprise operation.
 

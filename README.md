@@ -9,7 +9,7 @@ A hybrid enterprise architecture combining a **Salesforce Agentforce target depl
 If you are reviewing this repository for the Option B deliverables, all 5 required elements have been fully validated and committed to the `main` branch (Release `v0.9.8`).
 
 For direct navigation to the exact files and evidence required by the rubric, please see the:
-👉 **[Option B: Technical Panel Navigation Guide](EVALUATION_GUIDE_OPTION_B.md)**
+👉 **[Option B: Technical Navigation Guide](EVALUATION_GUIDE_OPTION_B.md)**
 
 ### Option B Deliverables Summary
 1. **Architecture Diagram:** Bounded flows between Agent, Actions, CRM, and External API documented in `docs/architecture/`.

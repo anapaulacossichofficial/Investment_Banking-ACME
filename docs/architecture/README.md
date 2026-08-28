@@ -70,7 +70,7 @@ Complementary artifacts and earlier iterations of the architecture, preserved as
 
 ## Presentation guidance
 
-Use the diagrams in this order during the panel:
+Use the diagrams in this order to fullfil the artifacts:
 
 1. **Solution HLD** — establish the executive architecture narrative
 2. **Functional Diagram — Option B** — explain runtime behavior in detail
