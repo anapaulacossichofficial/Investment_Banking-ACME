@@ -6,6 +6,7 @@ __pycache__/
 .DS_Store
 .idea/
 output/
+.vscode/
 
 # MacOS / Windows system files
 .DS_Store
