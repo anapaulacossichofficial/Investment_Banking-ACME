@@ -53,8 +53,10 @@ Complementary artifacts and earlier iterations of the architecture, preserved as
 - [architecture-diagram.md](architecture-diagram.md) — current HLD in Mermaid (text-based, accessible format)
 - [solution-blueprint.md](solution-blueprint.md) — current full solution blueprint (problem statement through reusability pattern)
 - [option-b-architecture.md](option-b-architecture.md) — Option B target/reference architecture (not part of the live demo runtime)
-- [platform-judgment-callout.md](platform-judgment-callout.md) — platform judgment: custom stack vs. native Agentforce/Data Cloud
+- [platform-judgment-callout.md](platform-judgment-callout.md) — strategic platform decision: custom Python stack vs. native Salesforce Agentforce (comparative analysis across security, retrieval, TCO, and multi-agent scalability)
+- [mcp-a2a/interoperability_design.md](mcp-a2a/interoperability_design.md) — target-state design for MCP/A2A interoperability patterns (not yet production-active)
 - [platform-limitations.md](platform-limitations.md) — documented platform-level constraints (e.g., Data Cloud citation resolution)
+- Superseded drafts (Aug 11 versions) are archived in [`archive/`](archive/) for historical traceability.
 
 ## Visual conventions
 
