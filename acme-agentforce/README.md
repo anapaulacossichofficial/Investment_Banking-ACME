@@ -59,8 +59,8 @@ plus platform system-managed sets present in any Agentforce-enabled org).
 ## Deployment
 
 ```bash
-sf org login web --alias ACMEOrg
-sf project deploy start --source-dir acme-agentforce/force-app --target-org ACMEOrg
+sf org login web --alias acme-dev-org
+sf project deploy start --source-dir acme-agentforce/force-app --target-org acme-dev-org
 ```
 
 Deploying this metadata alone does not reproduce the complete runtime.

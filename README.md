@@ -57,7 +57,7 @@ This repository is tightly coupled with a Salesforce Agentforce Developer Editio
 |---|---|
 | Target Org Alias | `acme-dev-org` |
 | Agent | `ACME_Investment_Banker_Assistant` |
-| Active Prompt Template | [Meeting_Prep_Briefing.genAiPromptTemplate-meta.xml](force-app/main/default/genAiPromptTemplates/Meeting_Prep_Briefing.genAiPromptTemplate-meta.xml) (v5, `Published`) |
++ | Active Prompt Template | [Meeting_Prep_Briefing.genAiPromptTemplate-meta.xml](acme-agentforce/force-app/main/default/genAiPromptTemplates/Meeting_Prep_Briefing.genAiPromptTemplate-meta.xml) (v5, `Published`) |
 | Known Integrations | ✅ `ACME_CompetitiveIntelligenceAction` (Apex Invocable) · ✅ `ACME_Meeting_Prep_Knowledge` (Data Cloud Grounding) · 🎯 Named Credentials (MCP/A2A pattern) |
 | Permission Sets | ✅ Retrieved from `acme-dev-org` — agent-specific (`Agentforce_CI_Access`, `Agentforce_CRM_Access`, `ACME_Investment_Banker_Assistant1012860999_Permissions`) plus platform system-managed sets present in any Agentforce-enabled org |
 
@@ -70,6 +70,7 @@ This repository is tightly coupled with a Salesforce Agentforce Developer Editio
 | Document | Why it matters |
 |---|---|
 | [`docs/architecture/platform-limitations.md`](docs/architecture/platform-limitations.md) | Governance document defining exactly which steps require manual org configuration (Data Cloud Search Index, Retriever, ingestion) — protects scope boundaries during evaluation. |
++ | [`docs/architecture/platform-judgment-callout.md`](docs/architecture/platform-judgment-callout.md) | Strategic platform decision: custom Python stack vs. native Salesforce Agentforce. |
 | [`docs/adr/adr-001-retrieval-strategy.md`](docs/adr/adr-001-retrieval-strategy.md) | Architecture Decision Record explaining why `src/` (Engineering Lab Runtime) and `agents/`/`acme-agentforce/` (Salesforce target) are kept as separate, purpose-specific layers. |
 | [`force-app/README.md`](force-app/README.md) | Guide to the original SFDX metadata scaffold and its native Salesforce metadata components. |
 | [`acme-agentforce/force-app/main/default/genAiPromptTemplates/Meeting_Prep_Briefing.genAiPromptTemplate-meta.xml`](acme-agentforce/force-app/main/default/genAiPromptTemplates/Meeting_Prep_Briefing.genAiPromptTemplate-meta.xml) | The published Flex Prompt Template (v5) — the core Agentforce artifact fulfilling the Option B knowledge-grounding requirement. |
@@ -216,4 +217,4 @@ The observability layer simulates Agentforce Session Tracing concepts. It valida
 - Supervisor route traceability
 - Guardrail event traceability
 
-Repository Tag: v0.9.12 | Status: Option B Fully Validated, README Terminology & Metadata Consolidated.
++ Repository Tag: v0.9.16 | Status: Option B Fully Validated, Architecture Governance Index Consolidated.
