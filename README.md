@@ -51,7 +51,7 @@ For the complete architecture package, see [docs/architecture/README.md](docs/ar
 ---
 
 ## ☁️ ACME Dev Org on Agentforce
-This repository is tightly coupled with a Salesforce Agentforce Developer Edition Org to validate native AI orchestration. The Apex Actions, Bots, Prompt Templates, External Credentials, and Named Credentials are located in `acme-agentforce/force-app/main/default/`. Permission Sets retrieved directly from the dev org are tracked in `force-app/main/default/permissionsets/`.
+This repository is tightly coupled with a Salesforce Agentforce Developer Edition Org to validate native AI orchestration. The Apex Actions, Bots, Prompt Templates, External Credentials, and Named Credentials are located in [`acme-agentforce/force-app/main/default/`](acme-agentforce/force-app/main/default/). Permission Sets retrieved directly from the dev org are tracked in [`force-app/main/default/permissionsets/`](force-app/main/default/permissionsets/). 
 
 | Item | Value |
 |---|---|
@@ -181,14 +181,13 @@ To enforce strict architectural discipline, this repository is organized by sepa
 
 ### Test Architecture
 The repository validates behavior at three complementary levels:
-1. **Visual validation** through screenshots under `docs/screenshots/`
-2. **Prompt governance validation** through `tests/test_prompts_contract.py`
-3. **Observability and regression validation** through `tests/test_observability_contract.py` and the full pytest suite
+1. **Visual validation** through screenshots under [`docs/screenshots/`](docs/screenshots/)
+2. **Prompt governance validation** through [`tests/test_prompts_contract.py`](tests/test_prompts_contract.py)
+3. **Observability and regression validation** through [`tests/test_observability_contract.py`](tests/test_observability_contract.py) and the full pytest suite
 
-Review the generated evidence:
-- **Prompt Contracts:** `docs/evidence/test_prompts_contract.log`
-- **Observability:** `docs/evidence/test_observability_contract.log`
-- **Full Suite Output:** `docs/evidence/test_full_suite.log`
+- **Prompt Contracts:** [`docs/evidence/test_prompts_contract.log`](docs/evidence/test_prompts_contract.log)
+- **Observability:** [`docs/evidence/test_observability_contract.log`](docs/evidence/test_observability_contract.log)
+- **Full Suite Output:** [`docs/evidence/test_full_suite.log`](docs/evidence/test_full_suite.log)
 - **JUnit Test Artifact:** [`docs/evidence/test-results.xml`](docs/evidence/test-results.xml)
 
 To spin up the visual interface:
