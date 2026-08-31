@@ -1,5 +1,8 @@
 # UI Validation Log
 
+> **Navigation note:** This log validates UI/interface behavior only. For the current, authoritative architecture documentation, see [`docs/architecture/README.md`](../../architecture/README.md). For the consolidated automated test summary, see [`docs/evidence/test-results-summary.md`](../test-results-summary.md).
+
+
 ## Environment
 
 - **Application:** Investment Bank ACME

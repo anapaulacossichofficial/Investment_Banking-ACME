@@ -1,5 +1,8 @@
 # Screenshot Index
 
+> **Navigation note:** This file indexes UI/interface evidence only. For the current, authoritative architecture documentation, see [`docs/architecture/README.md`](../../architecture/README.md).
+
+
 ## Scope
 
 This index maps the screenshots available in `docs/screenshots/` to the
