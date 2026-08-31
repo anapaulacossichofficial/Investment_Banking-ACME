@@ -89,14 +89,14 @@ The following screenshots were confirmed in the repository:
 - **[PASS] OB-01:** Local observability contract passed.
   Evidence: 8 observability contract tests passed.
 - **[PASS] QA-01:** Full regression suite passed.
-  Evidence: 31 tests passed with zero failures.
+  Evidence: 39 tests passed with zero failures.
 
 ## Automated Validation Baseline
 
 ```text
 Prompt contract: 3 passed
 Observability contract: 8 passed
-Full regression suite: 31 passed
+Full regression suite: 39 passed
 Failures: 0
 ```
 
@@ -129,7 +129,7 @@ Repository references must use the exact filenames present under
 
 Current status:
 
-- [x] Automated tests pass: 31/31.
+- [x] Automated tests pass: 39/39.
 - [x] Prompt governance contract passes: 3/3.
 - [x] Observability contract passes: 8/8.
 - [x] Core Supervisor intents are covered.

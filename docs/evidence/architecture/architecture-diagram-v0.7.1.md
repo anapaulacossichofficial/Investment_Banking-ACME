@@ -1,3 +1,7 @@
+> **Historical snapshot (v0.7.1):** This file is preserved as engineering record and does not reflect the current architecture. For the live, authoritative version, see [`docs/architecture/README.md`](../../architecture/README.md).
+
+---
+
 # Architecture Diagram: Meeting Prep Target Runtime
 
 ```mermaid

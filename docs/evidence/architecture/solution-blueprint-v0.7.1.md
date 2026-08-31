@@ -1,3 +1,7 @@
+> **Historical snapshot (v0.7.1):** This file is preserved as engineering record and does not reflect the current architecture. For the live, authoritative version, see [`docs/architecture/README.md`](../../architecture/README.md).
+
+---
+
 cat << 'EOF' > docs/architecture/solution-blueprint.md
 # Enterprise Solution Blueprint: Agentforce Investment Banking
 

@@ -73,7 +73,7 @@ The current automated validation baseline is:
 ```text
 Prompt contract tests: 3 passed
 Observability contract tests: 8 passed
-Full regression suite: 31 passed
+Full regression suite: 39 passed
 Failures: 0
 ```
 
