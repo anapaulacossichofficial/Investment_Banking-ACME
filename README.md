@@ -168,12 +168,12 @@ The application provides an executive banking interface for institutional covera
 To enforce strict architectural discipline, this repository is organized by separating runtime execution from policy governance, and initial scaffolding from mature deployment.
 
 **1. Salesforce Metadata (Cloud Deployment Layer)**
-*   `acme-agentforce/`: The mature, E2E-tested Salesforce Agentforce implementation. Contains fully covered Apex Actions, Agent configurations, and secure M2M policies (External/Named Credentials).
+*   **[`acme-agentforce/`](acme-agentforce/README.md):** The mature, E2E-tested Salesforce Agentforce implementation. Contains fully covered Apex Actions, Agent configurations, and secure M2M policies (External/Named Credentials).
 *   **[`force-app/`](force-app/README.md):** The initial architectural scaffold. Preserved intentionally to document the structural baseline and version system-retrieved metadata (Permission Sets, Flex Prompt Templates) before integration maturity.
 
 **2. Intelligence Backend (Engineering Lab Runtime)**
-*   `src/`: The **Policy and Contract Layer**. As prescribed in **[`ADR-001: Retrieval Strategy`](docs/adr/adr-001-retrieval-strategy.md)**, this explicitly isolates execution from governance. Holds YAML policies and JSON schemas to enforce strict Zero-Trust boundaries.
-*   `agents/` & `retrieval/`: The **Runtime Execution Layer**. Consumes the contracts from `src/` to execute the local simulation.
+*   **[`src/`](src/):** The **Policy and Contract Layer**. As prescribed in **[`ADR-001: Retrieval Strategy`](docs/adr/adr-001-retrieval-strategy.md)**, this explicitly isolates execution from governance. Holds YAML policies and JSON schemas to enforce strict Zero-Trust boundaries.
+*   **[`agents/`](agents/)** & **[`retrieval/`](retrieval/):** The **Runtime Execution Layer**. Consumes the contracts from `src/` to execute the local simulation.
 
 ---
 
