@@ -23,19 +23,21 @@ plus platform system-managed sets present in any Agentforce-enabled org).
 
 ## What is included in this directory
 
-- `force-app/main/default/classes/` — completed Apex classes, including
+- [`force-app/main/default/classes/`](force-app/main/default/classes/) — completed Apex classes, including
   `ACME_CompetitiveIntelligenceAction` (Apex Invocable).
-- `force-app/main/default/genAiPromptTemplates/` — the published
+- [`force-app/main/default/genAiPromptTemplates/`](force-app/main/default/genAiPromptTemplates/) — the published
   `Meeting_Prep_Briefing` Flex Prompt Template (v5).
-- `force-app/main/default/externalCredentials/` and `namedCredentials/` —
+- [`force-app/main/default/externalCredentials/`](force-app/main/default/externalCredentials/) and
+  [`force-app/main/default/namedCredentials/`](force-app/main/default/namedCredentials/) —
   credential metadata supporting the MCP/A2A integration pattern.
-- `force-app/main/default/permissionsets/` — a single manually authored
+- [`force-app/main/default/permissionsets/`](force-app/main/default/permissionsets/) — a single manually authored
   set, `ACME_Agentforce_Integration_User.permissionset-meta.xml`, granting
   the agent's integration user Apex class access and read-only
   Account/Contact/Opportunity access. This set was **hand-written**, not
-  retrieved from the org — the 10 sets retrieved from `acme-dev-org` live
-  in `force-app/main/default/permissionsets/` at the repository root (see
-  "Relationship to `force-app/`" above).
+  retrieved from the org. The 10 sets retrieved directly from `acme-dev-org`
+  are a separate collection, tracked at the repository root in
+  [`force-app/main/default/permissionsets/`](../force-app/main/default/permissionsets/)
+  (see "Relationship to `force-app/`" above).
 
 ## What is NOT included yet
 
