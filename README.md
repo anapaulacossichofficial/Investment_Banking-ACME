@@ -22,10 +22,10 @@ For direct navigation to the exact files and evidence required by the rubric, pl
 
 The ACME working build demonstrates deterministic engineering aligned with enterprise coverage workflows. It implements a disaggregated serving model, bridging Salesforce's conversational AI capabilities with a Python-based Intelligence Backend.
 
-> **🌟 Key Highlight: Beyond Option B — Lab-to-Cloud End-to-End Validation**
+> **🌟 Key Highlight: Beyond Option B — Engineering Lab-to-Agentforce Cloud End-to-End Validation**
 > To simulate a realistic enterprise client experience, this solution goes beyond the baseline Meeting Prep requirements. We built an **Engineering Lab Runtime (Streamlit)** with a dedicated UI/UX validation structure, and extended an advanced **Competitive Intelligence & Market Benchmarking** workflow comparing industry peers. This exact end-to-end scenario was successfully transitioned from the Engineering Lab Runtime and fully validated natively inside **ACME Dev Org on Agentforce** (complete with test results and proofs), proving a seamless leap from lab simulation to a production-ready enterprise cloud deployment.
 >
-> 📄 **Full writeup:** [Differentiator: Competitive Intelligence — Lab-to-Cloud End-to-End Validation](docs/differentiator-competitive-intelligence-lab-to-cloud.md)
+> 📄 **Full writeup:** [Competitive Intelligence Differentiator: Engineering Lab-to-Agentforce Cloud End-to-End Validation](docs/differentiator-competitive-intelligence-lab-to-cloud.md)
 
 **Key Capabilities:**
 - Grounded executive briefing generation from local CRM fixtures and approved knowledge sources.
