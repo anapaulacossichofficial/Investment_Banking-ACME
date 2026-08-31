@@ -1,4 +1,4 @@
-# 🌟 Differentiator: Competitive Intelligence — Lab-to-Cloud End-to-End Validation
+# 🌟 Competitive Intelligence Differentiator: Engineering Lab-to-Agentforce Cloud End-to-End Validation
 
 ## Why this matters
 
@@ -7,13 +7,19 @@ Prep Agent**. This repository goes beyond that baseline in two ways that are
 not part of the required rubric, but represent the strongest competitive
 advantage of this solution:
 
-1. A **dedicated UI/UX validation structure** was built to test the
-   Engineering Lab Runtime (Streamlit) as a real evaluation surface — not
-   just ad-hoc manual testing.
+1. A **dedicated UI/UX validation structure** was built inside the
+   Engineering Lab Runtime (Demo runtime) to test a UI page developed with
+   Streamlit and to simulate a real UX evaluation surface (not just ad-hoc manual
+   testing). 
+   This was created as a structured python backend test framework to
+   validate the Meeting Prep Agent, the Competitive Intelligence Agent, and
+   the Competitive Intelligence webpage, with traceable evidence of test
+   execution and screenshot capture.
 2. The **Competitive Intelligence & Market Benchmarking** capability was
-   fully extended and re-validated natively inside **ACME Dev Org on
-   Agentforce**, proving a working leap from local simulation to a
-   production-grade Salesforce deployment.
+   fully extended to the Salesforce Dev Org runtime and revalidated inside
+   it. As a result, the **ACME Dev Org on Agentforce** environment proves a
+   working leap from local simulation to a production-grade Salesforce
+   deployment.
 
 This document consolidates both efforts in one place so they are not lost
 inside generic evidence folders.
@@ -32,9 +38,8 @@ indexed, and repeatable UI validation layer around the Streamlit runtime:
 | [`docs/evidence/interface/evidence-note.md`](evidence/interface/evidence-note.md) | Supporting notes on how visual evidence complements automated contract tests |
 | [`docs/front-1-validation-matrix.md`](front-1-validation-matrix.md) | Master validation matrix connecting UI scenarios, pytest modules, and screenshot evidence |
 
-This is not just screenshots — it is a **traceable QA framework** connecting
-UI behavior, pytest coverage, and observability contracts in one indexed
-system.
+This is not just screenshots — it is a **traceable QA framework** connecting UI behavior, pytest coverage, and
+observability contracts in one indexed system.
 
 ---
 
