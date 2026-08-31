@@ -10,11 +10,11 @@ For direct navigation to the exact files and evidence required by the rubric, pl
 👉 **[Option B: Technical Navigation Guide](EVALUATION_GUIDE_OPTION_B.md)**
 
 ### Option B Deliverables Summary
-1. **Architecture Diagram:** Bounded flows between Agent, Actions, CRM, and External API documented in `docs/architecture/`.
-2. **Working Build (End-to-End):** Validated conversational routing, CRM grounding (`Account Snapshot`), and Apex Code Coverage (**>75%**). Full UI tracing available in `docs/evidence/salesforce-org/`.
-3. **Prompt Iteration:** Evolved from raw string inputs to strict *Semantic Guardrails* in Reasoning Instructions, preventing data inversion and hallucination.
-4. **Platform Judgment Callout:** Formal ADR documenting the architectural trade-off of disabling `Session Activation Required` for autonomous M2M Agent callouts.
-5. **Observability Note:** Validated using native Agentforce `Trace` metrics and local simulated telemetry logs.
+1. **Architecture Diagram:** Bounded flows between Agent, Actions, CRM, and External API documented in [`docs/architecture/`](docs/architecture/).
+2. **Working Build (End-to-End):** Validated conversational routing, CRM grounding (`Account Snapshot`), and Apex Code Coverage (**>75%**). Full UI tracing available in [`docs/evidence/salesforce-org/`](docs/evidence/salesforce-org/).
+3. **Prompt Iteration:** Evolved from raw string inputs to strict *Semantic Guardrails* in Reasoning Instructions, preventing data inversion and hallucination. See [`docs/evidence/front3_prompt_contracts.log`](docs/evidence/front3_prompt_contracts.log).
+4. **Platform Judgment Callout:** Formal ADR documenting the architectural trade-off of disabling `Session Activation Required` for autonomous M2M Agent callouts. See [`docs/architecture/ADR-001-platform-constraints-m2m.md`](docs/architecture/ADR-001-platform-constraints-m2m.md).
+5. **Observability Note:** Validated using native Agentforce `Trace` metrics and local simulated telemetry logs. See [`docs/evidence/test_observability.log`](docs/evidence/test_observability.log).
 
 ---
 
