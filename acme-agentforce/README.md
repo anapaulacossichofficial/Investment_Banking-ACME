@@ -69,4 +69,4 @@ Deploying this metadata alone does not reproduce the complete runtime.
 Data Cloud ingestion, Search Index activation, and Agent Script
 publication/activation are separate lifecycle steps, consistent with the
 platform limitations already documented in
-+[`docs/architecture/platform-limitations.md`](../docs/architecture/platform-limitations.md).
+[`docs/architecture/platform-limitations.md`](../docs/architecture/platform-limitations.md).
