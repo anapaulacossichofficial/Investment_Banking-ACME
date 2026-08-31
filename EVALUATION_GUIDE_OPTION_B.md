@@ -27,3 +27,15 @@ Metadata retrieved from the dev org — including agent-specific access
 (`Agentforce_CI_Access`, `Agentforce_CRM_Access`), Bots, and Prompt
 Templates — are tracked in [`force-app/main/default/`](force-app/main/default/). The solution is
 fully deployable to any scratch or dev org.
+
+---
+
+## 🌟 Bonus Deliverable — Beyond Scope
+
+This repository also includes work that goes **beyond the Option B
+requirements**: a dedicated UI/UX validation structure for the Streamlit
+runtime, and a full extension of the **Competitive Intelligence & Market
+Benchmarking** capability into **ACME Dev Org on Agentforce**, validated
+end-to-end with live session tracing.
+
+👉 See the full writeup: [Differentiator: Competitive Intelligence — Lab-to-Cloud End-to-End Validation](docs/differentiator-competitive-intelligence-lab-to-cloud.md)
