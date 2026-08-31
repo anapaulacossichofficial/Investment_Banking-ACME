@@ -38,4 +38,4 @@ runtime, and a full extension of the **Competitive Intelligence & Market
 Benchmarking** capability into **ACME Dev Org on Agentforce**, validated
 end-to-end with live session tracing.
 
-👉 See the full writeup: [Differentiator: Competitive Intelligence — Lab-to-Cloud End-to-End Validation](docs/differentiator-competitive-intelligence-lab-to-cloud.md)
+👉 See the full writeup: [Competitive Intelligence Differentiator: Engineering Lab-to-Agentforce Cloud End-to-End Validation](docs/differentiator-competitive-intelligence-lab-to-cloud.md)
