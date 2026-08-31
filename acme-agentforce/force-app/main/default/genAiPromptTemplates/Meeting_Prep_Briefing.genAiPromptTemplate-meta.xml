@@ -55,7 +55,7 @@ Input:TargetAccount.Description
         </inputs>
         <isCitationEnabled>false</isCitationEnabled>
         <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
-        <status>Published</status>
+        <status>Draft</status>
         <versionIdentifier>5OyDjiSQMFZqaUplRvMb5MG4JGJhLuIBsbTpVgb4DGE=_1</versionIdentifier>
     </templateVersions>
     <templateVersions>
